@@ -1,350 +1,312 @@
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { useEffect, useRef, useState } from 'react';
+
+const heroStats = [
+  { labelAr: 'سنوات الخبرة', labelEn: 'Years of excellence', value: '+15' },
+  { labelAr: 'مشاريع كبرى', labelEn: 'Flagship projects', value: '28' },
+  { labelAr: 'شركاء استراتيجيون', labelEn: 'Strategic partners', value: '12' },
+];
+
+const servicesData = [
+  {
+    tagAr: 'المعادن النفيسة',
+    tagEn: 'Precious metals',
+    titleAr: 'التنقيب عن الذهب والمعادن',
+    titleEn: 'Gold & precious metals exploration',
+    descriptionAr: 'دراسات استكشاف شاملة واستخدام أحدث تقنيات الاستشعار والمسوحات الجيولوجية.',
+    descriptionEn: 'Comprehensive exploration programs powered by cutting-edge sensing and geological surveys.',
+  },
+  {
+    tagAr: 'دراسات الجدوى',
+    tagEn: 'Feasibility',
+    titleAr: 'الدراسات الجيولوجية وتقييم المواقع',
+    titleEn: 'Geological studies & site evaluation',
+    descriptionAr: 'تحليل جيولوجي متكامل، تقييم المخاطر، وتحويل البيانات إلى رؤى استثمارية دقيقة.',
+    descriptionEn: 'Integrated geological analysis, risk evaluation, and investor-ready insights.',
+  },
+  {
+    tagAr: 'المعالجة الصناعية',
+    tagEn: 'Processing',
+    titleAr: 'تصميم وإنشاء مصانع معالجة الخامات',
+    titleEn: 'Ore processing plant design & build',
+    descriptionAr: 'حلول هندسية متكاملة من التصميم المفهومي إلى التشغيل الكامل للمصانع.',
+    descriptionEn: 'Integrated engineering covering concept design through commissioning of plants.',
+  },
+];
+
+const projects = [
+  {
+    nameAr: 'مشروع همش ربّاب - ولاية البحر الأحمر',
+    nameEn: 'Hamash Rubab – Red Sea State',
+    descriptionAr: 'برنامج استكشاف جيولوجي متكامل لتطوير مناجم سطحية وبناء سلسلة إمداد لمصانع الذهب.',
+    descriptionEn: 'Integrated exploration and pit development with a dedicated supply chain to gold plants.',
+    image: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200&auto=format&fit=crop',
+  },
+  {
+    nameAr: 'مشروع وادي حلفا - شمال السودان',
+    nameEn: 'Wadi Halfa – Northern Sudan',
+    descriptionAr: 'تحديد مناطق معدنية واعدة عبر دراسات استكشاف عميقة وتقنيات استشعار عن بعد.',
+    descriptionEn: 'Identifying promising mineral corridors with deep exploration and remote sensing.',
+    image: 'https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=1200&auto=format&fit=crop',
+  },
+];
 
 const Index = () => {
   const { language, t } = useLanguage();
   const isArabic = language === 'ar';
 
   return (
-    <div className="w-full">
-      {/* Hero Section */}
-      <HeroSection isArabic={isArabic} t={t} />
-
-      {/* About Section */}
-      <AboutSection isArabic={isArabic} t={t} />
-
-      {/* Services Section */}
-      <ServicesSection isArabic={isArabic} t={t} />
-
-      {/* Projects Section */}
-      <ProjectsSection isArabic={isArabic} t={t} />
-
-      {/* CTA Section */}
-      <CTASection isArabic={isArabic} t={t} />
+    <div className="bg-white">
+      <Hero language={language} isArabic={isArabic} />
+      <AboutPreview isArabic={isArabic} />
+      <ServicesShowcase language={language} isArabic={isArabic} />
+      <ProjectsShowcase language={language} isArabic={isArabic} />
+      <CTABand isArabic={isArabic} t={t} />
     </div>
   );
 };
 
-const HeroSection = ({ isArabic, t }: any) => {
-  const [imageLoaded, setImageLoaded] = useState(false);
+const Hero = ({ language, isArabic }: { language: 'ar' | 'en'; isArabic: boolean }) => (
+  <section className="relative overflow-hidden">
+    <div className="absolute inset-0">
+      <img
+        src="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?w=2000&auto=format&fit=crop"
+        alt="Mining operation"
+        className="w-full h-full object-cover hero-kenburns"
+      />
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-primary/85 to-black/70" />
+    </div>
 
-  return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-primary">
-      {/* Background Image with Ken Burns effect */}
-      <div className="absolute inset-0 overflow-hidden">
-        <img
-          src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1600&h=900&fit=crop"
-          alt="Mining Operation at Sunset"
-          className="w-full h-full object-cover animate-ken-burns"
-          onLoad={() => setImageLoaded(true)}
-        />
-        <div className="absolute inset-0 bg-black/40"></div>
+    <div className="relative container max-w-6xl mx-auto px-4 py-24 lg:py-32 text-white">
+      <div className={`grid gap-12 lg:grid-cols-[1.3fr,0.7fr] items-center ${isArabic ? 'text-right' : ''}`}>
+        <div>
+          <p className="uppercase tracking-[0.4em] text-gold-900 text-xs mb-4">
+            {language === 'ar' ? 'شركة تعدين واستثمار' : 'Mining & Investment Firm'}
+          </p>
+          <h1 className="text-4xl md:text-6xl font-black leading-tight mb-6">
+            {language === 'ar'
+              ? 'نستخرج الفرص ونبني المستقبل في قطاع التعدين السوداني'
+              : 'We extract opportunities and build the future of Sudanese mining'}
+          </h1>
+          <p className="text-lg text-white/80 leading-relaxed mb-8">
+            {language === 'ar'
+              ? 'لاندكود للاستثمار المحدودة تقود مشاريع الاستكشاف، الدراسات الجيولوجية، وتصميم المصانع بمعايير عالمية وخبرات محلية عميقة.'
+              : 'Land Code Investment Ltd. leads exploration programmes, geological studies, and plant design with world-class standards and deep local expertise.'}
+          </p>
+
+          <div className={`flex flex-wrap items-center gap-4 ${isArabic ? 'justify-end' : ''}`}>
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 rounded-full bg-gold-900 px-8 py-3 text-primary font-semibold text-base shadow-xl shadow-black/20 hover:bg-gold-900/90"
+            >
+              {language === 'ar' ? 'احجز استشارة' : 'Book a consultation'}
+            </Link>
+            <Link
+              to="/projects"
+              className="inline-flex items-center gap-2 rounded-full border border-white/40 px-6 py-3 font-semibold text-white/90 hover:bg-white/10"
+            >
+              {language === 'ar' ? 'استعرض مشاريعنا' : 'Explore our projects'}
+            </Link>
+          </div>
+        </div>
+
+        <div className="bg-white/10 backdrop-blur xl:px-8 xl:py-10 px-6 py-8 rounded-3xl border border-white/30 shadow-2xl">
+          <p className="text-sm text-white/70 mb-6">
+            {language === 'ar'
+              ? 'حلول متكاملة تغطي الدورة الكاملة لمشاريع التعدين، من الدراسات الأولية إلى إدارة المصانع.'
+              : 'End-to-end mining solutions from preliminary studies to plant operations.'}
+          </p>
+          <div className="flex flex-col gap-6">
+            {heroStats.map((stat) => (
+              <div key={stat.value} className="border-b border-white/15 pb-5 last:border-none last:pb-0">
+                <p className="text-4xl font-black text-gold-900">{stat.value}</p>
+                <p className="text-white/80 text-sm uppercase tracking-[0.3em]">
+                  {language === 'ar' ? stat.labelAr : stat.labelEn}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <style>{`
+      .hero-kenburns {
+        animation: heroKenBurns 18s ease-in-out infinite alternate;
+      }
+      @keyframes heroKenBurns {
+        0% { transform: scale(1) translate3d(0, 0, 0); }
+        100% { transform: scale(1.08) translate3d(-1%, -2%, 0); }
+      }
+    `}</style>
+  </section>
+);
+
+const AboutPreview = ({ isArabic }: { isArabic: boolean }) => (
+  <section className="py-24 bg-white">
+    <div className="container max-w-6xl mx-auto px-4">
+      <div className={`grid lg:grid-cols-2 gap-12 items-center ${isArabic ? 'text-right' : ''}`}>
+        <div className="relative">
+          <img
+            src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800&auto=format&fit=crop"
+            alt="Leadership"
+            className="w-full h-[420px] object-cover rounded-3xl shadow-2xl"
+          />
+          <div className="absolute -bottom-10 inset-x-10 bg-white rounded-2xl shadow-xl p-6 border border-slate-100">
+            <p className="text-sm text-slate-500 mb-1">2020 → الآن</p>
+            <p className="text-lg font-semibold text-primary">
+              {isArabic
+                ? 'خبرة سودانية بجودة عالمية في التنقيب والخدمات الفنية'
+                : 'Sudanese expertise with global standards in exploration & engineering'}
+            </p>
+          </div>
+        </div>
+        <div>
+          <p className="text-gold-900 font-semibold mb-3">
+            {isArabic ? 'نبذة عن الشركة' : 'Company Profile'}
+          </p>
+          <h2 className="text-4xl font-black text-primary mb-6 leading-snug">
+            {isArabic
+              ? 'شركة لاندكود للاستثمار المحدودة منذ عام 2020'
+              : 'Land Code Investment Ltd. since 2020'}
+          </h2>
+          <p className="text-lg text-slate-600 leading-relaxed mb-6">
+            {isArabic
+              ? 'نقدم خدمات استكشاف، دراسات جيولوجية، وتطوير مصانع المعالجة وفق أعلى معايير الجودة والحوكمة.'
+              : 'We deliver exploration, geological studies, and processing plant development governed by international quality systems.'}
+          </p>
+          <ul className="space-y-4 text-slate-600">
+            {[
+              isArabic
+                ? 'شراكات استراتيجية مع شركات تقنية وخبراء جيولوجيين'
+                : 'Strategic collaborations with technology firms and geologists',
+              isArabic
+                ? 'التزام كامل بمعايير السلامة والاستدامة البيئية'
+                : 'Full compliance with safety and environmental stewardship',
+              isArabic
+                ? 'فرق متعددة التخصصات تغطي التخطيط، التشغيل، والدعم الاستشاري'
+                : 'Multidisciplinary teams covering planning, execution, and advisory support',
+            ].map((item) => (
+              <li key={item} className="flex items-start gap-3">
+                <span className="mt-1 w-3 h-3 rounded-full bg-gold-900"></span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+const ServicesShowcase = ({ language, isArabic }: { language: 'ar' | 'en'; isArabic: boolean }) => (
+  <section className="py-24 bg-slate-50">
+    <div className="container max-w-6xl mx-auto px-4">
+      <div className="text-center mb-14">
+        <p className="text-gold-900 font-semibold mb-2">
+          {language === 'ar' ? 'حلول متكاملة' : 'Integrated solutions'}
+        </p>
+        <h2 className="text-4xl font-black text-primary">
+          {language === 'ar' ? 'مجالات عملنا المتخصصة' : 'Our specialised practice areas'}
+        </h2>
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 text-center text-white px-4">
-        <h1 className="text-5xl md:text-7xl font-bold mb-4 drop-shadow-lg">
-          {t('hero.title')}
-        </h1>
-        <p className="text-xl md:text-2xl font-light drop-shadow-md">
-          {t('hero.tagline')}
-        </p>
+      <div className="grid gap-8 lg:grid-cols-3">
+        {servicesData.map((service) => (
+          <div key={service.titleEn} className="group bg-white rounded-3xl border border-slate-100 p-8 shadow-lg hover:-translate-y-1 hover:shadow-2xl transition">
+            <span className="inline-flex items-center text-xs font-semibold uppercase tracking-[0.3em] text-gold-900">
+              {language === 'ar' ? service.tagAr : service.tagEn}
+            </span>
+            <h3 className={`text-2xl font-bold text-primary mt-4 mb-3 leading-snug ${isArabic ? 'text-right' : ''}`}>
+              {language === 'ar' ? service.titleAr : service.titleEn}
+            </h3>
+            <p className="text-slate-600 leading-relaxed">
+              {language === 'ar' ? service.descriptionAr : service.descriptionEn}
+            </p>
+            <div className="mt-8 inline-flex items-center text-sm font-semibold text-gold-900">
+              {language === 'ar' ? 'المزيد من التفاصيل' : 'More details'}
+              <span className="ml-2 group-hover:translate-x-1 transition">→</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+const ProjectsShowcase = ({ language, isArabic }: { language: 'ar' | 'en'; isArabic: boolean }) => (
+  <section className="py-24 bg-white">
+    <div className="container max-w-6xl mx-auto px-4">
+      <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 mb-12">
+        <div className={isArabic ? 'text-right' : ''}>
+          <p className="text-gold-900 font-semibold">
+            {language === 'ar' ? 'مشاريعنا الحية' : 'Active portfolios'}
+          </p>
+          <h2 className="text-4xl font-black text-primary mt-2">
+            {language === 'ar' ? 'قصص نجاح ميدانية' : 'Field-proven success stories'}
+          </h2>
+        </div>
         <Link
-          to="/contact"
-          className="inline-block mt-8 px-8 py-3 bg-gold-900 text-primary font-semibold rounded hover:bg-gold-900/80 transition"
+          to="/projects"
+          className="inline-flex items-center gap-2 rounded-full border border-primary px-6 py-3 text-primary font-semibold"
         >
-          {t('cta.button')}
+          {language === 'ar' ? 'اكتشف جميع المشاريع' : 'View all projects'}
         </Link>
       </div>
 
-      {/* Add Ken Burns animation to global.css */}
-      <style>{`
-        @keyframes ken-burns {
-          0% {
-            transform: scale(1) translateX(0);
-          }
-          100% {
-            transform: scale(1.05) translateX(2%);
-          }
-        }
-        .animate-ken-burns {
-          animation: ken-burns 20s ease-in-out infinite alternate;
-        }
-      `}</style>
-    </section>
-  );
-};
-
-const AboutSection = ({ isArabic, t }: any) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setIsVisible(true);
-      }
-    });
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <section
-      ref={ref}
-      className={`py-20 bg-gray-50 transition-all duration-1000 ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-      }`}
-    >
-      <div className="container max-w-6xl mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          {/* Image */}
-          <div className={`overflow-hidden rounded-lg ${isArabic ? 'order-2' : ''}`}>
-            <img
-              src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=400&fit=crop"
-              alt="Mining Operations"
-              className="w-full h-96 object-cover hover:scale-105 transition-transform duration-300"
-            />
-          </div>
-
-          {/* Content */}
-          <div className={isArabic ? 'order-1 text-right' : ''}>
-            <h2 className="text-4xl font-bold text-primary mb-6">{t('about.title')}</h2>
-            <div className="w-12 h-1 bg-gold-900 mb-6" style={{ marginLeft: isArabic ? 'auto' : '0' }}></div>
-            <p className="text-lg text-gray-700 leading-relaxed mb-4">
-              شركة لاندكود للاستثمار المحدودة متخصصة في أعمال التعدين والاستكشاف الجيولوجي، وقد تأسست عام 2020 كشركة متخصصة في أعمال التعدين وخدماتها، بالإضافة إلى تقديم الخدمات الفنية والهندسية والاستشارية في مجال الاستكشاف الجيولوجي، مع تركيز خاص على البحث عن الذهب والمعادن النفيسة في المنطقة والمنطقة المحلية.
-            </p>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              تعتمد الشركة على المنهجيات العلمية والتقنيات الحديثة، والتزام بالمعايير البيئية ومتطلبات السلامة والصحة المهنية لضمان استدامة الأعمال وتوثيقها.
-            </p>
-          </div>
-        </div>
+      <div className="grid gap-8 lg:grid-cols-2">
+        {projects.map((project) => (
+          <article key={project.nameEn} className="relative overflow-hidden rounded-3xl shadow-2xl">
+            <img src={project.image} alt={project.nameEn} className="w-full h-[360px] object-cover transition-transform duration-500 hover:scale-105" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />
+            <div className={`absolute inset-0 p-8 flex flex-col justify-end text-white ${isArabic ? 'text-right' : ''}`}>
+              <p className="text-sm text-gold-900/80 mb-2">
+                {language === 'ar' ? 'موقع استراتيجي' : 'Strategic site'}
+              </p>
+              <h3 className="text-2xl font-bold mb-3">
+                {language === 'ar' ? project.nameAr : project.nameEn}
+              </h3>
+              <p className="text-white/85 text-base leading-relaxed">
+                {language === 'ar' ? project.descriptionAr : project.descriptionEn}
+              </p>
+            </div>
+          </article>
+        ))}
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
-const ServicesSection = ({ isArabic, t }: any) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setIsVisible(true);
-      }
-    });
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
-  const services = [
-    {
-      icon: '⛏️',
-      title: t('services.service1.title'),
-      description: t('services.service1.desc'),
-    },
-    {
-      icon: '🔍',
-      title: t('services.service2.title'),
-      description: t('services.service2.desc'),
-    },
-    {
-      icon: '🏭',
-      title: t('services.service3.title'),
-      description: t('services.service3.desc'),
-    },
-  ];
-
-  return (
-    <section ref={ref} className="py-20 bg-white">
-      <div className="container max-w-6xl mx-auto px-4">
-        <h2 className="text-4xl font-bold text-primary mb-2 text-center">
-          {t('services.title')}
-        </h2>
-        <div className="w-16 h-1 bg-gold-900 mx-auto mb-12"></div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <ServiceCard
-              key={index}
-              service={service}
-              index={index}
-              isVisible={isVisible}
-              isArabic={isArabic}
-            />
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const ServiceCard = ({ service, index, isVisible, isArabic }: any) => {
-  return (
-    <div
-      className={`p-8 border border-gray-200 rounded-lg hover:shadow-lg transition-all duration-500 ${
-        isVisible
-          ? `opacity-100 translate-y-0`
-          : `opacity-0 translate-y-10`
-      }`}
-      style={{ transitionDelay: isVisible ? `${index * 150}ms` : '0ms' }}
-    >
-      <div className="text-5xl mb-4">{service.icon}</div>
-      <h3 className={`text-xl font-semibold text-primary mb-3 ${isArabic ? 'text-right' : ''}`}>
-        {service.title}
-      </h3>
-      <p className={`text-gray-600 ${isArabic ? 'text-right' : ''}`}>
-        {service.description}
+const CTABand = ({ isArabic, t }: { isArabic: boolean; t: (key: string) => string }) => (
+  <section
+    className="relative py-24"
+    style={{
+      backgroundImage:
+        'linear-gradient(135deg, rgba(10, 25, 49, 0.95), rgba(10, 25, 49, 0.85)), url(https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=1600&auto=format&fit=crop)',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+    }}
+  >
+    <div className="container max-w-4xl mx-auto px-4 text-center text-white">
+      <p className="uppercase tracking-[0.4em] text-gold-900 text-xs mb-4">
+        {isArabic ? 'شراكات مستدامة' : 'Sustainable partnerships'}
       </p>
+      <h2 className="text-4xl font-black mb-6">
+        {isArabic ? 'نقود الاستثمارات التعدينية بثقة وشفافية' : 'Leading mining investments with trust & clarity'}
+      </h2>
+      <p className="text-lg text-white/85 mb-10">
+        {isArabic
+          ? 'تواصل معنا لبناء شراكة تحقق أهدافك الاستثمارية وتضمن استدامة المشاريع المستقبلية.'
+          : 'Partner with us to unlock investment goals while ensuring resilient, future-ready projects.'}
+      </p>
+      <Link
+        to="/contact"
+        className="inline-flex items-center gap-2 rounded-full bg-gold-900 px-10 py-3 text-lg font-semibold text-primary shadow-xl hover:bg-gold-900/90"
+      >
+        {t('cta.button')}
+      </Link>
     </div>
-  );
-};
-
-const ProjectsSection = ({ isArabic, t }: any) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setIsVisible(true);
-      }
-    });
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <section ref={ref} className="py-20 bg-gray-50">
-      <div className="container max-w-6xl mx-auto px-4">
-        <h2 className="text-4xl font-bold text-primary mb-2 text-center">
-          {t('projects.title')}
-        </h2>
-        <div className="w-16 h-1 bg-gold-900 mx-auto mb-12"></div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          {/* Hamash Rubab Project */}
-          <ProjectCard
-            isArabic={isArabic}
-            t={t}
-            title={t('projects.hamash')}
-            image="https://images.unsplash.com/photo-1518611505867-48a1ad300e15?w=600&h=400&fit=crop"
-            description="برامج استكشاف متكاملة ودراسات جيولوجية متقدمة، مع تطوير منجم سطحي وتوريد الخام بنظام إلى مصانع معالجة الذهب"
-            mapImage="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=300&h=300&fit=crop"
-            isVisible={isVisible}
-            delay={0}
-          />
-
-          {/* Wadi Halfa Project */}
-          <ProjectCard
-            isArabic={isArabic}
-            t={t}
-            title={t('projects.wadi')}
-            image="https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=600&h=400&fit=crop"
-            description="دراسات استكشافية موسعة أسفرت عن تحديد عدة مواقع ذات مؤشرات تعدين واعدة، وفتح مناجم جديدة للاستخراج"
-            mapImage="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=300&h=300&fit=crop"
-            isVisible={isVisible}
-            delay={150}
-          />
-        </div>
-
-        <div className="mt-12 text-center">
-          <Link
-            to="/projects"
-            className="inline-block px-8 py-3 bg-primary text-white font-semibold rounded hover:bg-primary/90 transition"
-          >
-            {t('projects.learnMore')}
-          </Link>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const ProjectCard = ({ isArabic, t, title, image, description, mapImage, isVisible, delay }: any) => {
-  return (
-    <div
-      className={`bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500 ${
-        isVisible
-          ? `opacity-100 translate-y-0`
-          : `opacity-0 translate-y-10`
-      }`}
-      style={{ transitionDelay: isVisible ? `${delay}ms` : '0ms' }}
-    >
-      <img src={image} alt={title} className="w-full h-64 object-cover" />
-      <div className="p-6">
-        <h3 className={`text-xl font-semibold text-primary mb-3 ${isArabic ? 'text-right' : ''}`}>
-          {title}
-        </h3>
-        <p className={`text-gray-600 mb-4 ${isArabic ? 'text-right' : ''}`}>
-          {description}
-        </p>
-        <img src={mapImage} alt="Map" className="w-full h-48 object-cover rounded" />
-      </div>
-    </div>
-  );
-};
-
-const CTASection = ({ isArabic, t }: any) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setIsVisible(true);
-      }
-    });
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <section
-      ref={ref}
-      className="relative py-20 overflow-hidden"
-      style={{
-        backgroundImage: 'url(https://images.unsplash.com/photo-1581092161562-40b08b6fed0b?w=1600&h=600&fit=crop)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
-    >
-      <div className="absolute inset-0 bg-black/50"></div>
-
-      <div className={`relative z-10 container max-w-4xl mx-auto px-4 text-center text-white transition-all duration-1000 ${
-        isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-      }`}>
-        <h2 className="text-4xl md:text-5xl font-bold mb-6">{t('cta.title')}</h2>
-        <p className="text-xl mb-8 max-w-2xl mx-auto">
-          {t('cta.description')}
-        </p>
-        <Link
-          to="/contact"
-          className="inline-block px-10 py-4 bg-gold-900 text-primary font-semibold rounded text-lg hover:bg-gold-900/80 transition"
-        >
-          {t('cta.button')}
-        </Link>
-      </div>
-    </section>
-  );
-};
+  </section>
+);
 
 export default Index;

@@ -10,16 +10,19 @@ const navLinks = [
   { path: '/contact', key: 'nav.contact' },
 ];
 
+const primaryPhones = [
+  { tel: '+249912350743', display: '+249 912 350 743' },
+  { tel: '+249999900048', display: '+249 999 900 048' },
+  { tel: '+24912372286', display: '+249 12 372 2286' },
+];
+
 export const Header = () => {
   const { language, toggleLanguage, t } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const isArabic = language === 'ar';
   const location = useLocation();
 
-  const phoneNumbers = useMemo(
-    () => ['+249 912 350 743', '+249 999 900 048', '+249 12 372 2286'],
-    [],
-  );
+  const phoneNumbers = useMemo(() => primaryPhones, []);
 
   return (
     <header className="sticky top-0 z-50 shadow-xl shadow-black/5">

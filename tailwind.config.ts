@@ -14,7 +14,7 @@ export default {
     },
     fontFamily: {
       sans: ["Poppins", "sans-serif"],
-      arabic: ["Tajawal", "sans-serif"],
+      arabic: ["Cairo", "sans-serif"],
     },
     extend: {
       colors: {

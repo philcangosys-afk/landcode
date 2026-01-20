@@ -1,32 +1,36 @@
-import { useLanguage } from '@/contexts/LanguageContext';
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Projects = () => {
   const { language } = useLanguage();
-  const isArabic = language === 'ar';
+  const isArabic = language === "ar";
 
   const projects = [
     {
-      name: 'همش ربّاب - ولاية البحر الأحمر',
-      location: 'Red Sea State, Sudan',
-      image: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&h=600&fit=crop',
-      description: 'برامج استكشاف متكاملة ودراسات جيولوجية متقدمة، مع تطوير منجم سطحي وتوريد الخام بنظام إلى مصانع معالجة الذهب.',
+      name: "همش ربّاب - ولاية البحر الأحمر",
+      location: "Red Sea State, Sudan",
+      image:
+        "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&h=600&fit=crop",
+      description:
+        "برامج استكشاف متكاملة ودراسات جيولوجية متقدمة، مع تطوير منجم سطحي وتوريد الخام بنظام إلى مصانع معالجة الذهب.",
       details: [
-        'دراسات جيولوجية متقدمة',
-        'تطوير منجم سطحي',
-        'معدات استخراج حديثة',
-        'نقل الخام إلى مصانع المعالجة',
+        "دراسات جيولوجية متقدمة",
+        "تطوير منجم سطحي",
+        "معدات استخراج حديثة",
+        "نقل الخام إلى مصانع المعالجة",
       ],
     },
     {
-      name: 'وادي حلفا - شمال السودان',
-      location: 'Northern Sudan',
-      image: 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=800&h=600&fit=crop',
-      description: 'دراسات استكشافية موسعة أسفرت عن تحديد عدة مواقع ذات مؤشرات تعدين واعدة، وفتح مناجم جديدة للاستخراج.',
+      name: "وادي حلفا - شمال السودان",
+      location: "Northern Sudan",
+      image:
+        "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=800&h=600&fit=crop",
+      description:
+        "دراسات استكشافية موسعة أسفرت عن تحديد عدة مواقع ذات مؤشرات تعدين واعدة، وفتح مناجم جديدة للاستخراج.",
       details: [
-        'دراسات استكشافية موسعة',
-        'تحديد مواقع تعدين جديدة',
-        'أعمال استخراج متطورة',
-        'تطوير منجم جديد',
+        "دراسات استكشافية موسعة",
+        "تحديد مواقع تعدين جديدة",
+        "أعمال استخراج متطورة",
+        "تطوير منجم جديد",
       ],
     },
   ];
@@ -89,7 +93,9 @@ const Projects = () => {
 const ProjectDetail = ({ project, index, isArabic }: any) => {
   return (
     <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all">
-      <div className={`grid grid-cols-1 md:grid-cols-2 gap-0 ${index % 2 === 1 ? 'md:auto-cols-reverse' : ''}`}>
+      <div
+        className={`grid grid-cols-1 md:grid-cols-2 gap-0 ${index % 2 === 1 ? "md:auto-cols-reverse" : ""}`}
+      >
         {/* Image */}
         <div>
           <img
@@ -100,13 +106,13 @@ const ProjectDetail = ({ project, index, isArabic }: any) => {
         </div>
 
         {/* Content */}
-        <div className={`p-8 flex flex-col justify-center ${isArabic ? 'text-right' : ''}`}>
+        <div
+          className={`p-8 flex flex-col justify-center ${isArabic ? "text-right" : ""}`}
+        >
           <h3 className="text-3xl font-bold text-primary mb-2">
             {project.name}
           </h3>
-          <p className="text-gold-900 font-semibold mb-4">
-            {project.location}
-          </p>
+          <p className="text-gold-900 font-semibold mb-4">{project.location}</p>
           <p className="text-gray-700 text-lg leading-relaxed mb-6">
             {project.description}
           </p>
@@ -114,7 +120,7 @@ const ProjectDetail = ({ project, index, isArabic }: any) => {
           {/* Details List */}
           <div className="space-y-2">
             <p className="font-semibold text-primary mb-3">المميزات:</p>
-            <ul className={`space-y-2 ${isArabic ? 'text-right' : ''}`}>
+            <ul className={`space-y-2 ${isArabic ? "text-right" : ""}`}>
               {project.details.map((detail: string, idx: number) => (
                 <li key={idx} className="flex items-center gap-2">
                   {isArabic ? (

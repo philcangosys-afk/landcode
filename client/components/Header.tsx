@@ -1,27 +1,27 @@
-import { Link, useLocation } from 'react-router-dom';
-import { useLanguage } from '@/contexts/LanguageContext';
-import { useMemo, useState } from 'react';
+import { Link, useLocation } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { useMemo, useState } from "react";
 
 const navLinks = [
-  { path: '/', key: 'nav.home' },
-  { path: '/about', key: 'nav.about' },
-  { path: '/services', key: 'nav.services' },
-  { path: '/projects', key: 'nav.projects' },
-  { path: '/contact', key: 'nav.contact' },
+  { path: "/", key: "nav.home" },
+  { path: "/about", key: "nav.about" },
+  { path: "/services", key: "nav.services" },
+  { path: "/projects", key: "nav.projects" },
+  { path: "/contact", key: "nav.contact" },
 ];
 
 type PhoneEntry = string | { tel: string; display: string };
 
 const primaryPhones: PhoneEntry[] = [
-  { tel: '+249912350743', display: '+249 912 350 743' },
-  { tel: '+249999900048', display: '+249 999 900 048' },
-  { tel: '+24912372286', display: '+249 12 372 2286' },
+  { tel: "+249912350743", display: "+249 912 350 743" },
+  { tel: "+249999900048", display: "+249 999 900 048" },
+  { tel: "+24912372286", display: "+249 12 372 2286" },
 ];
 
 const normalizePhone = (phone: PhoneEntry) => {
-  if (typeof phone === 'string') {
-    const tel = phone.replace(/\s+/g, '');
-    return { tel: `+${tel.replace(/^\+/, '')}`, display: phone };
+  if (typeof phone === "string") {
+    const tel = phone.replace(/\s+/g, "");
+    return { tel: `+${tel.replace(/^\+/, "")}`, display: phone };
   }
   return phone;
 };
@@ -29,7 +29,7 @@ const normalizePhone = (phone: PhoneEntry) => {
 export const Header = () => {
   const { language, toggleLanguage, t } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const isArabic = language === 'ar';
+  const isArabic = language === "ar";
   const location = useLocation();
 
   const phoneNumbers = useMemo(() => primaryPhones.map(normalizePhone), []);
@@ -67,7 +67,9 @@ export const Header = () => {
                 LC
               </div>
               <div className="leading-tight">
-                <p className="text-xs uppercase tracking-[0.4em] text-slate-500">Land Code</p>
+                <p className="text-xs uppercase tracking-[0.4em] text-slate-500">
+                  Land Code
+                </p>
                 <p className="text-lg font-black text-primary">
                   Investment Ltd.
                 </p>
@@ -82,8 +84,8 @@ export const Header = () => {
                   to={link.path}
                   className={`relative text-sm font-semibold tracking-wide transition pb-1 ${
                     location.pathname === link.path
-                      ? 'text-primary after:w-full after:bg-gold-900'
-                      : 'text-slate-500 hover:text-primary after:w-0 hover:after:w-1/2'
+                      ? "text-primary after:w-full after:bg-gold-900"
+                      : "text-slate-500 hover:text-primary after:w-0 hover:after:w-1/2"
                   } after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:rounded-full after:transition-all`}
                 >
                   {t(link.key)}
@@ -97,11 +99,15 @@ export const Header = () => {
                 onClick={toggleLanguage}
                 className="flex items-center gap-1 rounded-full border border-slate-200 px-3 py-1 text-sm font-semibold text-primary shadow-inner hover:bg-primary hover:text-white transition"
               >
-                <span className={`${language === 'ar' ? 'text-white bg-primary rounded-full px-2 py-0.5' : 'text-primary/70'}`}>
+                <span
+                  className={`${language === "ar" ? "text-white bg-primary rounded-full px-2 py-0.5" : "text-primary/70"}`}
+                >
                   AR
                 </span>
                 <span className="text-slate-300">|</span>
-                <span className={`${language === 'en' ? 'text-white bg-primary rounded-full px-2 py-0.5' : 'text-primary/70'}`}>
+                <span
+                  className={`${language === "en" ? "text-white bg-primary rounded-full px-2 py-0.5" : "text-primary/70"}`}
+                >
                   EN
                 </span>
               </button>
@@ -109,15 +115,25 @@ export const Header = () => {
                 to="/contact"
                 className="hidden md:inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2 text-sm font-semibold text-white shadow-lg shadow-primary/30 hover:bg-primary/90"
               >
-                <span>{isArabic ? 'تواصل معنا' : 'Contact Us'}</span>
+                <span>{isArabic ? "تواصل معنا" : "Contact Us"}</span>
               </Link>
               <button
                 onClick={() => setIsMenuOpen((prev) => !prev)}
                 className="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-full border border-slate-200 text-primary"
                 aria-label="Toggle menu"
               >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
                 </svg>
               </button>
             </div>
@@ -133,7 +149,9 @@ export const Header = () => {
                   key={link.path}
                   to={link.path}
                   className={`text-base font-semibold ${
-                    location.pathname === link.path ? 'text-primary' : 'text-slate-600'
+                    location.pathname === link.path
+                      ? "text-primary"
+                      : "text-slate-600"
                   }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
@@ -145,7 +163,7 @@ export const Header = () => {
                 className="mt-2 inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-white font-semibold"
                 onClick={() => setIsMenuOpen(false)}
               >
-                {isArabic ? 'ابدأ شراكة جديدة' : 'Start a partnership'}
+                {isArabic ? "ابدأ شراكة جديدة" : "Start a partnership"}
               </Link>
             </nav>
           </div>

@@ -1,59 +1,71 @@
-import { Link } from 'react-router-dom';
-import { useLanguage } from '@/contexts/LanguageContext';
+import { Link } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const heroStats = [
-  { labelAr: 'سنوات الخبرة', labelEn: 'Years of excellence', value: '+15' },
-  { labelAr: 'مشاريع كبرى', labelEn: 'Flagship projects', value: '28' },
-  { labelAr: 'شركاء استراتيجيون', labelEn: 'Strategic partners', value: '12' },
+  { labelAr: "سنوات الخبرة", labelEn: "Years of excellence", value: "+15" },
+  { labelAr: "مشاريع كبرى", labelEn: "Flagship projects", value: "28" },
+  { labelAr: "شركاء استراتيجيون", labelEn: "Strategic partners", value: "12" },
 ];
 
 const servicesData = [
   {
-    tagAr: 'المعادن النفيسة',
-    tagEn: 'Precious metals',
-    titleAr: 'التنقيب عن الذهب والمعادن',
-    titleEn: 'Gold & precious metals exploration',
-    descriptionAr: 'دراسات استكشاف شاملة واستخدام أحدث تقنيات الاستشعار والمسوحات الجيولوجية.',
-    descriptionEn: 'Comprehensive exploration programs powered by cutting-edge sensing and geological surveys.',
+    tagAr: "المعادن النفيسة",
+    tagEn: "Precious metals",
+    titleAr: "التنقيب عن الذهب والمعادن",
+    titleEn: "Gold & precious metals exploration",
+    descriptionAr:
+      "دراسات استكشاف شاملة واستخدام أحدث تقنيات الاستشعار والمسوحات الجيولوجية.",
+    descriptionEn:
+      "Comprehensive exploration programs powered by cutting-edge sensing and geological surveys.",
   },
   {
-    tagAr: 'دراسات الجدوى',
-    tagEn: 'Feasibility',
-    titleAr: 'الدراسات الجيولوجية وتقييم المواقع',
-    titleEn: 'Geological studies & site evaluation',
-    descriptionAr: 'تحليل جيولوجي متكامل، تقييم المخاطر، وتحويل البيانات إلى رؤى استثمارية دقيقة.',
-    descriptionEn: 'Integrated geological analysis, risk evaluation, and investor-ready insights.',
+    tagAr: "دراسات الجدوى",
+    tagEn: "Feasibility",
+    titleAr: "الدراسات الجيولوجية وتقييم المواقع",
+    titleEn: "Geological studies & site evaluation",
+    descriptionAr:
+      "تحليل جيولوجي متكامل، تقييم المخاطر، وتحويل البيانات إلى رؤى استثمارية دقيقة.",
+    descriptionEn:
+      "Integrated geological analysis, risk evaluation, and investor-ready insights.",
   },
   {
-    tagAr: 'المعالجة الصناعية',
-    tagEn: 'Processing',
-    titleAr: 'تصميم وإنشاء مصانع معالجة الخامات',
-    titleEn: 'Ore processing plant design & build',
-    descriptionAr: 'حلول هندسية متكاملة من التصميم المفهومي إلى التشغيل الكامل للمصانع.',
-    descriptionEn: 'Integrated engineering covering concept design through commissioning of plants.',
+    tagAr: "المعالجة الصناعية",
+    tagEn: "Processing",
+    titleAr: "تصميم وإنشاء مصانع معالجة الخامات",
+    titleEn: "Ore processing plant design & build",
+    descriptionAr:
+      "حلول هندسية متكاملة من التصميم المفهومي إلى التشغيل الكامل للمصانع.",
+    descriptionEn:
+      "Integrated engineering covering concept design through commissioning of plants.",
   },
 ];
 
 const projects = [
   {
-    nameAr: 'مشروع همش ربّاب - ولاية البحر الأحمر',
-    nameEn: 'Hamash Rubab – Red Sea State',
-    descriptionAr: 'برنامج استكشاف جيولوجي متكامل لتطوير مناجم سطحية وبناء سلسلة إمداد لمصانع الذهب.',
-    descriptionEn: 'Integrated exploration and pit development with a dedicated supply chain to gold plants.',
-    image: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200&auto=format&fit=crop',
+    nameAr: "مشروع همش ربّاب - ولاية البحر الأحمر",
+    nameEn: "Hamash Rubab – Red Sea State",
+    descriptionAr:
+      "برنامج استكشاف جيولوجي متكامل لتطوير مناجم سطحية وبناء سلسلة إمداد لمصانع الذهب.",
+    descriptionEn:
+      "Integrated exploration and pit development with a dedicated supply chain to gold plants.",
+    image:
+      "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200&auto=format&fit=crop",
   },
   {
-    nameAr: 'مشروع وادي حلفا - شمال السودان',
-    nameEn: 'Wadi Halfa – Northern Sudan',
-    descriptionAr: 'تحديد مناطق معدنية واعدة عبر دراسات استكشاف عميقة وتقنيات استشعار عن بعد.',
-    descriptionEn: 'Identifying promising mineral corridors with deep exploration and remote sensing.',
-    image: 'https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=1200&auto=format&fit=crop',
+    nameAr: "مشروع وادي حلفا - شمال السودان",
+    nameEn: "Wadi Halfa – Northern Sudan",
+    descriptionAr:
+      "تحديد مناطق معدنية واعدة عبر دراسات استكشاف عميقة وتقنيات استشعار عن بعد.",
+    descriptionEn:
+      "Identifying promising mineral corridors with deep exploration and remote sensing.",
+    image:
+      "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=1200&auto=format&fit=crop",
   },
 ];
 
 const Index = () => {
   const { language, t } = useLanguage();
-  const isArabic = language === 'ar';
+  const isArabic = language === "ar";
 
   return (
     <div className="bg-white">
@@ -66,7 +78,13 @@ const Index = () => {
   );
 };
 
-const Hero = ({ language, isArabic }: { language: 'ar' | 'en'; isArabic: boolean }) => (
+const Hero = ({
+  language,
+  isArabic,
+}: {
+  language: "ar" | "en";
+  isArabic: boolean;
+}) => (
   <section className="relative overflow-hidden">
     <div className="absolute inset-0">
       <img
@@ -78,50 +96,61 @@ const Hero = ({ language, isArabic }: { language: 'ar' | 'en'; isArabic: boolean
     </div>
 
     <div className="relative container max-w-6xl mx-auto px-4 py-24 lg:py-32 text-white">
-      <div className={`grid gap-12 lg:grid-cols-[1.3fr,0.7fr] items-center ${isArabic ? 'text-right' : ''}`}>
+      <div
+        className={`grid gap-12 lg:grid-cols-[1.3fr,0.7fr] items-center ${isArabic ? "text-right" : ""}`}
+      >
         <div>
           <p className="uppercase tracking-[0.4em] text-gold-900 text-xs mb-4">
-            {language === 'ar' ? 'شركة تعدين واستثمار' : 'Mining & Investment Firm'}
+            {language === "ar"
+              ? "شركة تعدين واستثمار"
+              : "Mining & Investment Firm"}
           </p>
           <h1 className="text-4xl md:text-6xl font-black leading-[1.4] mb-6">
-            {language === 'ar'
-              ? 'نستخرج الفرص ونبني المستقبل في قطاع التعدين السوداني'
-              : 'We extract opportunities and build the future of Sudanese mining'}
+            {language === "ar"
+              ? "نستخرج الفرص ونبني المستقبل في قطاع التعدين السوداني"
+              : "We extract opportunities and build the future of Sudanese mining"}
           </h1>
           <p className="text-lg text-white/80 leading-relaxed mb-8">
-            {language === 'ar'
-              ? 'لاندكود للاستثمار المحدودة تقود مشاريع الاستكشاف، الدراسات الجيولوجية، وتصميم المصانع بمعايير عالمية وخبرات محلية عميقة.'
-              : 'Land Code Investment Ltd. leads exploration programmes, geological studies, and plant design with world-class standards and deep local expertise.'}
+            {language === "ar"
+              ? "لاندكود للاستثمار المحدودة تقود مشاريع الاستكشاف، الدراسات الجيولوجية، وتصميم المصانع بمعايير عالمية وخبرات محلية عميقة."
+              : "Land Code Investment Ltd. leads exploration programmes, geological studies, and plant design with world-class standards and deep local expertise."}
           </p>
 
-          <div className={`flex flex-wrap items-center gap-4 ${isArabic ? 'justify-end' : ''}`}>
+          <div
+            className={`flex flex-wrap items-center gap-4 ${isArabic ? "justify-end" : ""}`}
+          >
             <Link
               to="/contact"
               className="inline-flex items-center gap-2 rounded-full bg-gold-900 px-8 py-3 text-primary font-semibold text-base shadow-xl shadow-black/20 hover:bg-gold-900/90"
             >
-              {language === 'ar' ? 'احجز استشارة' : 'Book a consultation'}
+              {language === "ar" ? "احجز استشارة" : "Book a consultation"}
             </Link>
             <Link
               to="/projects"
               className="inline-flex items-center gap-2 rounded-full border border-white/40 px-6 py-3 font-semibold text-white/90 hover:bg-white/10"
             >
-              {language === 'ar' ? 'استعرض مشاريعنا' : 'Explore our projects'}
+              {language === "ar" ? "استعرض مشاريعنا" : "Explore our projects"}
             </Link>
           </div>
         </div>
 
         <div className="bg-white/10 backdrop-blur xl:px-8 xl:py-10 px-6 py-8 rounded-3xl border border-white/30 shadow-2xl">
           <p className="text-sm text-white/70 mb-6">
-            {language === 'ar'
-              ? 'حلول متكاملة تغطي الدورة الكاملة لمشاريع التعدين، من الدراسات الأولية إلى إدارة المصانع.'
-              : 'End-to-end mining solutions from preliminary studies to plant operations.'}
+            {language === "ar"
+              ? "حلول متكاملة تغطي الدورة الكاملة لمشاريع التعدين، من الدراسات الأولية إلى إدارة المصانع."
+              : "End-to-end mining solutions from preliminary studies to plant operations."}
           </p>
           <div className="flex flex-col gap-6">
             {heroStats.map((stat) => (
-              <div key={stat.value} className="border-b border-white/15 pb-5 last:border-none last:pb-0">
-                <p className="text-4xl font-black text-gold-900">{stat.value}</p>
+              <div
+                key={stat.value}
+                className="border-b border-white/15 pb-5 last:border-none last:pb-0"
+              >
+                <p className="text-4xl font-black text-gold-900">
+                  {stat.value}
+                </p>
                 <p className="text-white/80 text-sm uppercase tracking-[0.3em]">
-                  {language === 'ar' ? stat.labelAr : stat.labelEn}
+                  {language === "ar" ? stat.labelAr : stat.labelEn}
                 </p>
               </div>
             ))}
@@ -145,7 +174,9 @@ const Hero = ({ language, isArabic }: { language: 'ar' | 'en'; isArabic: boolean
 const AboutPreview = ({ isArabic }: { isArabic: boolean }) => (
   <section className="py-24 bg-white">
     <div className="container max-w-6xl mx-auto px-4">
-      <div className={`grid lg:grid-cols-2 gap-12 items-center ${isArabic ? 'text-right' : ''}`}>
+      <div
+        className={`grid lg:grid-cols-2 gap-12 items-center ${isArabic ? "text-right" : ""}`}
+      >
         <div className="relative">
           <img
             src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800&auto=format&fit=crop"
@@ -156,36 +187,36 @@ const AboutPreview = ({ isArabic }: { isArabic: boolean }) => (
             <p className="text-sm text-slate-500 mb-1">2020 → الآن</p>
             <p className="text-lg font-semibold text-primary">
               {isArabic
-                ? 'خبرة سودانية بجودة عالمية في التنقيب والخدمات الفنية'
-                : 'Sudanese expertise with global standards in exploration & engineering'}
+                ? "خبرة سودانية بجودة عالمية في التنقيب والخدمات الفنية"
+                : "Sudanese expertise with global standards in exploration & engineering"}
             </p>
           </div>
         </div>
         <div>
           <p className="text-gold-900 font-semibold mb-3">
-            {isArabic ? 'نبذة عن الشركة' : 'Company Profile'}
+            {isArabic ? "نبذة عن الشركة" : "Company Profile"}
           </p>
           <h2 className="text-4xl font-black text-primary mb-6 leading-snug">
             {isArabic
-              ? 'شركة لاندكود للاستثمار المحدودة منذ عام 2020'
-              : 'Land Code Investment Ltd. since 2020'}
+              ? "شركة لاندكود للاستثمار المحدودة منذ عام 2020"
+              : "Land Code Investment Ltd. since 2020"}
           </h2>
           <p className="text-lg text-slate-600 leading-relaxed mb-6">
             {isArabic
-              ? 'نقدم خدمات استكشاف، دراسات جيولوجية، وتطوير مصانع المعالجة وفق أعلى معايير الجودة والحوكمة.'
-              : 'We deliver exploration, geological studies, and processing plant development governed by international quality systems.'}
+              ? "نقدم خدمات استكشاف، دراسات جيولوجية، وتطوير مصانع المعالجة وفق أعلى معايير الجودة والحوكمة."
+              : "We deliver exploration, geological studies, and processing plant development governed by international quality systems."}
           </p>
           <ul className="space-y-4 text-slate-600">
             {[
               isArabic
-                ? 'شراكات استراتيجية مع شركات تقنية وخبراء جيولوجيين'
-                : 'Strategic collaborations with technology firms and geologists',
+                ? "شراكات استراتيجية مع شركات تقنية وخبراء جيولوجيين"
+                : "Strategic collaborations with technology firms and geologists",
               isArabic
-                ? 'التزام كامل بمعايير السلامة والاستدامة البيئية'
-                : 'Full compliance with safety and environmental stewardship',
+                ? "التزام كامل بمعايير السلامة والاستدامة البيئية"
+                : "Full compliance with safety and environmental stewardship",
               isArabic
-                ? 'فرق متعددة التخصصات تغطي التخطيط، التشغيل، والدعم الاستشاري'
-                : 'Multidisciplinary teams covering planning, execution, and advisory support',
+                ? "فرق متعددة التخصصات تغطي التخطيط، التشغيل، والدعم الاستشاري"
+                : "Multidisciplinary teams covering planning, execution, and advisory support",
             ].map((item) => (
               <li key={item} className="flex items-start gap-3">
                 <span className="mt-1 w-3 h-3 rounded-full bg-gold-900"></span>
@@ -199,33 +230,50 @@ const AboutPreview = ({ isArabic }: { isArabic: boolean }) => (
   </section>
 );
 
-const ServicesShowcase = ({ language, isArabic }: { language: 'ar' | 'en'; isArabic: boolean }) => (
+const ServicesShowcase = ({
+  language,
+  isArabic,
+}: {
+  language: "ar" | "en";
+  isArabic: boolean;
+}) => (
   <section className="py-24 bg-slate-50">
     <div className="container max-w-6xl mx-auto px-4">
       <div className="text-center mb-14">
         <p className="text-gold-900 font-semibold mb-2">
-          {language === 'ar' ? 'حلول متكاملة' : 'Integrated solutions'}
+          {language === "ar" ? "حلول متكاملة" : "Integrated solutions"}
         </p>
         <h2 className="text-4xl font-black text-primary">
-          {language === 'ar' ? 'مجالات عملنا المتخصصة' : 'Our specialised practice areas'}
+          {language === "ar"
+            ? "مجالات عملنا المتخصصة"
+            : "Our specialised practice areas"}
         </h2>
       </div>
 
       <div className="grid gap-8 lg:grid-cols-3">
         {servicesData.map((service) => (
-          <div key={service.titleEn} className="group bg-white rounded-3xl border border-slate-100 p-8 shadow-lg hover:-translate-y-1 hover:shadow-2xl transition">
+          <div
+            key={service.titleEn}
+            className="group bg-white rounded-3xl border border-slate-100 p-8 shadow-lg hover:-translate-y-1 hover:shadow-2xl transition"
+          >
             <span className="inline-flex items-center text-xs font-semibold uppercase tracking-[0.3em] text-gold-900">
-              {language === 'ar' ? service.tagAr : service.tagEn}
+              {language === "ar" ? service.tagAr : service.tagEn}
             </span>
-            <h3 className={`text-2xl font-bold text-primary mt-4 mb-3 leading-snug ${isArabic ? 'text-right' : ''}`}>
-              {language === 'ar' ? service.titleAr : service.titleEn}
+            <h3
+              className={`text-2xl font-bold text-primary mt-4 mb-3 leading-snug ${isArabic ? "text-right" : ""}`}
+            >
+              {language === "ar" ? service.titleAr : service.titleEn}
             </h3>
             <p className="text-slate-600 leading-relaxed">
-              {language === 'ar' ? service.descriptionAr : service.descriptionEn}
+              {language === "ar"
+                ? service.descriptionAr
+                : service.descriptionEn}
             </p>
             <div className="mt-8 inline-flex items-center text-sm font-semibold text-gold-900">
-              {language === 'ar' ? 'المزيد من التفاصيل' : 'More details'}
-              <span className="ml-2 group-hover:translate-x-1 transition">→</span>
+              {language === "ar" ? "المزيد من التفاصيل" : "More details"}
+              <span className="ml-2 group-hover:translate-x-1 transition">
+                →
+              </span>
             </div>
           </div>
         ))}
@@ -234,40 +282,59 @@ const ServicesShowcase = ({ language, isArabic }: { language: 'ar' | 'en'; isAra
   </section>
 );
 
-const ProjectsShowcase = ({ language, isArabic }: { language: 'ar' | 'en'; isArabic: boolean }) => (
+const ProjectsShowcase = ({
+  language,
+  isArabic,
+}: {
+  language: "ar" | "en";
+  isArabic: boolean;
+}) => (
   <section className="py-24 bg-white">
     <div className="container max-w-6xl mx-auto px-4">
       <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 mb-12">
-        <div className={isArabic ? 'text-right' : ''}>
+        <div className={isArabic ? "text-right" : ""}>
           <p className="text-gold-900 font-semibold">
-            {language === 'ar' ? 'مشاريعنا الحية' : 'Active portfolios'}
+            {language === "ar" ? "مشاريعنا الحية" : "Active portfolios"}
           </p>
           <h2 className="text-4xl font-black text-primary mt-2">
-            {language === 'ar' ? 'قصص نجاح ميدانية' : 'Field-proven success stories'}
+            {language === "ar"
+              ? "قصص نجاح ميدانية"
+              : "Field-proven success stories"}
           </h2>
         </div>
         <Link
           to="/projects"
           className="inline-flex items-center gap-2 rounded-full border border-primary px-6 py-3 text-primary font-semibold"
         >
-          {language === 'ar' ? 'اكتشف جميع المشاريع' : 'View all projects'}
+          {language === "ar" ? "اكتشف جميع المشاريع" : "View all projects"}
         </Link>
       </div>
 
       <div className="grid gap-8 lg:grid-cols-2">
         {projects.map((project) => (
-          <article key={project.nameEn} className="relative overflow-hidden rounded-3xl shadow-2xl">
-            <img src={project.image} alt={project.nameEn} className="w-full h-[360px] object-cover transition-transform duration-500 hover:scale-105" />
+          <article
+            key={project.nameEn}
+            className="relative overflow-hidden rounded-3xl shadow-2xl"
+          >
+            <img
+              src={project.image}
+              alt={project.nameEn}
+              className="w-full h-[360px] object-cover transition-transform duration-500 hover:scale-105"
+            />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />
-            <div className={`absolute inset-0 p-8 flex flex-col justify-end text-white ${isArabic ? 'text-right' : ''}`}>
+            <div
+              className={`absolute inset-0 p-8 flex flex-col justify-end text-white ${isArabic ? "text-right" : ""}`}
+            >
               <p className="text-sm text-gold-900/80 mb-2">
-                {language === 'ar' ? 'موقع استراتيجي' : 'Strategic site'}
+                {language === "ar" ? "موقع استراتيجي" : "Strategic site"}
               </p>
               <h3 className="text-2xl font-bold mb-3">
-                {language === 'ar' ? project.nameAr : project.nameEn}
+                {language === "ar" ? project.nameAr : project.nameEn}
               </h3>
               <p className="text-white/85 text-base leading-relaxed">
-                {language === 'ar' ? project.descriptionAr : project.descriptionEn}
+                {language === "ar"
+                  ? project.descriptionAr
+                  : project.descriptionEn}
               </p>
             </div>
           </article>
@@ -277,33 +344,41 @@ const ProjectsShowcase = ({ language, isArabic }: { language: 'ar' | 'en'; isAra
   </section>
 );
 
-const CTABand = ({ isArabic, t }: { isArabic: boolean; t: (key: string) => string }) => (
+const CTABand = ({
+  isArabic,
+  t,
+}: {
+  isArabic: boolean;
+  t: (key: string) => string;
+}) => (
   <section
     className="relative py-24"
     style={{
       backgroundImage:
-        'linear-gradient(135deg, rgba(10, 25, 49, 0.95), rgba(10, 25, 49, 0.85)), url(https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=1600&auto=format&fit=crop)',
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
+        "linear-gradient(135deg, rgba(10, 25, 49, 0.95), rgba(10, 25, 49, 0.85)), url(https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=1600&auto=format&fit=crop)",
+      backgroundSize: "cover",
+      backgroundPosition: "center",
     }}
   >
     <div className="container max-w-4xl mx-auto px-4 text-center text-white">
       <p className="uppercase tracking-[0.4em] text-gold-900 text-xs mb-4">
-        {isArabic ? 'شراكات مستدامة' : 'Sustainable partnerships'}
+        {isArabic ? "شراكات مستدامة" : "Sustainable partnerships"}
       </p>
       <h2 className="text-4xl font-black mb-6">
-        {isArabic ? 'نقود الاستثمارات التعدينية بثقة وشفافية' : 'Leading mining investments with trust & clarity'}
+        {isArabic
+          ? "نقود الاستثمارات التعدينية بثقة وشفافية"
+          : "Leading mining investments with trust & clarity"}
       </h2>
       <p className="text-lg text-white/85 mb-10">
         {isArabic
-          ? 'تواصل معنا لبناء شراكة تحقق أهدافك الاستثمارية وتضمن استدامة المشاريع المستقبلية.'
-          : 'Partner with us to unlock investment goals while ensuring resilient, future-ready projects.'}
+          ? "تواصل معنا لبناء شراكة تحقق أهدافك الاستثمارية وتضمن استدامة المشاريع المستقبلية."
+          : "Partner with us to unlock investment goals while ensuring resilient, future-ready projects."}
       </p>
       <Link
         to="/contact"
         className="inline-flex items-center gap-2 rounded-full bg-gold-900 px-10 py-3 text-lg font-semibold text-primary shadow-xl hover:bg-gold-900/90"
       >
-        {t('cta.button')}
+        {t("cta.button")}
       </Link>
     </div>
   </section>

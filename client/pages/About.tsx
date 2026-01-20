@@ -1,9 +1,9 @@
-import { useLanguage } from '@/contexts/LanguageContext';
-import { useRef, useEffect, useState } from 'react';
+import { useLanguage } from "@/contexts/LanguageContext";
+import { useRef, useEffect, useState } from "react";
 
 const About = () => {
   const { language } = useLanguage();
-  const isArabic = language === 'ar';
+  const isArabic = language === "ar";
 
   return (
     <div className="w-full">
@@ -43,29 +43,39 @@ const CompanyHistory = ({ isArabic }: any) => {
     <section
       ref={ref}
       className={`py-20 bg-gray-50 transition-all duration-1000 ${
-        isVisible ? 'opacity-100' : 'opacity-0'
+        isVisible ? "opacity-100" : "opacity-0"
       }`}
     >
       <div className="container max-w-6xl mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div className={isArabic ? 'order-2' : ''}>
+          <div className={isArabic ? "order-2" : ""}>
             <img
               src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=400&fit=crop"
               alt="Company Operations"
               className="w-full h-96 object-cover rounded-lg"
             />
           </div>
-          <div className={isArabic ? 'order-1 text-right' : ''}>
-            <h2 className="text-4xl font-bold text-primary mb-6">تاريخ الشركة</h2>
-            <div className="w-12 h-1 bg-gold-900 mb-6" style={{ marginLeft: isArabic ? 'auto' : '0' }}></div>
+          <div className={isArabic ? "order-1 text-right" : ""}>
+            <h2 className="text-4xl font-bold text-primary mb-6">
+              تاريخ الشركة
+            </h2>
+            <div
+              className="w-12 h-1 bg-gold-900 mb-6"
+              style={{ marginLeft: isArabic ? "auto" : "0" }}
+            ></div>
             <p className="text-lg text-gray-700 leading-relaxed mb-4">
-              تأسست شركة لاندكود للاستثمار المحدودة عام 2020 كشركة متخصصة في أعمال التعدين والاستكشاف الجيولوجي. منذ نشأتها، ركزت الشركة على تقديم خدمات عالية الجودة في مجال التعدين والاستكشاف.
+              تأسست شركة لاندكود للاستثمار المحدودة عام 2020 كشركة متخصصة في
+              أعمال التعدين والاستكشاف الجيولوجي. منذ نشأتها، ركزت الشركة على
+              تقديم خدمات عالية الجودة في مجال التعدين والاستكشاف.
             </p>
             <p className="text-lg text-gray-700 leading-relaxed mb-4">
-              بدأت الشركة برؤية واضحة لتصبح الشركة الرائدة في مجال التعدين وخدمات التعدين في المنطقة، مع الالتزام بأعلى معايير الجودة والسلامة والبيئة.
+              بدأت الشركة برؤية واضحة لتصبح الشركة الرائدة في مجال التعدين
+              وخدمات التعدين في المنطقة، مع الالتزام بأعلى معايير الجودة
+              والسلامة والبيئة.
             </p>
             <p className="text-lg text-gray-700 leading-relaxed">
-              عبر سنوات عملها، نجحت الشركة في تنفيذ عدد من المشاريع المهمة في استكشاف الذهب والمعادن النفيسة، وبناء سمعة قوية في السوق.
+              عبر سنوات عملها، نجحت الشركة في تنفيذ عدد من المشاريع المهمة في
+              استكشاف الذهب والمعادن النفيسة، وبناء سمعة قوية في السوق.
             </p>
           </div>
         </div>
@@ -89,38 +99,52 @@ const MissionVision = ({ isArabic }: any) => {
   return (
     <section ref={ref} className="py-20 bg-white">
       <div className="container max-w-6xl mx-auto px-4">
-        <h2 className="text-4xl font-bold text-primary mb-2 text-center">رسالتنا و رؤيتنا</h2>
+        <h2 className="text-4xl font-bold text-primary mb-2 text-center">
+          رسالتنا و رؤيتنا
+        </h2>
         <div className="w-16 h-1 bg-gold-900 mx-auto mb-12"></div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {/* Mission */}
           <div
             className={`p-8 bg-gray-50 rounded-lg border-l-4 border-gold-900 transition-all duration-1000 ${
-              isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
+              isVisible
+                ? "opacity-100 translate-x-0"
+                : "opacity-0 -translate-x-10"
             }`}
           >
             <div className="flex items-start gap-4 mb-4">
               <span className="text-4xl">🎯</span>
               <h3 className="text-2xl font-semibold text-primary">رسالتنا</h3>
             </div>
-            <p className={`text-gray-700 text-lg leading-relaxed ${isArabic ? 'text-right' : ''}`}>
-              تقديم خدمات تعدين متكاملة، دقيقة وموثوقة تسهم في تعظيم القيمة الاقتصادية للموارد المعدنية، مع الحفاظ على البيئة والسلامة المهنية والصحة المهنية لضمان استدامة الأعمال وتوثيقها.
+            <p
+              className={`text-gray-700 text-lg leading-relaxed ${isArabic ? "text-right" : ""}`}
+            >
+              تقديم خدمات تعدين متكاملة، دقيقة وموثوقة تسهم في تعظيم القيمة
+              الاقتصادية للموارد المعدنية، مع الحفاظ على البيئة والسلامة المهنية
+              والصحة المهنية لضمان استدامة الأعمال وتوثيقها.
             </p>
           </div>
 
           {/* Vision */}
           <div
             className={`p-8 bg-gray-50 rounded-lg border-l-4 border-gold-900 transition-all duration-1000 ${
-              isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
+              isVisible
+                ? "opacity-100 translate-x-0"
+                : "opacity-0 translate-x-10"
             }`}
-            style={{ transitionDelay: isVisible ? '200ms' : '0ms' }}
+            style={{ transitionDelay: isVisible ? "200ms" : "0ms" }}
           >
             <div className="flex items-start gap-4 mb-4">
               <span className="text-4xl">🚀</span>
               <h3 className="text-2xl font-semibold text-primary">رؤيتنا</h3>
             </div>
-            <p className={`text-gray-700 text-lg leading-relaxed ${isArabic ? 'text-right' : ''}`}>
-              أن تكون شركة لاندكود من الشركات الرائدة في مجال التعدين وخدمات التعدين في السودان والمنطقة، من خلال توظيف الخبرات الجيولوجية والتقنيات الحديثة.
+            <p
+              className={`text-gray-700 text-lg leading-relaxed ${isArabic ? "text-right" : ""}`}
+            >
+              أن تكون شركة لاندكود من الشركات الرائدة في مجال التعدين وخدمات
+              التعدين في السودان والمنطقة، من خلال توظيف الخبرات الجيولوجية
+              والتقنيات الحديثة.
             </p>
           </div>
         </div>
@@ -143,40 +167,45 @@ const ManagementTeam = ({ isArabic }: any) => {
 
   const team = [
     {
-      name: 'أ. م. أيوذر محمد عثمان',
-      role: 'المدير العام',
-      icon: '👔',
-      description: 'يشرف على إدارة الشركة وتوجيه الاستراتيجيات العامة',
+      name: "أ. م. أيوذر محمد عثمان",
+      role: "المدير العام",
+      icon: "👔",
+      description: "يشرف على إدارة الشركة وتوجيه الاستراتيجيات العامة",
     },
     {
-      name: 'أ. م. أحمد حسن عيد',
-      role: 'نائب المدير العام',
-      icon: '👔',
-      description: 'يدعم المدير العام ويشرف على متابعة المشاريع والإدارة التشغيلية',
+      name: "أ. م. أحمد حسن عيد",
+      role: "نائب المدير العام",
+      icon: "👔",
+      description:
+        "يدعم المدير العام ويشرف على متابعة المشاريع والإدارة التشغيلية",
     },
     {
-      name: 'م. عمر الحاج بس',
-      role: 'مهندس تعدين',
-      icon: '⛏️',
-      description: 'مسؤول عن تخطيط وتنفيذ عمليات التعدين وفق المعايير الهندسية الفنية',
+      name: "م. عمر الحاج بس",
+      role: "مهندس تعدين",
+      icon: "⛏️",
+      description:
+        "مسؤول عن تخطيط وتنفيذ عمليات التعدين وفق المعايير الهندسية الفنية",
     },
     {
-      name: 'م. أحمد فتح الرحمن',
-      role: 'مهندس جيولوجي',
-      icon: '🔬',
-      description: 'يتولى الدراسات الجيولوجية والاستكشاف وتقييم الموارد المعدنية',
+      name: "م. أحمد فتح الرحمن",
+      role: "مهندس جيولوجي",
+      icon: "🔬",
+      description:
+        "يتولى الدراسات الجيولوجية والاستكشاف وتقييم الموارد المعدنية",
     },
     {
-      name: 'م. وليد عبدالحميد محمود',
-      role: 'مهندس معالجة',
-      icon: '🏭',
-      description: 'يشرف على تصميم وتشغيل مصانع معالجة الخامات وتحسين معدلات الاستخلاص',
+      name: "م. وليد عبدالحميد محمود",
+      role: "مهندس معالجة",
+      icon: "🏭",
+      description:
+        "يشرف على تصميم وتشغيل مصانع معالجة الخامات وتحسين معدلات الاستخلاص",
     },
     {
-      name: 'أ. م. أحمد حسن عيد (GIS)',
-      role: 'متخصص نظم معلومات جغرافية',
-      icon: '🗺️',
-      description: 'يدير نظم المعلومات الجيولوجية وتحليل البيانات لدعم القرارات الفنية',
+      name: "أ. م. أحمد حسن عيد (GIS)",
+      role: "متخصص نظم معلومات جغرافية",
+      icon: "🗺️",
+      description:
+        "يدير نظم المعلومات الجيولوجية وتحليل البيانات لدعم القرارات الفنية",
     },
   ];
 
@@ -210,20 +239,22 @@ const TeamMember = ({ member, index, isVisible, isArabic }: any) => {
   return (
     <div
       className={`bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-500 ${
-        isVisible
-          ? `opacity-100 translate-y-0`
-          : `opacity-0 translate-y-10`
+        isVisible ? `opacity-100 translate-y-0` : `opacity-0 translate-y-10`
       }`}
-      style={{ transitionDelay: isVisible ? `${index * 100}ms` : '0ms' }}
+      style={{ transitionDelay: isVisible ? `${index * 100}ms` : "0ms" }}
     >
       <div className="text-5xl mb-4">{member.icon}</div>
-      <h3 className={`text-lg font-semibold text-primary mb-1 ${isArabic ? 'text-right' : ''}`}>
+      <h3
+        className={`text-lg font-semibold text-primary mb-1 ${isArabic ? "text-right" : ""}`}
+      >
         {member.name}
       </h3>
-      <p className={`text-gold-900 font-semibold mb-3 ${isArabic ? 'text-right' : ''}`}>
+      <p
+        className={`text-gold-900 font-semibold mb-3 ${isArabic ? "text-right" : ""}`}
+      >
         {member.role}
       </p>
-      <p className={`text-gray-600 text-sm ${isArabic ? 'text-right' : ''}`}>
+      <p className={`text-gray-600 text-sm ${isArabic ? "text-right" : ""}`}>
         {member.description}
       </p>
     </div>

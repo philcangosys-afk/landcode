@@ -83,7 +83,7 @@ const Hero = ({ language, isArabic }: { language: 'ar' | 'en'; isArabic: boolean
           <p className="uppercase tracking-[0.4em] text-gold-900 text-xs mb-4">
             {language === 'ar' ? 'شركة تعدين واستثمار' : 'Mining & Investment Firm'}
           </p>
-          <h1 className="text-4xl md:text-6xl font-black leading-tight mb-6">
+          <h1 className="text-4xl md:text-6xl font-black leading-[1.4] mb-6">
             {language === 'ar'
               ? 'نستخرج الفرص ونبني المستقبل في قطاع التعدين السوداني'
               : 'We extract opportunities and build the future of Sudanese mining'}

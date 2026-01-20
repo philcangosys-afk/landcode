@@ -10,11 +10,21 @@ const navLinks = [
   { path: '/contact', key: 'nav.contact' },
 ];
 
-const primaryPhones = [
+type PhoneEntry = string | { tel: string; display: string };
+
+const primaryPhones: PhoneEntry[] = [
   { tel: '+249912350743', display: '+249 912 350 743' },
   { tel: '+249999900048', display: '+249 999 900 048' },
   { tel: '+24912372286', display: '+249 12 372 2286' },
 ];
+
+const normalizePhone = (phone: PhoneEntry) => {
+  if (typeof phone === 'string') {
+    const tel = phone.replace(/\s+/g, '');
+    return { tel: `+${tel.replace(/^\+/, '')}`, display: phone };
+  }
+  return phone;
+};
 
 export const Header = () => {
   const { language, toggleLanguage, t } = useLanguage();
@@ -22,7 +32,7 @@ export const Header = () => {
   const isArabic = language === 'ar';
   const location = useLocation();
 
-  const phoneNumbers = useMemo(() => primaryPhones, []);
+  const phoneNumbers = useMemo(() => primaryPhones.map(normalizePhone), []);
 
   return (
     <header className="sticky top-0 z-50 shadow-xl shadow-black/5">

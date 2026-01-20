@@ -1,105 +1,139 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
+
+const navLinks = [
+  { path: '/', key: 'nav.home' },
+  { path: '/about', key: 'nav.about' },
+  { path: '/services', key: 'nav.services' },
+  { path: '/projects', key: 'nav.projects' },
+  { path: '/contact', key: 'nav.contact' },
+];
 
 export const Header = () => {
   const { language, toggleLanguage, t } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const isArabic = language === 'ar';
+  const location = useLocation();
+
+  const phoneNumbers = useMemo(
+    () => ['+249 912 350 743', '+249 999 900 048', '+249 12 372 2286'],
+    [],
+  );
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
-      <div className="container max-w-7xl mx-auto px-4 py-4">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
-            <div className="flex items-center gap-1">
-              <div className="text-2xl font-bold text-gold-900">LC</div>
-              <div className="text-xs font-semibold text-primary">
-                <div>LAND CODE</div>
-                <div>INVESTMENT LTD.</div>
+    <header className="sticky top-0 z-50 shadow-xl shadow-black/5">
+      {/* Top ribbon */}
+      <div className="hidden md:block bg-primary text-white/90 text-sm">
+        <div className="container max-w-7xl mx-auto px-4 py-2 flex items-center justify-between gap-6">
+          <p className="font-medium tracking-wide">
+            السودان - الخرطوم - حي الطائف - مربع 23
+          </p>
+          <div className="flex items-center gap-4 text-white/80">
+            {phoneNumbers.map((phone) => (
+              <a
+                key={phone}
+                href={`tel:${phone.replace(/\s+/g, '')}`}
+                className="hover:text-gold-900 transition"
+              >
+                {phone}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="backdrop-blur-xl bg-white/90 border-b border-slate-100">
+        <div className="container max-w-7xl mx-auto px-4 py-4">
+          <div className="flex items-center justify-between gap-4">
+            {/* Logo */}
+            <Link to="/" className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-gold-900/90 to-gold-900/60 text-primary font-black text-xl flex items-center justify-center shadow-lg">
+                LC
               </div>
+              <div className="leading-tight">
+                <p className="text-xs uppercase tracking-[0.4em] text-slate-500">Land Code</p>
+                <p className="text-lg font-black text-primary">
+                  Investment Ltd.
+                </p>
+              </div>
+            </Link>
+
+            {/* Desktop Navigation */}
+            <nav className="hidden lg:flex items-center gap-6">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className={`relative text-sm font-semibold tracking-wide transition pb-1 ${
+                    location.pathname === link.path
+                      ? 'text-primary after:w-full after:bg-gold-900'
+                      : 'text-slate-500 hover:text-primary after:w-0 hover:after:w-1/2'
+                  } after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:rounded-full after:transition-all`}
+                >
+                  {t(link.key)}
+                </Link>
+              ))}
+            </nav>
+
+            {/* Actions */}
+            <div className="flex items-center gap-3">
+              <button
+                onClick={toggleLanguage}
+                className="flex items-center gap-1 rounded-full border border-slate-200 px-3 py-1 text-sm font-semibold text-primary shadow-inner hover:bg-primary hover:text-white transition"
+              >
+                <span className={`${language === 'ar' ? 'text-white bg-primary rounded-full px-2 py-0.5' : 'text-primary/70'}`}>
+                  AR
+                </span>
+                <span className="text-slate-300">|</span>
+                <span className={`${language === 'en' ? 'text-white bg-primary rounded-full px-2 py-0.5' : 'text-primary/70'}`}>
+                  EN
+                </span>
+              </button>
+              <Link
+                to="/contact"
+                className="hidden md:inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2 text-sm font-semibold text-white shadow-lg shadow-primary/30 hover:bg-primary/90"
+              >
+                <span>{isArabic ? 'تواصل معنا' : 'Contact Us'}</span>
+              </Link>
+              <button
+                onClick={() => setIsMenuOpen((prev) => !prev)}
+                className="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-full border border-slate-200 text-primary"
+                aria-label="Toggle menu"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </button>
             </div>
-          </Link>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
-            <Link to="/" className="text-primary hover:text-gold-900 transition font-medium text-sm">
-              {t('nav.home')}
-            </Link>
-            <Link to="/about" className="text-primary hover:text-gold-900 transition font-medium text-sm">
-              {t('nav.about')}
-            </Link>
-            <Link to="/services" className="text-primary hover:text-gold-900 transition font-medium text-sm">
-              {t('nav.services')}
-            </Link>
-            <Link to="/projects" className="text-primary hover:text-gold-900 transition font-medium text-sm">
-              {t('nav.projects')}
-            </Link>
-            <Link to="/contact" className="text-primary hover:text-gold-900 transition font-medium text-sm">
-              {t('nav.contact')}
-            </Link>
-          </nav>
-
-          {/* Language Switcher & Mobile Menu Button */}
-          <div className="flex items-center gap-4">
-            <button
-              onClick={toggleLanguage}
-              className="px-3 py-1.5 rounded border border-gold-900 text-primary hover:bg-gold-900 hover:text-white transition font-semibold text-sm"
-            >
-              {language === 'ar' ? 'EN' : 'العربية'}
-            </button>
-
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden text-primary"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
           </div>
         </div>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <nav className="md:hidden mt-4 pt-4 border-t border-gray-200 flex flex-col gap-3">
-            <Link
-              to="/"
-              className="text-primary hover:text-gold-900 transition font-medium text-sm py-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              {t('nav.home')}
-            </Link>
-            <Link
-              to="/about"
-              className="text-primary hover:text-gold-900 transition font-medium text-sm py-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              {t('nav.about')}
-            </Link>
-            <Link
-              to="/services"
-              className="text-primary hover:text-gold-900 transition font-medium text-sm py-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              {t('nav.services')}
-            </Link>
-            <Link
-              to="/projects"
-              className="text-primary hover:text-gold-900 transition font-medium text-sm py-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              {t('nav.projects')}
-            </Link>
-            <Link
-              to="/contact"
-              className="text-primary hover:text-gold-900 transition font-medium text-sm py-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              {t('nav.contact')}
-            </Link>
-          </nav>
+          <div className="lg:hidden border-t border-slate-100 bg-white/95 backdrop-blur-xl">
+            <nav className="container max-w-7xl mx-auto px-4 py-6 flex flex-col gap-4">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className={`text-base font-semibold ${
+                    location.pathname === link.path ? 'text-primary' : 'text-slate-600'
+                  }`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {t(link.key)}
+                </Link>
+              ))}
+              <Link
+                to="/contact"
+                className="mt-2 inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-white font-semibold"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {isArabic ? 'ابدأ شراكة جديدة' : 'Start a partnership'}
+              </Link>
+            </nav>
+          </div>
         )}
       </div>
     </header>

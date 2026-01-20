@@ -65,13 +65,19 @@ const Contact = () => {
             <ContactCard isArabic={isArabic} icon="📞" title="الهاتف">
               <div className="space-y-2">
                 <a href="tel:+249912350743" className="block text-gold-900 hover:text-gold-900/80">
-                  +249 912 350 743
+                  <span dir="ltr" className="tracking-wide">
+                    +249 912 350 743
+                  </span>
                 </a>
                 <a href="tel:+249999900048" className="block text-gold-900 hover:text-gold-900/80">
-                  +249 999 900 048
+                  <span dir="ltr" className="tracking-wide">
+                    +249 999 900 048
+                  </span>
                 </a>
                 <a href="tel:+24912372286" className="block text-gold-900 hover:text-gold-900/80">
-                  +249 12 372 2286
+                  <span dir="ltr" className="tracking-wide">
+                    +249 12 372 2286
+                  </span>
                 </a>
               </div>
             </ContactCard>

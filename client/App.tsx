@@ -98,18 +98,4 @@ const App = () => (
   </LanguageProvider>
 );
 
-// Only initialize if root hasn't been created yet
-const shouldInitialize = () => {
-  const container = document.getElementById("root");
-  if (!container) return false;
-  // Check if React has already mounted by looking for internal React properties
-  return !(container as any)._reactRootContainer && !root;
-};
-
-if (shouldInitialize()) {
-  const rootElement = document.getElementById("root");
-  if (rootElement) {
-    root = createRoot(rootElement);
-    root.render(<App />);
-  }
-}
+export default App;

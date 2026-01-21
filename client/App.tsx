@@ -100,10 +100,30 @@ const App = () => (
   </LanguageProvider>
 );
 
-const rootElement = document.getElementById("root");
-if (rootElement) {
+function initializeApp() {
+  const rootElement = document.getElementById("root");
+  if (!rootElement) return;
+
   if (!root) {
     root = createRoot(rootElement);
   }
   root.render(<App />);
+}
+
+// Initialize on page load
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initializeApp);
+} else {
+  initializeApp();
+}
+
+// Handle HMR updates without recreating root
+if (import.meta.hot) {
+  import.meta.hot.accept(() => {
+    // Simply re-render with updated App component
+    const rootElement = document.getElementById("root");
+    if (rootElement && root) {
+      root.render(<App />);
+    }
+  });
 }

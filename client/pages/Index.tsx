@@ -620,16 +620,6 @@ const partnersData = [
 ];
 
 const PartnersSlider = ({ language, isArabic }: { language: 'ar' | 'en'; isArabic: boolean }) => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  const handlePrev = () => {
-    setCurrentSlide((prev) => (prev === 0 ? partnersData.length - 1 : prev - 1));
-  };
-
-  const handleNext = () => {
-    setCurrentSlide((prev) => (prev === partnersData.length - 1 ? 0 : prev + 1));
-  };
-
   return (
     <section className="py-24 bg-slate-50">
       <div className="container max-w-6xl mx-auto px-4">
@@ -644,60 +634,19 @@ const PartnersSlider = ({ language, isArabic }: { language: 'ar' | 'en'; isArabi
           </p>
         </div>
 
-        <div className="relative">
-          <div className="flex items-center justify-center overflow-hidden">
-            <div className="w-full max-w-2xl">
-              <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border border-slate-100">
-                {partnersData.map((partner, index) => (
-                  <img
-                    key={index}
-                    src={partner.image}
-                    alt={partner.alt}
-                    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
-                      index === currentSlide ? 'opacity-100' : 'opacity-0'
-                    }`}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Navigation Buttons */}
-          <button
-            onClick={handlePrev}
-            className={`absolute top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white shadow-xl border border-slate-200 flex items-center justify-center transition-all duration-300 hover:bg-primary hover:text-white hover:border-primary ${
-              isArabic ? 'right-0 translate-x-14 sm:translate-x-16' : 'left-0 -translate-x-14 sm:-translate-x-16'
-            }`}
-            aria-label={language === 'ar' ? 'السابق' : 'Previous'}
-          >
-            <span className="text-2xl font-bold">{isArabic ? '→' : '←'}</span>
-          </button>
-
-          <button
-            onClick={handleNext}
-            className={`absolute top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white shadow-xl border border-slate-200 flex items-center justify-center transition-all duration-300 hover:bg-primary hover:text-white hover:border-primary ${
-              isArabic ? 'left-0 -translate-x-14 sm:-translate-x-16' : 'right-0 translate-x-14 sm:translate-x-16'
-            }`}
-            aria-label={language === 'ar' ? 'التالي' : 'Next'}
-          >
-            <span className="text-2xl font-bold">{isArabic ? '←' : '→'}</span>
-          </button>
-
-          {/* Indicators */}
-          <div className="flex justify-center gap-3 mt-8">
-            {partnersData.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentSlide(index)}
-                className={`transition-all duration-300 rounded-full ${
-                  index === currentSlide
-                    ? 'w-8 h-3 bg-primary'
-                    : 'w-3 h-3 bg-slate-300 hover:bg-slate-400'
-                }`}
-                aria-label={`Slide ${index + 1}`}
+        <div className="flex items-center justify-center gap-8 lg:gap-12 flex-wrap">
+          {partnersData.map((partner, index) => (
+            <div
+              key={index}
+              className="w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden shadow-lg border-4 border-white bg-white flex items-center justify-center transition-transform duration-300 hover:scale-110"
+            >
+              <img
+                src={partner.image}
+                alt={partner.alt}
+                className="w-full h-full object-cover"
               />
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

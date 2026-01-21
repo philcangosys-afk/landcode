@@ -632,6 +632,90 @@ const partnersData = [
   },
 ];
 
+const CSRSection = ({ language, isArabic }: { language: 'ar' | 'en'; isArabic: boolean }) => {
+  const csrInitiatives = [
+    {
+      iconAr: '🍎',
+      titleAr: 'الدعم الغذائي',
+      titleEn: 'Food Support',
+      descriptionAr: 'توزيع المواد الغذائية للمدارس والداخليات في المناطق المستضيفة',
+      descriptionEn: 'Distributing food items to schools and hostels in host communities',
+    },
+    {
+      iconAr: '🛣️',
+      titleAr: 'تطوير البنية التحتية',
+      titleEn: 'Infrastructure Development',
+      descriptionAr: 'مساعدة المحليات في فتح الطرق ومشاريع المياه للمشاريع الزراعية',
+      descriptionEn: 'Assisting local authorities in road development and water projects',
+    },
+    {
+      iconAr: '🤝',
+      titleAr: 'دعم المجتمع المحلي',
+      titleEn: 'Community Support',
+      descriptionAr: 'معاونة المجتمع المحلي في جميع الاحتياجات الخاصة للأسر المتعففة',
+      descriptionEn: 'Supporting local communities in addressing needs of low-income families',
+    },
+    {
+      iconAr: '🌍',
+      titleAr: 'الإصحاح البيئي',
+      titleEn: 'Environmental Sanitation',
+      descriptionAr: 'حملات إصحاح بيئي شامل في المناطق التي عملنا بها للمحافظة على الصحة العامة',
+      descriptionEn: 'Environmental sanitation campaigns in all operational areas for public health',
+    },
+  ];
+
+  return (
+    <section className="py-24 bg-white">
+      <div className="container max-w-6xl mx-auto px-4">
+        <div className={`text-center mb-16 ${isArabic ? 'text-right' : ''}`}>
+          <p className="text-gold-900 font-semibold tracking-[0.5em] uppercase text-xs mb-3">
+            {language === 'ar' ? 'التزامنا الاجتماعي' : 'Our Commitment'}
+          </p>
+          <h2 className="text-4xl md:text-5xl font-black text-primary mb-6">
+            {language === 'ar' ? 'مسؤوليتنا المجتمعية' : 'Corporate Social Responsibility'}
+          </h2>
+          <p className="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
+            {language === 'ar'
+              ? 'نؤمن بأن النجاح الحقيقي يأتي من خلال العطاء والمساهمة الفعلية في تنمية المجتمعات المحلية والحفاظ على البيئة'
+              : 'We believe true success comes through genuine contribution to local community development and environmental preservation'}
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {csrInitiatives.map((initiative, index) => (
+            <div
+              key={index}
+              className="group p-8 bg-gradient-to-br from-slate-50 to-slate-100 rounded-2xl border border-slate-200 hover:border-gold-900 hover:shadow-xl transition-all duration-300"
+            >
+              <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                {initiative.iconAr}
+              </div>
+              <h3 className={`text-xl font-bold text-primary mb-3 ${isArabic ? 'text-right' : ''}`}>
+                {language === 'ar' ? initiative.titleAr : initiative.titleEn}
+              </h3>
+              <p className={`text-slate-600 leading-relaxed text-sm ${isArabic ? 'text-right' : ''}`}>
+                {language === 'ar' ? initiative.descriptionAr : initiative.descriptionEn}
+              </p>
+              <div className={`mt-4 h-1 w-12 bg-gold-900 rounded-full group-hover:w-full transition-all duration-300 ${isArabic ? 'ml-auto' : ''}`}></div>
+            </div>
+          ))}
+        </div>
+
+        <div className={`mt-16 p-8 bg-gradient-to-r from-primary to-primary/80 rounded-2xl text-white ${isArabic ? 'text-right' : ''}`}>
+          <h3 className="text-2xl font-bold mb-4">
+            {language === 'ar' ? 'التزامنا البيئي' : 'Our Environmental Commitment'}
+          </h3>
+          <p className="text-white/90 leading-relaxed">
+            {language === 'ar'
+              ? 'نقوم بحملات إصحاح بيئي شاملة في جميع المناطق التي عملنا بها، إيماناً منا بدور البيئة المهم في تنمية المجتمعات والمحافظة على الصحة العامة في المناطق المستضيفة لمجالات التعدين من الاستكشاف وحتى مصانع معالجة الذهب.'
+              : 'We conduct comprehensive environmental sanitation campaigns in all areas where we operate, believing in the crucial role of environmental protection in community development and public health, from exploration activities to gold processing plants.'}
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const PartnersSlider = ({ language, isArabic }: { language: 'ar' | 'en'; isArabic: boolean }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 

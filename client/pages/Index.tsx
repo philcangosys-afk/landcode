@@ -1,4 +1,7 @@
 import { Link } from 'react-router-dom';
+import { useState, type CSSProperties } from 'react';
+import { Link } from 'react-router-dom';
+
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const heroStats = [

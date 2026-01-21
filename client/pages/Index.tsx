@@ -482,9 +482,15 @@ const OrbitNode = ({ node, language, isArabic, activeNode, setActiveNode, arrowI
       onMouseEnter={() => setActiveNode(node.id)}
       onMouseLeave={() => setActiveNode(null)}
     >
-      {node.id === 'exploration' || node.id === 'geology' ? (
+      {node.id === 'exploration' || node.id === 'geology' || node.id === 'processing' ? (
         <Link
-          to={node.id === 'exploration' ? '/exploration' : '/geology'}
+          to={
+            node.id === 'exploration'
+              ? '/exploration'
+              : node.id === 'geology'
+                ? '/geology'
+                : '/processing'
+          }
           className={`orbit-node-button group relative w-36 h-36 rounded-full border border-white/35 overflow-hidden shadow-[0_20px_50px_rgba(10,25,49,0.35)] transition-all duration-500 backdrop-blur inline-flex items-center justify-center ${
             isActive ? 'border-gold-900 ring-2 ring-gold-900/70 scale-105' : 'bg-white/5'
           }`}

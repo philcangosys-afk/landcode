@@ -195,7 +195,8 @@ const Projects = () => {
   );
 };
 
-const ProjectDetail = ({ project, index, isArabic }: any) => {
+const ProjectDetail = ({ project, index, isArabic, language }: any) => {
+  const content = project[language as keyof typeof project];
   return (
     <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all">
       <div
@@ -205,7 +206,7 @@ const ProjectDetail = ({ project, index, isArabic }: any) => {
         <div>
           <img
             src={project.image}
-            alt={project.name}
+            alt={content.name}
             className="w-full h-96 object-cover"
           />
         </div>
@@ -215,18 +216,18 @@ const ProjectDetail = ({ project, index, isArabic }: any) => {
           className={`p-8 flex flex-col justify-center ${isArabic ? "text-right" : ""}`}
         >
           <h3 className="text-3xl font-bold text-primary mb-2">
-            {project.name}
+            {content.name}
           </h3>
-          <p className="text-gold-900 font-semibold mb-4">{project.location}</p>
+          <p className="text-gold-900 font-semibold mb-4">{content.location}</p>
           <p className="text-gray-700 text-lg leading-relaxed mb-6">
-            {project.description}
+            {content.description}
           </p>
 
           {/* Details List */}
           <div className="space-y-2">
-            <p className="font-semibold text-primary mb-3">المميزات:</p>
+            <p className="font-semibold text-primary mb-3">{isArabic ? "المميزات:" : "Features:"}</p>
             <ul className={`space-y-2 ${isArabic ? "text-right" : ""}`}>
-              {project.details.map((detail: string, idx: number) => (
+              {content.details.map((detail: string, idx: number) => (
                 <li key={idx} className="flex items-center gap-2">
                   {isArabic ? (
                     <>

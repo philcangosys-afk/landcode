@@ -277,6 +277,8 @@ const ServicesShowcase = ({ language, isArabic }: { language: 'ar' | 'en'; isAra
     };
   });
 
+  const activeServiceNode = serviceNodes.find((node) => node.id === activeNode) ?? serviceNodes[0];
+
   const hubVideo = 'https://cdn.coverr.co/videos/coverr-pouring-molten-metal-6005/1080p.mp4';
   const arrowIcon = isArabic ? '←' : '→';
 

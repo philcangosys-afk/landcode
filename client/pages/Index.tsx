@@ -264,7 +264,7 @@ const AboutPreview = ({ isArabic }: { isArabic: boolean }) => (
 );
 
 const ServicesShowcase = ({ language, isArabic }: { language: 'ar' | 'en'; isArabic: boolean }) => {
-  const [activeNode, setActiveNode] = useState<string | null>(null);
+  const [activeNode, setActiveNode] = useState<string | null>(serviceNodesConfig[0]?.id ?? null);
 
   const serviceNodes = serviceNodesConfig.map((node) => {
     const mirroredX = isArabic ? 100 - node.coords.x : node.coords.x;

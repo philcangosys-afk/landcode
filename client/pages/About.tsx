@@ -31,8 +31,7 @@ const About = () => {
   );
 };
 
-const CompanyHistory = ({ isArabic }: any) => {
-  const { t } = useLanguage();
+const CompanyHistory = ({ isArabic, t }: any) => {
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 

@@ -449,6 +449,87 @@ const ServicesShowcase = ({ language, isArabic }: { language: 'ar' | 'en'; isAra
   );
 };
 
+ type DerivedOrbitNode = OrbitNodeConfig & {
+  coords: { x: number; y: number };
+  infoPosition: CSSProperties;
+  service: (typeof servicesData)[number];
+};
+
+type OrbitNodeProps = {
+  node: DerivedOrbitNode;
+  language: 'ar' | 'en';
+  isArabic: boolean;
+  activeNode: string | null;
+  setActiveNode: Dispatch<SetStateAction<string | null>>;
+  arrowIcon: string;
+};
+
+const OrbitNode = ({ node, language, isArabic, activeNode, setActiveNode, arrowIcon }: OrbitNodeProps) => {
+  const title = language === 'ar' ? node.service.titleAr : node.service.titleEn;
+  const description = language === 'ar' ? node.service.descriptionAr : node.service.descriptionEn;
+  const tag = language === 'ar' ? node.service.tagAr : node.service.tagEn;
+  const isActive = activeNode === node.id;
+
+  const handleToggle = () => {
+    setActiveNode((prev) => (prev === node.id ? null : node.id));
+  };
+
+  return (
+    <div
+      className="absolute"
+      style={{
+        top: `${node.coords.y}%`,
+        left: `${node.coords.x}%`,
+        transform: 'translate(-50%, -50%)',
+      }}
+      onMouseEnter={() => setActiveNode(node.id)}
+      onMouseLeave={() => setActiveNode(null)}
+    >
+      <button
+        type="button"
+        className={`orbit-node-button group relative w-36 h-36 rounded-full border border-white/35 overflow-hidden shadow-[0_20px_50px_rgba(10,25,49,0.35)] transition-all duration-500 backdrop-blur ${
+          isActive ? 'border-gold-900 ring-2 ring-gold-900/70 scale-105' : 'bg-white/5'
+        }`}
+        style={{ animationDelay: `${0.6 + node.delay}s` }}
+        onFocus={() => setActiveNode(node.id)}
+        onBlur={() => setActiveNode(null)}
+        onClick={handleToggle}
+      >
+        <img src={node.service.image} alt={title} className="absolute inset-0 w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-black/50 to-black/85 opacity-90 transition group-hover:opacity-100" />
+        <div className="relative z-10 h-full flex flex-col items-center justify-center text-center text-white px-4">
+          <span className="text-[0.55rem] uppercase tracking-[0.45em] text-white/70 mb-2">{tag}</span>
+          <p className="text-sm font-semibold leading-snug">{title}</p>
+        </div>
+      </button>
+
+      <div
+        className={`orbit-card absolute w-72 max-w-xs rounded-2xl border border-slate-100 bg-white shadow-2xl p-5 transition-all duration-500 ${
+          isArabic ? 'text-right' : ''
+        } ${
+          isActive ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-3 pointer-events-none'
+        }`}
+        style={node.infoPosition}
+      >
+        <p className="text-sm font-semibold text-gold-900 mb-2">
+          {language === 'ar' ? 'خدمة متخصصة' : 'Focused capability'}
+        </p>
+        <p className="text-primary font-bold mb-3 leading-snug">{title}</p>
+        <p className="text-slate-600 text-sm leading-relaxed mb-4">{description}</p>
+        <Link
+          to="/contact"
+          className={`inline-flex items-center gap-2 text-sm font-semibold text-gold-900 ${isArabic ? 'flex-row-reverse' : ''}`}
+          onFocus={() => setActiveNode(node.id)}
+          onBlur={() => setActiveNode(null)}
+        >
+          {language === 'ar' ? 'اعرف المزيد' : 'Learn more'}
+          <span>{arrowIcon}</span>
+        </Link>
+      </div>
+    </div>
+  );
+};
+
 const ProjectsShowcase = ({ language, isArabic }: { language: 'ar' | 'en'; isArabic: boolean }) => (
   <section className="py-24 bg-white">
     <div className="container max-w-6xl mx-auto px-4">

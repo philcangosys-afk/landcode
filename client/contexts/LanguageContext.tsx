@@ -143,13 +143,22 @@ const translations = {
     ar: "في لاندكود، نؤمن بأن الاستثمار الحقيقي في الموارد المعدنية لا يقتصر على الاستخراج، بل يتعدى ذلك إلى بناء قاعدة اقتصادية قوية وتطوير المهارات المحلية. نسعى لنكون شركاء أساسيين في تحقيق أهداف التنمية الوطنية من خلال الالتزام بأعلى معايير الجودة والسلامة والاستدامة البيئية.",
     en: "At Land Code, we believe that true investment in mineral resources extends beyond extraction to building a strong economic foundation and developing local skills. We strive to be key partners in achieving national development goals through commitment to the highest standards of quality, safety, and environmental sustainability.",
   },
-  "about.management": { ar: "الهيكل الاداري والفني", en: "Administrative & Technical Structure" },
-  "about.partnerships": { ar: "Partnerships & Management Team", en: "Partnerships & Management Team" },
+  "about.management": {
+    ar: "الهيكل الاداري والفني",
+    en: "Administrative & Technical Structure",
+  },
+  "about.partnerships": {
+    ar: "Partnerships & Management Team",
+    en: "Partnerships & Management Team",
+  },
 
   // Services Page
   "services.title": { ar: "خدماتنا", en: "Services" },
   "services.learnMore": { ar: "اعرف المزيد", en: "Learn More" },
-  "services.exploration": { ar: "التنقيب والاستكشاف", en: "Exploration & Discovery" },
+  "services.exploration": {
+    ar: "التنقيب والاستكشاف",
+    en: "Exploration & Discovery",
+  },
   "services.geology": { ar: "الدراسات الجيولوجية", en: "Geological Studies" },
   "services.processing": { ar: "معالجة الخامات", en: "Ore Processing" },
 
@@ -170,13 +179,22 @@ const translations = {
   "contact.form.name": { ar: "الاسم الكامل", en: "Full Name" },
   "contact.form.namePlaceholder": { ar: "أدخل اسمك", en: "Enter your name" },
   "contact.form.email": { ar: "البريد الإلكتروني", en: "Email" },
-  "contact.form.emailPlaceholder": { ar: "your@email.com", en: "your@email.com" },
+  "contact.form.emailPlaceholder": {
+    ar: "your@email.com",
+    en: "your@email.com",
+  },
   "contact.form.phone": { ar: "رقم الهاتف", en: "Phone Number" },
   "contact.form.phonePlaceholder": { ar: "+249 ...", en: "+249 ..." },
   "contact.form.message": { ar: "الرسالة", en: "Message" },
-  "contact.form.messagePlaceholder": { ar: "اكتب رسالتك هنا", en: "Write your message here" },
+  "contact.form.messagePlaceholder": {
+    ar: "اكتب رسالتك هنا",
+    en: "Write your message here",
+  },
   "contact.form.submit": { ar: "إرسال الرسالة", en: "Send Message" },
-  "contact.form.success": { ar: "تم إرسال رسالتك بنجاح", en: "Your message has been sent successfully" },
+  "contact.form.success": {
+    ar: "تم إرسال رسالتك بنجاح",
+    en: "Your message has been sent successfully",
+  },
   "contact.location": { ar: "العنوان", en: "Location" },
   "contact.working.hours": { ar: "ساعات العمل", en: "Working Hours" },
   "contact.phone.number": { ar: "رقم الهاتف", en: "Phone Number" },
@@ -186,7 +204,10 @@ const translations = {
   },
 
   // CSR Section
-  "csr.title": { ar: "مسؤوليتنا المجتمعية", en: "Corporate Social Responsibility" },
+  "csr.title": {
+    ar: "مسؤوليتنا المجتمعية",
+    en: "Corporate Social Responsibility",
+  },
   "csr.subtitle": { ar: "التزامنا الاجتماعي", en: "Our Commitment" },
   "csr.description": {
     ar: "نؤمن بأن النجاح الحقيقي يأتي من خلال العطاء والمساهمة الفعلية في تنمية المجتمعات المحلية والحفاظ على البيئة",
@@ -194,13 +215,22 @@ const translations = {
   },
   "csr.focusAreas": { ar: "مجالات تركيزنا", en: "Our Focus Areas" },
   "csr.foodSupport": { ar: "الدعم الغذائي", en: "Food Support" },
-  "csr.infrastructure": { ar: "تطوير البنية التحتية", en: "Infrastructure Development" },
+  "csr.infrastructure": {
+    ar: "تطوير البنية التحتية",
+    en: "Infrastructure Development",
+  },
   "csr.community": { ar: "دعم المجتمع المحلي", en: "Community Support" },
   "csr.environment": { ar: "الإصحاح البيئي", en: "Environmental Sanitation" },
-  "csr.commitment": { ar: "التزام بيئي شامل", en: "Comprehensive Environmental Commitment" },
+  "csr.commitment": {
+    ar: "التزام بيئي شامل",
+    en: "Comprehensive Environmental Commitment",
+  },
 
   // Partners Section
-  "partners.title": { ar: "شركائنا الاستراتيجيون", en: "Our Strategic Partners" },
+  "partners.title": {
+    ar: "شركائنا الاستراتيجيون",
+    en: "Our Strategic Partners",
+  },
   "partners.description": {
     ar: "نتعاون مع أفضل الشركات والمؤسسات الرائدة في قطاع التعدين والاستثمار",
     en: "We collaborate with leading companies and institutions in mining and investment",

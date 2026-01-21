@@ -53,7 +53,11 @@ const Contact = () => {
         <div className="container max-w-6xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             {/* Address */}
-            <ContactCard isArabic={isArabic} icon="📍" title={t("contact.location")}>
+            <ContactCard
+              isArabic={isArabic}
+              icon="📍"
+              title={t("contact.location")}
+            >
               <p>{isArabic ? "السودان - الخرطوم" : "Sudan - Khartoum"}</p>
               <p>{isArabic ? "حي الطائف - مربع 23" : "Al-Taif - Block 23"}</p>
             </ContactCard>
@@ -73,7 +77,11 @@ const Contact = () => {
             </ContactCard>
 
             {/* Phone */}
-            <ContactCard isArabic={isArabic} icon="📞" title={t("contact.phone.number")}>
+            <ContactCard
+              isArabic={isArabic}
+              icon="📞"
+              title={t("contact.phone.number")}
+            >
               <div className="space-y-2">
                 <a
                   href="tel:+249912350743"
@@ -183,7 +191,9 @@ const Contact = () => {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    placeholder={isArabic ? "موضوع الاستفسار" : "Subject of your inquiry"}
+                    placeholder={
+                      isArabic ? "موضوع الاستفسار" : "Subject of your inquiry"
+                    }
                     className={`w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-gold-900 ${isArabic ? "text-right" : ""}`}
                   />
                 </div>
@@ -201,7 +211,11 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     rows={6}
-                    placeholder={isArabic ? "اكتب رسالتك هنا..." : "Write your message here..."}
+                    placeholder={
+                      isArabic
+                        ? "اكتب رسالتك هنا..."
+                        : "Write your message here..."
+                    }
                     className={`w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-gold-900 resize-none ${isArabic ? "text-right" : ""}`}
                   />
                 </div>

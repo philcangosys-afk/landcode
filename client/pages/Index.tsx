@@ -1,41 +1,55 @@
-import { useState, type CSSProperties, type Dispatch, type SetStateAction } from 'react';
-import { Link } from 'react-router-dom';
+import {
+  useState,
+  type CSSProperties,
+  type Dispatch,
+  type SetStateAction,
+} from "react";
+import { Link } from "react-router-dom";
 
-import { useLanguage } from '@/contexts/LanguageContext';
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const heroStats = [
-  { labelAr: 'سنوات الخبرة', labelEn: 'Years of excellence', value: '+15' },
-  { labelAr: 'مشاريع كبرى', labelEn: 'Flagship projects', value: '28' },
-  { labelAr: 'شركاء استراتيجيون', labelEn: 'Strategic partners', value: '12' },
+  { labelAr: "سنوات الخبرة", labelEn: "Years of excellence", value: "+15" },
+  { labelAr: "مشاريع كبرى", labelEn: "Flagship projects", value: "28" },
+  { labelAr: "شركاء استراتيجيون", labelEn: "Strategic partners", value: "12" },
 ];
 
 const servicesData = [
   {
-    tagAr: 'المعادن النفيسة',
-    tagEn: 'Precious metals',
-    titleAr: 'التنقيب عن الذهب والمعادن',
-    titleEn: 'Gold & precious metals exploration',
-    descriptionAr: 'دراسات استكشاف شاملة واستخدام أحدث تقنيات الاستشعار والمسوحات الجيولوجية.',
-    descriptionEn: 'Comprehensive exploration programs powered by cutting-edge sensing and geological surveys.',
-    image: 'https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2Feb869ae859b84613983676bb2ddf5cd5?format=webp&width=1400',
+    tagAr: "المعادن النفيسة",
+    tagEn: "Precious metals",
+    titleAr: "التنقيب عن الذهب والمعادن",
+    titleEn: "Gold & precious metals exploration",
+    descriptionAr:
+      "دراسات استكشاف شاملة واستخدام أحدث تقنيات الاستشعار والمسوحات الجيولوجية.",
+    descriptionEn:
+      "Comprehensive exploration programs powered by cutting-edge sensing and geological surveys.",
+    image:
+      "https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2Feb869ae859b84613983676bb2ddf5cd5?format=webp&width=1400",
   },
   {
-    tagAr: 'دراسات الجدوى',
-    tagEn: 'Feasibility',
-    titleAr: 'الدراسات الجيولوجية وتقييم المواقع',
-    titleEn: 'Geological studies & site evaluation',
-    descriptionAr: 'تحليل جيولوجي متكامل، تقييم المخاطر، وتحويل البيانات إلى رؤى استثمارية دقيقة.',
-    descriptionEn: 'Integrated geological analysis, risk evaluation, and investor-ready insights.',
-    image: 'https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2Fcefe0a98350d48a7b7568e75e402b654?format=webp&width=1200',
+    tagAr: "دراسات الجدوى",
+    tagEn: "Feasibility",
+    titleAr: "الدراسات الجيولوجية وتقييم المواقع",
+    titleEn: "Geological studies & site evaluation",
+    descriptionAr:
+      "تحليل جيولوجي متكامل، تقييم المخاطر، وتحويل البيانات إلى رؤى استثمارية دقيقة.",
+    descriptionEn:
+      "Integrated geological analysis, risk evaluation, and investor-ready insights.",
+    image:
+      "https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2Fcefe0a98350d48a7b7568e75e402b654?format=webp&width=1200",
   },
   {
-    tagAr: 'المعالجة الصناعية',
-    tagEn: 'Processing',
-    titleAr: 'تصميم وإنشاء مصانع معالجة الخامات',
-    titleEn: 'Ore processing plant design & build',
-    descriptionAr: 'حلول هندسية متكاملة من التصميم المفهومي إلى التشغيل الكامل للمصانع.',
-    descriptionEn: 'Integrated engineering covering concept design through commissioning of plants.',
-    image: 'https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2F90a802257a034486bf85e75e0a7e9151?format=webp&width=1400',
+    tagAr: "المعالجة الصناعية",
+    tagEn: "Processing",
+    titleAr: "تصميم وإنشاء مصانع معالجة الخامات",
+    titleEn: "Ore processing plant design & build",
+    descriptionAr:
+      "حلول هندسية متكاملة من التصميم المفهومي إلى التشغيل الكامل للمصانع.",
+    descriptionEn:
+      "Integrated engineering covering concept design through commissioning of plants.",
+    image:
+      "https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2F90a802257a034486bf85e75e0a7e9151?format=webp&width=1400",
   },
 ];
 
@@ -50,45 +64,45 @@ type OrbitNodeConfig = {
 
 const serviceNodesConfig: OrbitNodeConfig[] = [
   {
-    id: 'exploration',
+    id: "exploration",
     serviceIndex: 0,
     coords: { x: 50, y: 18 },
     infoPosition: {
-      top: 'calc(100% + 1.25rem)',
-      left: '50%',
-      transform: 'translate(-50%, 0)',
+      top: "calc(100% + 1.25rem)",
+      left: "50%",
+      transform: "translate(-50%, 0)",
     },
     delay: 0.1,
   },
   {
-    id: 'geology',
+    id: "geology",
     serviceIndex: 1,
     coords: { x: 75, y: 78 },
     infoPosition: {
-      left: 'calc(100% + 1.25rem)',
-      top: '50%',
-      transform: 'translateY(-50%)',
+      left: "calc(100% + 1.25rem)",
+      top: "50%",
+      transform: "translateY(-50%)",
     },
     infoPositionRtl: {
-      right: 'calc(100% + 1.25rem)',
-      top: '50%',
-      transform: 'translateY(-50%)',
+      right: "calc(100% + 1.25rem)",
+      top: "50%",
+      transform: "translateY(-50%)",
     },
     delay: 0.2,
   },
   {
-    id: 'processing',
+    id: "processing",
     serviceIndex: 2,
     coords: { x: 25, y: 78 },
     infoPosition: {
-      right: 'calc(100% + 1.25rem)',
-      top: '50%',
-      transform: 'translateY(-50%)',
+      right: "calc(100% + 1.25rem)",
+      top: "50%",
+      transform: "translateY(-50%)",
     },
     infoPositionRtl: {
-      left: 'calc(100% + 1.25rem)',
-      top: '50%',
-      transform: 'translateY(-50%)',
+      left: "calc(100% + 1.25rem)",
+      top: "50%",
+      transform: "translateY(-50%)",
     },
     delay: 0.3,
   },
@@ -96,26 +110,30 @@ const serviceNodesConfig: OrbitNodeConfig[] = [
 
 const projects = [
   {
-    nameAr: 'مشروع همش ربّاب - ولاية البحر الأحمر',
-    nameEn: 'Hamash Rubab – Red Sea State',
-    descriptionAr: 'برنامج استكشاف جيولوجي متكامل لتطوير مناجم سطحية وبناء سلسلة إمداد لمصانع الذهب.',
-    descriptionEn: 'Integrated exploration and pit development with a dedicated supply chain to gold plants.',
+    nameAr: "مشروع همش ربّاب - ولاية البحر الأحمر",
+    nameEn: "Hamash Rubab – Red Sea State",
+    descriptionAr:
+      "برنامج استكشاف جيولوجي متكامل لتطوير مناجم سطحية وبناء سلسلة إمداد لمصانع الذهب.",
+    descriptionEn:
+      "Integrated exploration and pit development with a dedicated supply chain to gold plants.",
     image:
-      'https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2F486c06ee0357413fb5972319d30e3456?format=webp&width=1200',
+      "https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2F486c06ee0357413fb5972319d30e3456?format=webp&width=1200",
   },
   {
-    nameAr: 'مشروع وادي حلفا - شمال السودان',
-    nameEn: 'Wadi Halfa – Northern Sudan',
-    descriptionAr: 'تحديد مناطق معدنية واعدة عبر دراسات استكشاف عميقة وتقنيات استشعار عن بعد.',
-    descriptionEn: 'Identifying promising mineral corridors with deep exploration and remote sensing.',
+    nameAr: "مشروع وادي حلفا - شمال السودان",
+    nameEn: "Wadi Halfa – Northern Sudan",
+    descriptionAr:
+      "تحديد مناطق معدنية واعدة عبر دراسات استكشاف عميقة وتقنيات استشعار عن بعد.",
+    descriptionEn:
+      "Identifying promising mineral corridors with deep exploration and remote sensing.",
     image:
-      'https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2F54887cbbad2748d2835293e88a3cdae1?format=webp&width=1200',
+      "https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2F54887cbbad2748d2835293e88a3cdae1?format=webp&width=1200",
   },
 ];
 
 const Index = () => {
   const { language, t } = useLanguage();
-  const isArabic = language === 'ar';
+  const isArabic = language === "ar";
 
   return (
     <div className="bg-white">
@@ -130,7 +148,13 @@ const Index = () => {
   );
 };
 
-const Hero = ({ language, isArabic }: { language: 'ar' | 'en'; isArabic: boolean }) => (
+const Hero = ({
+  language,
+  isArabic,
+}: {
+  language: "ar" | "en";
+  isArabic: boolean;
+}) => (
   <section className="relative overflow-hidden">
     <div className="absolute inset-0">
       <img
@@ -142,50 +166,61 @@ const Hero = ({ language, isArabic }: { language: 'ar' | 'en'; isArabic: boolean
     </div>
 
     <div className="relative container max-w-6xl mx-auto px-4 py-24 lg:py-32 text-white">
-      <div className={`grid gap-12 lg:grid-cols-[1.3fr,0.7fr] items-center ${isArabic ? 'text-right' : ''}`}>
+      <div
+        className={`grid gap-12 lg:grid-cols-[1.3fr,0.7fr] items-center ${isArabic ? "text-right" : ""}`}
+      >
         <div>
           <p className="uppercase tracking-[0.4em] text-gold-900 text-xs mb-4">
-            {language === 'ar' ? 'شركة تعدين واستثمار' : 'Mining & Investment Firm'}
+            {language === "ar"
+              ? "شركة تعدين واستثمار"
+              : "Mining & Investment Firm"}
           </p>
           <h1 className="text-4xl md:text-6xl font-black leading-[1.4] mb-6">
-            {language === 'ar'
-              ? 'نستخرج الفرص ونبني المستقبل في قطاع التعدين السوداني'
-              : 'We extract opportunities and build the future of Sudanese mining'}
+            {language === "ar"
+              ? "نستخرج الفرص ونبني المستقبل في قطاع التعدين السوداني"
+              : "We extract opportunities and build the future of Sudanese mining"}
           </h1>
           <p className="text-lg text-white/80 leading-relaxed mb-8">
-            {language === 'ar'
-              ? 'لاندكود للاستثمار المحدودة تقود مشاريع الاستكشاف، الدراسات الجيولوجية، وتصميم المصانع بمعايير عالمية وخبرات محلية عميقة.'
-              : 'Land Code Investment Ltd. leads exploration programmes, geological studies, and plant design with world-class standards and deep local expertise.'}
+            {language === "ar"
+              ? "لاندكود للاستثمار المحدودة تقود مشاريع الاستكشاف، الدراسات الجيولوجية، وتصميم المصانع بمعايير عالمية وخبرات محلية عميقة."
+              : "Land Code Investment Ltd. leads exploration programmes, geological studies, and plant design with world-class standards and deep local expertise."}
           </p>
 
-          <div className={`flex flex-wrap items-center gap-4 ${isArabic ? 'justify-end' : ''}`}>
+          <div
+            className={`flex flex-wrap items-center gap-4 ${isArabic ? "justify-end" : ""}`}
+          >
             <Link
               to="/contact"
               className="inline-flex items-center gap-2 rounded-full bg-gold-900 px-8 py-3 text-primary font-semibold text-base shadow-xl shadow-black/20 hover:bg-gold-900/90"
             >
-              {language === 'ar' ? 'احجز استشارة' : 'Book a consultation'}
+              {language === "ar" ? "احجز استشارة" : "Book a consultation"}
             </Link>
             <Link
               to="/projects"
               className="inline-flex items-center gap-2 rounded-full border border-white/40 px-6 py-3 font-semibold text-white/90 hover:bg-white/10"
             >
-              {language === 'ar' ? 'استعرض مشاريعنا' : 'Explore our projects'}
+              {language === "ar" ? "استعرض مشاريعنا" : "Explore our projects"}
             </Link>
           </div>
         </div>
 
         <div className="bg-white/10 backdrop-blur xl:px-8 xl:py-10 px-6 py-8 rounded-3xl border border-white/30 shadow-2xl">
           <p className="text-sm text-white/70 mb-6">
-            {language === 'ar'
-              ? 'حلول متكاملة تغطي الدورة الكاملة لمشاريع التعدين، من الدراسات الأولية إلى إدارة المصانع.'
-              : 'End-to-end mining solutions from preliminary studies to plant operations.'}
+            {language === "ar"
+              ? "حلول متكاملة تغطي الدورة الكاملة لمشاريع التعدين، من الدراسات الأولية إلى إدارة المصانع."
+              : "End-to-end mining solutions from preliminary studies to plant operations."}
           </p>
           <div className="flex flex-col gap-6">
             {heroStats.map((stat) => (
-              <div key={stat.value} className="border-b border-white/15 pb-5 last:border-none last:pb-0">
-                <p className="text-4xl font-black text-gold-900">{stat.value}</p>
+              <div
+                key={stat.value}
+                className="border-b border-white/15 pb-5 last:border-none last:pb-0"
+              >
+                <p className="text-4xl font-black text-gold-900">
+                  {stat.value}
+                </p>
                 <p className="text-white/80 text-sm uppercase tracking-[0.3em]">
-                  {language === 'ar' ? stat.labelAr : stat.labelEn}
+                  {language === "ar" ? stat.labelAr : stat.labelEn}
                 </p>
               </div>
             ))}
@@ -209,7 +244,9 @@ const Hero = ({ language, isArabic }: { language: 'ar' | 'en'; isArabic: boolean
 const AboutPreview = ({ isArabic }: { isArabic: boolean }) => (
   <section className="py-24 bg-white">
     <div className="container max-w-6xl mx-auto px-4">
-      <div className={`grid lg:grid-cols-2 gap-12 items-center ${isArabic ? 'text-right' : ''}`}>
+      <div
+        className={`grid lg:grid-cols-2 gap-12 items-center ${isArabic ? "text-right" : ""}`}
+      >
         <div className="flex flex-col">
           <div className="relative">
             <img
@@ -222,36 +259,36 @@ const AboutPreview = ({ isArabic }: { isArabic: boolean }) => (
             <p className="text-sm text-slate-500 mb-1">2020 → الآن</p>
             <p className="text-lg font-semibold text-primary">
               {isArabic
-                ? 'خبرة سودانية بجودة عالمية في التنقيب والخدمات الفنية'
-                : 'Sudanese expertise with global standards in exploration & engineering'}
+                ? "خبرة سودانية بجودة عالمية في التنقيب والخدمات الفنية"
+                : "Sudanese expertise with global standards in exploration & engineering"}
             </p>
           </div>
         </div>
         <div>
           <p className="text-gold-900 font-semibold mb-3">
-            {isArabic ? 'نبذة عن الشركة' : 'Company Profile'}
+            {isArabic ? "نبذة عن الشركة" : "Company Profile"}
           </p>
           <h2 className="text-4xl font-black text-primary mb-6 leading-snug">
             {isArabic
-              ? 'شركة لاندكود للاستثمار المحدودة منذ عام 2020'
-              : 'Land Code Investment Ltd. since 2020'}
+              ? "شركة لاندكود للاستثمار المحدودة منذ عام 2020"
+              : "Land Code Investment Ltd. since 2020"}
           </h2>
           <p className="text-lg text-slate-600 leading-relaxed mb-6">
             {isArabic
-              ? 'نقدم خدمات استكشاف، دراسات جيولوجية، وتطوير مصانع المعالجة وفق أعلى معايير الجودة والحوكمة.'
-              : 'We deliver exploration, geological studies, and processing plant development governed by international quality systems.'}
+              ? "نقدم خدمات استكشاف، دراسات جيولوجية، وتطوير مصانع المعالجة وفق أعلى معايير الجودة والحوكمة."
+              : "We deliver exploration, geological studies, and processing plant development governed by international quality systems."}
           </p>
           <ul className="space-y-4 text-slate-600">
             {[
               isArabic
-                ? 'شراكات استراتيجية مع شركات تقنية وخبراء جيولوجيين'
-                : 'Strategic collaborations with technology firms and geologists',
+                ? "شراكات استراتيجية مع شركات تقنية وخبراء جيولوجيين"
+                : "Strategic collaborations with technology firms and geologists",
               isArabic
-                ? 'التزام كامل بمعايير السلامة والاستدامة البيئية'
-                : 'Full compliance with safety and environmental stewardship',
+                ? "التزام كامل بمعايير السلامة والاستدامة البيئية"
+                : "Full compliance with safety and environmental stewardship",
               isArabic
-                ? 'فرق متعددة التخصصات تغطي التخطيط، التشغيل، والدعم الاستشاري'
-                : 'Multidisciplinary teams covering planning, execution, and advisory support',
+                ? "فرق متعددة التخصصات تغطي التخطيط، التشغيل، والدعم الاستشاري"
+                : "Multidisciplinary teams covering planning, execution, and advisory support",
             ].map((item) => (
               <li key={item} className="flex items-start gap-3">
                 <span className="mt-1 w-3 h-3 rounded-full bg-gold-900"></span>
@@ -265,8 +302,16 @@ const AboutPreview = ({ isArabic }: { isArabic: boolean }) => (
   </section>
 );
 
-const ServicesShowcase = ({ language, isArabic }: { language: 'ar' | 'en'; isArabic: boolean }) => {
-  const [activeNode, setActiveNode] = useState<string | null>(serviceNodesConfig[0]?.id ?? null);
+const ServicesShowcase = ({
+  language,
+  isArabic,
+}: {
+  language: "ar" | "en";
+  isArabic: boolean;
+}) => {
+  const [activeNode, setActiveNode] = useState<string | null>(
+    serviceNodesConfig[0]?.id ?? null,
+  );
 
   const serviceNodes = serviceNodesConfig.map((node) => {
     const mirroredX = isArabic ? 100 - node.coords.x : node.coords.x;
@@ -274,30 +319,41 @@ const ServicesShowcase = ({ language, isArabic }: { language: 'ar' | 'en'; isAra
     return {
       ...node,
       coords: { x: mirroredX, y: node.coords.y },
-      infoPosition: isArabic && node.infoPositionRtl ? node.infoPositionRtl : node.infoPosition,
+      infoPosition:
+        isArabic && node.infoPositionRtl
+          ? node.infoPositionRtl
+          : node.infoPosition,
       service: servicesData[node.serviceIndex],
     };
   });
 
-  const activeServiceNode = serviceNodes.find((node) => node.id === activeNode) ?? serviceNodes[0];
+  const activeServiceNode =
+    serviceNodes.find((node) => node.id === activeNode) ?? serviceNodes[0];
 
-  const hubVideo = 'https://cdn.coverr.co/videos/coverr-pouring-molten-metal-6005/1080p.mp4';
-  const arrowIcon = isArabic ? '←' : '→';
+  const hubVideo =
+    "https://cdn.coverr.co/videos/coverr-pouring-molten-metal-6005/1080p.mp4";
+  const arrowIcon = isArabic ? "←" : "→";
 
   return (
     <section className="py-28 bg-slate-50">
       <div className="container max-w-6xl mx-auto px-4">
         <div className="text-center mb-16">
           <p className="text-gold-900 font-semibold tracking-[0.5em] uppercase text-xs mb-3">
-            {language === 'ar' ? 'حلول متكاملة' : 'Integrated solutions'}
+            {language === "ar" ? "حلول متكاملة" : "Integrated solutions"}
           </p>
           <h2 className="text-4xl md:text-5xl font-black text-primary">
-            {language === 'ar' ? 'مجالات عملنا المتخصصة' : 'Our specialised practice areas'}
+            {language === "ar"
+              ? "مجالات عملنا المتخصصة"
+              : "Our specialised practice areas"}
           </h2>
         </div>
 
         <div className="relative mx-auto w-full max-w-[520px] min-h-[520px] sm:max-w-[640px] sm:min-h-[600px] lg:max-w-5xl lg:min-h-[640px]">
-          <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-0 w-full h-full pointer-events-none">
+          <svg
+            viewBox="0 0 100 100"
+            preserveAspectRatio="none"
+            className="absolute inset-0 w-full h-full pointer-events-none"
+          >
             {serviceNodes.map((node) => (
               <line
                 key={`${node.id}-line`}
@@ -305,7 +361,7 @@ const ServicesShowcase = ({ language, isArabic }: { language: 'ar' | 'en'; isAra
                 y1="50"
                 x2={node.coords.x}
                 y2={node.coords.y}
-                className={`spoke-line ${activeNode === node.id ? 'spoke-line-active' : ''}`}
+                className={`spoke-line ${activeNode === node.id ? "spoke-line-active" : ""}`}
                 style={{ animationDelay: `${0.4 + node.delay}s` }}
               />
             ))}
@@ -315,14 +371,23 @@ const ServicesShowcase = ({ language, isArabic }: { language: 'ar' | 'en'; isAra
             <div className="services-hub-wrapper relative">
               <div className="services-hub-glow" />
               <div className="services-hub relative w-[360px] h-[360px] rounded-full overflow-hidden border border-white/30 shadow-[0_30px_90px_rgba(10,25,49,0.35)] bg-primary">
-                <video className="absolute inset-0 w-full h-full object-cover opacity-90" src={hubVideo} autoPlay loop muted playsInline />
+                <video
+                  className="absolute inset-0 w-full h-full object-cover opacity-90"
+                  src={hubVideo}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                />
                 <div className="absolute inset-0 bg-gradient-to-b from-primary/50 via-primary/70 to-black/40" />
                 <div className="relative z-10 h-full flex flex-col items-center justify-center text-center text-white px-8">
                   <span className="text-[4.5rem] font-black tracking-[0.3em] text-gold-900 drop-shadow-[0_0_25px_rgba(0,0,0,0.6)]">
                     LC
                   </span>
                   <p className="mt-4 text-sm uppercase tracking-[0.6em] text-white/70">
-                    {language === 'ar' ? 'حلول تعدين متكاملة' : 'Integrated mining solutions'}
+                    {language === "ar"
+                      ? "حلول تعدين متكاملة"
+                      : "Integrated mining solutions"}
                   </p>
                 </div>
               </div>
@@ -343,21 +408,29 @@ const ServicesShowcase = ({ language, isArabic }: { language: 'ar' | 'en'; isAra
         </div>
 
         {activeServiceNode && (
-          <div className={`mt-12 lg:hidden bg-white rounded-3xl border border-slate-100 shadow-xl p-6 transition ${isArabic ? 'text-right' : ''}`}>
+          <div
+            className={`mt-12 lg:hidden bg-white rounded-3xl border border-slate-100 shadow-xl p-6 transition ${isArabic ? "text-right" : ""}`}
+          >
             <p className="text-xs uppercase tracking-[0.4em] text-gold-900/80 mb-2">
-              {language === 'ar' ? activeServiceNode.service.tagAr : activeServiceNode.service.tagEn}
+              {language === "ar"
+                ? activeServiceNode.service.tagAr
+                : activeServiceNode.service.tagEn}
             </p>
             <h3 className="text-2xl font-bold text-primary mb-3">
-              {language === 'ar' ? activeServiceNode.service.titleAr : activeServiceNode.service.titleEn}
+              {language === "ar"
+                ? activeServiceNode.service.titleAr
+                : activeServiceNode.service.titleEn}
             </h3>
             <p className="text-slate-600 leading-relaxed mb-4">
-              {language === 'ar' ? activeServiceNode.service.descriptionAr : activeServiceNode.service.descriptionEn}
+              {language === "ar"
+                ? activeServiceNode.service.descriptionAr
+                : activeServiceNode.service.descriptionEn}
             </p>
             <Link
               to="/contact"
-              className={`inline-flex items-center gap-2 text-sm font-semibold text-gold-900 ${isArabic ? 'flex-row-reverse' : ''}`}
+              className={`inline-flex items-center gap-2 text-sm font-semibold text-gold-900 ${isArabic ? "flex-row-reverse" : ""}`}
             >
-              {language === 'ar' ? 'اعرف المزيد' : 'Learn more'}
+              {language === "ar" ? "اعرف المزيد" : "Learn more"}
               <span>{arrowIcon}</span>
             </Link>
           </div>
@@ -456,17 +529,25 @@ type DerivedOrbitNode = OrbitNodeConfig & {
 
 type OrbitNodeProps = {
   node: DerivedOrbitNode;
-  language: 'ar' | 'en';
+  language: "ar" | "en";
   isArabic: boolean;
   activeNode: string | null;
   setActiveNode: Dispatch<SetStateAction<string | null>>;
   arrowIcon: string;
 };
 
-const OrbitNode = ({ node, language, isArabic, activeNode, setActiveNode, arrowIcon }: OrbitNodeProps) => {
-  const title = language === 'ar' ? node.service.titleAr : node.service.titleEn;
-  const description = language === 'ar' ? node.service.descriptionAr : node.service.descriptionEn;
-  const tag = language === 'ar' ? node.service.tagAr : node.service.tagEn;
+const OrbitNode = ({
+  node,
+  language,
+  isArabic,
+  activeNode,
+  setActiveNode,
+  arrowIcon,
+}: OrbitNodeProps) => {
+  const title = language === "ar" ? node.service.titleAr : node.service.titleEn;
+  const description =
+    language === "ar" ? node.service.descriptionAr : node.service.descriptionEn;
+  const tag = language === "ar" ? node.service.tagAr : node.service.tagEn;
   const isActive = activeNode === node.id;
 
   const handleToggle = () => {
@@ -479,40 +560,58 @@ const OrbitNode = ({ node, language, isArabic, activeNode, setActiveNode, arrowI
       style={{
         top: `${node.coords.y}%`,
         left: `${node.coords.x}%`,
-        transform: 'translate(-50%, -50%)',
+        transform: "translate(-50%, -50%)",
       }}
       onMouseEnter={() => setActiveNode(node.id)}
       onMouseLeave={() => setActiveNode(null)}
     >
-      {node.id === 'exploration' || node.id === 'geology' || node.id === 'processing' ? (
+      {node.id === "exploration" ||
+      node.id === "geology" ||
+      node.id === "processing" ? (
         <Link
           to={
-            node.id === 'exploration'
-              ? '/exploration'
-              : node.id === 'geology'
-                ? '/geology'
-                : '/processing'
+            node.id === "exploration"
+              ? "/exploration"
+              : node.id === "geology"
+                ? "/geology"
+                : "/processing"
           }
           className={`orbit-node-button group relative w-36 h-36 rounded-full border border-white/35 overflow-hidden shadow-[0_20px_50px_rgba(10,25,49,0.35)] transition-all duration-500 backdrop-blur inline-flex items-center justify-center ${
-            isActive ? 'border-gold-900 ring-2 ring-gold-900/70 scale-105' : 'bg-white/5'
+            isActive
+              ? "border-gold-900 ring-2 ring-gold-900/70 scale-105"
+              : "bg-white/5"
           }`}
           style={{ animationDelay: `${0.6 + node.delay}s` }}
           onMouseEnter={() => setActiveNode(node.id)}
           onMouseLeave={() => setActiveNode(null)}
         >
-          <img src={node.service.image} alt={title} className="absolute inset-0 w-full h-full object-cover" />
-          <div className={`absolute inset-0 bg-gradient-to-b from-black/5 via-black/50 to-black/85 transition-all duration-300 ${isActive ? 'opacity-100' : 'opacity-90'} group-hover:opacity-100`} />
+          <img
+            src={node.service.image}
+            alt={title}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div
+            className={`absolute inset-0 bg-gradient-to-b from-black/5 via-black/50 to-black/85 transition-all duration-300 ${isActive ? "opacity-100" : "opacity-90"} group-hover:opacity-100`}
+          />
 
           {/* Default state - shows image with minimal text overlay */}
-          <div className={`absolute inset-0 h-full flex flex-col items-center justify-center text-center text-white px-4 transition-opacity duration-300 z-10 ${isActive ? 'opacity-0' : 'opacity-100'}`}>
-            <span className="text-[0.55rem] uppercase tracking-[0.45em] text-white/70 mb-2">{tag}</span>
+          <div
+            className={`absolute inset-0 h-full flex flex-col items-center justify-center text-center text-white px-4 transition-opacity duration-300 z-10 ${isActive ? "opacity-0" : "opacity-100"}`}
+          >
+            <span className="text-[0.55rem] uppercase tracking-[0.45em] text-white/70 mb-2">
+              {tag}
+            </span>
             <p className="text-sm font-semibold leading-snug">{title}</p>
           </div>
 
           {/* Hover state - shows detailed text in center */}
-          {(node.id === 'geology' || node.id === 'processing') && (
-            <div className={`absolute inset-0 h-full flex flex-col items-center justify-center text-center text-white px-6 transition-opacity duration-300 z-20 ${isActive ? 'opacity-100' : 'opacity-0'}`}>
-              <p className="text-xs uppercase tracking-[0.3em] text-gold-900 mb-2">{language === 'ar' ? 'خدمة متخصصة' : 'Focused capability'}</p>
+          {(node.id === "geology" || node.id === "processing") && (
+            <div
+              className={`absolute inset-0 h-full flex flex-col items-center justify-center text-center text-white px-6 transition-opacity duration-300 z-20 ${isActive ? "opacity-100" : "opacity-0"}`}
+            >
+              <p className="text-xs uppercase tracking-[0.3em] text-gold-900 mb-2">
+                {language === "ar" ? "خدمة متخصصة" : "Focused capability"}
+              </p>
               <p className="text-sm font-bold leading-snug">{title}</p>
             </div>
           )}
@@ -521,52 +620,64 @@ const OrbitNode = ({ node, language, isArabic, activeNode, setActiveNode, arrowI
         <button
           type="button"
           className={`orbit-node-button group relative w-36 h-36 rounded-full border border-white/35 overflow-hidden shadow-[0_20px_50px_rgba(10,25,49,0.35)] transition-all duration-500 backdrop-blur ${
-            isActive ? 'border-gold-900 ring-2 ring-gold-900/70 scale-105' : 'bg-white/5'
+            isActive
+              ? "border-gold-900 ring-2 ring-gold-900/70 scale-105"
+              : "bg-white/5"
           }`}
           style={{ animationDelay: `${0.6 + node.delay}s` }}
           onFocus={() => setActiveNode(node.id)}
           onBlur={() => setActiveNode(null)}
           onClick={handleToggle}
         >
-          <img src={node.service.image} alt={title} className="absolute inset-0 w-full h-full object-cover" />
+          <img
+            src={node.service.image}
+            alt={title}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
           <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-black/50 to-black/85 opacity-90 transition group-hover:opacity-100" />
           <div className="relative z-10 h-full flex flex-col items-center justify-center text-center text-white px-4">
-            <span className="text-[0.55rem] uppercase tracking-[0.45em] text-white/70 mb-2">{tag}</span>
+            <span className="text-[0.55rem] uppercase tracking-[0.45em] text-white/70 mb-2">
+              {tag}
+            </span>
             <p className="text-sm font-semibold leading-snug">{title}</p>
           </div>
         </button>
       )}
 
       {/* Info card - hidden for geology and processing nodes */}
-      {node.id !== 'geology' && node.id !== 'processing' && (
+      {node.id !== "geology" && node.id !== "processing" && (
         <div
           className={`orbit-card absolute w-72 max-w-xs rounded-2xl border border-slate-100 bg-white shadow-2xl p-5 transition-all duration-500 ${
-            isArabic ? 'text-right' : ''
+            isArabic ? "text-right" : ""
           } ${
-            isActive ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-3 pointer-events-none'
+            isActive
+              ? "opacity-100 translate-y-0 pointer-events-auto"
+              : "opacity-0 translate-y-3 pointer-events-none"
           }`}
           style={node.infoPosition}
         >
           <p className="text-sm font-semibold text-gold-900 mb-2">
-            {language === 'ar' ? 'خدمة متخصصة' : 'Focused capability'}
+            {language === "ar" ? "خدمة متخصصة" : "Focused capability"}
           </p>
           <p className="text-primary font-bold mb-3 leading-snug">{title}</p>
-          <p className="text-slate-600 text-sm leading-relaxed mb-4">{description}</p>
+          <p className="text-slate-600 text-sm leading-relaxed mb-4">
+            {description}
+          </p>
           <Link
             to={
-              node.id === 'exploration'
-                ? '/exploration'
-                : node.id === 'geology'
-                  ? '/geology'
-                  : node.id === 'processing'
-                    ? '/processing'
-                    : '/contact'
+              node.id === "exploration"
+                ? "/exploration"
+                : node.id === "geology"
+                  ? "/geology"
+                  : node.id === "processing"
+                    ? "/processing"
+                    : "/contact"
             }
-            className={`inline-flex items-center gap-2 text-sm font-semibold text-gold-900 ${isArabic ? 'flex-row-reverse' : ''}`}
+            className={`inline-flex items-center gap-2 text-sm font-semibold text-gold-900 ${isArabic ? "flex-row-reverse" : ""}`}
             onFocus={() => setActiveNode(node.id)}
             onBlur={() => setActiveNode(null)}
           >
-            {language === 'ar' ? 'اعرف المزيد' : 'Learn more'}
+            {language === "ar" ? "اعرف المزيد" : "Learn more"}
             <span>{arrowIcon}</span>
           </Link>
         </div>
@@ -575,40 +686,59 @@ const OrbitNode = ({ node, language, isArabic, activeNode, setActiveNode, arrowI
   );
 };
 
-const ProjectsShowcase = ({ language, isArabic }: { language: 'ar' | 'en'; isArabic: boolean }) => (
+const ProjectsShowcase = ({
+  language,
+  isArabic,
+}: {
+  language: "ar" | "en";
+  isArabic: boolean;
+}) => (
   <section className="py-24 bg-white">
     <div className="container max-w-6xl mx-auto px-4">
       <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 mb-12">
-        <div className={isArabic ? 'text-right' : ''}>
+        <div className={isArabic ? "text-right" : ""}>
           <p className="text-gold-900 font-semibold">
-            {language === 'ar' ? 'مشاريعنا الحية' : 'Active portfolios'}
+            {language === "ar" ? "مشاريعنا الحية" : "Active portfolios"}
           </p>
           <h2 className="text-4xl font-black text-primary mt-2">
-            {language === 'ar' ? 'قصص نجاح ميدانية' : 'Field-proven success stories'}
+            {language === "ar"
+              ? "قصص نجاح ميدانية"
+              : "Field-proven success stories"}
           </h2>
         </div>
         <Link
           to="/projects"
           className="inline-flex items-center gap-2 rounded-full border border-primary px-6 py-3 text-primary font-semibold"
         >
-          {language === 'ar' ? 'اكتشف جميع المشاريع' : 'View all projects'}
+          {language === "ar" ? "اكتشف جميع المشاريع" : "View all projects"}
         </Link>
       </div>
 
       <div className="grid gap-8 lg:grid-cols-2">
         {projects.map((project) => (
-          <article key={project.nameEn} className="relative overflow-hidden rounded-3xl shadow-2xl">
-            <img src={project.image} alt={project.nameEn} className="w-full h-[360px] object-cover transition-transform duration-500 hover:scale-105" />
+          <article
+            key={project.nameEn}
+            className="relative overflow-hidden rounded-3xl shadow-2xl"
+          >
+            <img
+              src={project.image}
+              alt={project.nameEn}
+              className="w-full h-[360px] object-cover transition-transform duration-500 hover:scale-105"
+            />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />
-            <div className={`absolute inset-0 p-8 flex flex-col justify-end text-white ${isArabic ? 'text-right' : ''}`}>
+            <div
+              className={`absolute inset-0 p-8 flex flex-col justify-end text-white ${isArabic ? "text-right" : ""}`}
+            >
               <p className="text-sm text-gold-900/80 mb-2">
-                {language === 'ar' ? 'موقع استراتيجي' : 'Strategic site'}
+                {language === "ar" ? "موقع استراتيجي" : "Strategic site"}
               </p>
               <h3 className="text-2xl font-bold mb-3">
-                {language === 'ar' ? project.nameAr : project.nameEn}
+                {language === "ar" ? project.nameAr : project.nameEn}
               </h3>
               <p className="text-white/85 text-base leading-relaxed">
-                {language === 'ar' ? project.descriptionAr : project.descriptionEn}
+                {language === "ar"
+                  ? project.descriptionAr
+                  : project.descriptionEn}
               </p>
             </div>
           </article>
@@ -620,93 +750,118 @@ const ProjectsShowcase = ({ language, isArabic }: { language: 'ar' | 'en'; isAra
 
 const partnersData = [
   {
-    image: 'https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2Fb852a176283543bfb77519d3752688bb?format=webp&width=800&height=1200',
-    alt: 'Albarajoub Group',
-    nameAr: 'مجموعة البراج الذهبية',
-    nameEn: 'Albarajoub Group',
-    descriptionAr: 'شركة رائدة في قطاع التعدين والاستثمار مع خبرة عميقة في إدارة المشاريع',
-    descriptionEn: 'Leading mining and investment company with deep expertise in project management',
+    image:
+      "https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2Fb852a176283543bfb77519d3752688bb?format=webp&width=800&height=1200",
+    alt: "Albarajoub Group",
+    nameAr: "مجموعة البراج الذهبية",
+    nameEn: "Albarajoub Group",
+    descriptionAr:
+      "شركة رائدة في قطاع التعدين والاستثمار مع خبرة عميقة في إدارة المشاريع",
+    descriptionEn:
+      "Leading mining and investment company with deep expertise in project management",
   },
   {
-    image: 'https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2F9e3d8f532faf46719933b2c598921491?format=webp&width=800&height=1200',
-    alt: 'Dal Mining',
-    nameAr: 'دال للتعدين',
-    nameEn: 'Dal Mining',
-    descriptionAr: 'متخصصة في المسوحات الجيولوجية والاستكشاف المعدني المتقدم',
-    descriptionEn: 'Specialized in geological surveys and advanced mineral exploration',
+    image:
+      "https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2F9e3d8f532faf46719933b2c598921491?format=webp&width=800&height=1200",
+    alt: "Dal Mining",
+    nameAr: "دال للتعدين",
+    nameEn: "Dal Mining",
+    descriptionAr: "متخصصة في المسوحات الجيولوجية والاستكشاف المعدني المتقدم",
+    descriptionEn:
+      "Specialized in geological surveys and advanced mineral exploration",
   },
   {
-    image: 'https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2Fe07743e56dff44cdb479ca5ff91a8d05?format=webp&width=800&height=1200',
-    alt: 'Geological Research Authority',
-    nameAr: 'الهيئة الجيولوجية السودانية',
-    nameEn: 'Geological Research Authority',
-    descriptionAr: 'هيئة حكومية متخصصة في البحوث الجيولوجية والدراسات المعدنية',
-    descriptionEn: 'Government authority specialized in geological research and mineral studies',
+    image:
+      "https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2Fe07743e56dff44cdb479ca5ff91a8d05?format=webp&width=800&height=1200",
+    alt: "Geological Research Authority",
+    nameAr: "الهيئة الجيولوجية السودانية",
+    nameEn: "Geological Research Authority",
+    descriptionAr: "هيئة حكومية متخصصة في البحوث الجيولوجية والدراسات المعدنية",
+    descriptionEn:
+      "Government authority specialized in geological research and mineral studies",
   },
 ];
 
-const CSRSection = ({ language, isArabic }: { language: 'ar' | 'en'; isArabic: boolean }) => {
+const CSRSection = ({
+  language,
+  isArabic,
+}: {
+  language: "ar" | "en";
+  isArabic: boolean;
+}) => {
   const csrInitiatives = [
     {
-      iconAr: '🍎',
-      titleAr: 'الدعم الغذائي',
-      titleEn: 'Food Support',
-      descriptionAr: 'توزيع المواد الغذائية للمدارس والداخليات في المناطق المستضيفة',
-      descriptionEn: 'Distributing food items to schools and hostels in host communities',
+      iconAr: "🍎",
+      titleAr: "الدعم الغذائي",
+      titleEn: "Food Support",
+      descriptionAr:
+        "توزيع المواد الغذائية للمدارس والداخليات في المناطق المستضيفة",
+      descriptionEn:
+        "Distributing food items to schools and hostels in host communities",
     },
     {
-      iconAr: '🛣️',
-      titleAr: 'تطوير البنية التحتية',
-      titleEn: 'Infrastructure Development',
-      descriptionAr: 'مساعدة المحليات في فتح الطرق ومشاريع المياه للمشاريع الزراعية',
-      descriptionEn: 'Assisting local authorities in road development and water projects',
+      iconAr: "🛣️",
+      titleAr: "تطوير البنية التحتية",
+      titleEn: "Infrastructure Development",
+      descriptionAr:
+        "مساعدة المحليات في فتح الطرق ومشاريع المياه للمشاريع الزراعية",
+      descriptionEn:
+        "Assisting local authorities in road development and water projects",
     },
     {
-      iconAr: '🤝',
-      titleAr: 'دعم المجتمع المحلي',
-      titleEn: 'Community Support',
-      descriptionAr: 'معاونة المجتمع المحلي في جميع الاحتياجات الخاصة للأسر المتعففة',
-      descriptionEn: 'Supporting local communities in addressing needs of low-income families',
+      iconAr: "🤝",
+      titleAr: "دعم المجتمع المحلي",
+      titleEn: "Community Support",
+      descriptionAr:
+        "معاونة المجتمع المحلي في جميع الاحتياجات الخاصة للأسر المتعففة",
+      descriptionEn:
+        "Supporting local communities in addressing needs of low-income families",
     },
     {
-      iconAr: '🌍',
-      titleAr: 'الإصحاح البيئي',
-      titleEn: 'Environmental Sanitation',
-      descriptionAr: 'حملات إصحاح بيئي شامل في المناطق التي عملنا بها للمحافظة على الصحة العامة',
-      descriptionEn: 'Environmental sanitation campaigns in all operational areas for public health',
+      iconAr: "🌍",
+      titleAr: "الإصحاح البيئي",
+      titleEn: "Environmental Sanitation",
+      descriptionAr:
+        "حملات إصحاح بيئي شامل في المناطق التي عملنا بها للمحافظة على الصحة العامة",
+      descriptionEn:
+        "Environmental sanitation campaigns in all operational areas for public health",
     },
   ];
 
   return (
     <section className="py-24 bg-white">
       <div className="container max-w-6xl mx-auto px-4">
-        <div className={`text-center mb-16 ${isArabic ? 'text-right' : ''}`}>
+        <div className={`text-center mb-16 ${isArabic ? "text-right" : ""}`}>
           <p className="text-gold-900 font-semibold tracking-[0.5em] uppercase text-xs mb-3">
-            {language === 'ar' ? 'التزامنا الاجتماعي' : 'Our Commitment'}
+            {language === "ar" ? "التزامنا الاجتماعي" : "Our Commitment"}
           </p>
           <h2 className="text-4xl md:text-5xl font-black text-primary mb-6">
-            {language === 'ar' ? 'مسؤوليتنا المجتمعية' : 'Corporate Social Responsibility'}
+            {language === "ar"
+              ? "مسؤوليتنا المجتمعية"
+              : "Corporate Social Responsibility"}
           </h2>
         </div>
 
         {/* Main Description */}
-        <div className={`max-w-4xl mx-auto mb-16 p-8 bg-slate-50 rounded-2xl border-l-4 border-gold-900 ${isArabic ? 'text-right border-l-0 border-r-4 border-r-gold-900' : ''}`}>
+        <div
+          className={`max-w-4xl mx-auto mb-16 p-8 bg-slate-50 rounded-2xl border-l-4 border-gold-900 ${isArabic ? "text-right border-l-0 border-r-4 border-r-gold-900" : ""}`}
+        >
           <p className="text-lg text-slate-700 leading-relaxed mb-4">
-            {language === 'ar'
-              ? 'تقوم الشركة بدورها في المسؤولية المجتمعية في المناطق المستضيفة للتعدين مثل توزيع المواد الغذائية للمدارس والداخليات، مساعدة المحليات في فتح الطرق ومشاريع المياه للمشاريع الزراعية، ومعاونة المجتمع المحلي في جميع الاحتياجات الخاصة لذوي الدخل المحدود من الأسر المتعففة.'
-              : 'The company fulfills its corporate social responsibility in mining host communities through food distribution to schools and hostels, assisting local authorities in road development and water projects for agricultural initiatives, and supporting local communities in addressing all special needs of low-income and disadvantaged families.'}
+            {language === "ar"
+              ? "تقوم الشركة بدورها في المسؤولية المجتمعية في المناطق المستضيفة للتعدين مثل توزيع المواد الغذائية للمدارس والداخليات، مساعدة المحليات في فتح الطرق ومشاريع المياه للمشاريع الزراعية، ومعاونة المجتمع المحلي في جميع الاحتياجات الخاصة لذوي الدخل المحدود من الأسر المتعففة."
+              : "The company fulfills its corporate social responsibility in mining host communities through food distribution to schools and hostels, assisting local authorities in road development and water projects for agricultural initiatives, and supporting local communities in addressing all special needs of low-income and disadvantaged families."}
           </p>
           <p className="text-lg text-slate-700 leading-relaxed">
-            {language === 'ar'
-              ? 'كما تقوم الشركة بحملات إصحاح بيئي في جميع المناطق التي عملت بها، إيماناً منا بدور البيئة المهم في تنمية المجتمعات والمحافظة على الصحة العامة في المناطق المستضيفة لمجالات التعدين من الاستكشاف ومصانع معالجة الذهب.'
-              : 'Additionally, the company conducts environmental sanitation campaigns in all areas where it operates, believing in the crucial role of environmental protection in community development and maintaining public health in mining host communities, from exploration activities to gold processing plants.'}
+            {language === "ar"
+              ? "كما تقوم الشركة بحملات إصحاح بيئي في جميع المناطق التي عملت بها، إيماناً منا بدور البيئة المهم في تنمية المجتمعات والمحافظة على الصحة العامة في المناطق المستضيفة لمجالات التعدين من الاستكشاف ومصانع معالجة الذهب."
+              : "Additionally, the company conducts environmental sanitation campaigns in all areas where it operates, believing in the crucial role of environmental protection in community development and maintaining public health in mining host communities, from exploration activities to gold processing plants."}
           </p>
         </div>
 
         {/* Initiative Cards */}
-        <div className={`mb-16 ${isArabic ? 'text-right' : ''}`}>
+        <div className={`mb-16 ${isArabic ? "text-right" : ""}`}>
           <h3 className="text-2xl font-bold text-primary mb-8 text-center">
-            {language === 'ar' ? 'مجالات تركيزنا' : 'Our Focus Areas'}
+            {language === "ar" ? "مجالات تركيزنا" : "Our Focus Areas"}
           </h3>
         </div>
 
@@ -719,28 +874,40 @@ const CSRSection = ({ language, isArabic }: { language: 'ar' | 'en'; isArabic: b
               <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">
                 {initiative.iconAr}
               </div>
-              <h3 className={`text-xl font-bold text-primary mb-3 ${isArabic ? 'text-right' : ''}`}>
-                {language === 'ar' ? initiative.titleAr : initiative.titleEn}
+              <h3
+                className={`text-xl font-bold text-primary mb-3 ${isArabic ? "text-right" : ""}`}
+              >
+                {language === "ar" ? initiative.titleAr : initiative.titleEn}
               </h3>
-              <p className={`text-slate-600 leading-relaxed text-sm ${isArabic ? 'text-right' : ''}`}>
-                {language === 'ar' ? initiative.descriptionAr : initiative.descriptionEn}
+              <p
+                className={`text-slate-600 leading-relaxed text-sm ${isArabic ? "text-right" : ""}`}
+              >
+                {language === "ar"
+                  ? initiative.descriptionAr
+                  : initiative.descriptionEn}
               </p>
-              <div className={`mt-4 h-1 w-12 bg-gold-900 rounded-full group-hover:w-full transition-all duration-300 ${isArabic ? 'ml-auto' : ''}`}></div>
+              <div
+                className={`mt-4 h-1 w-12 bg-gold-900 rounded-full group-hover:w-full transition-all duration-300 ${isArabic ? "ml-auto" : ""}`}
+              ></div>
             </div>
           ))}
         </div>
 
-        <div className={`mt-16 p-8 bg-gold-900 rounded-2xl text-white ${isArabic ? 'text-right' : ''}`}>
+        <div
+          className={`mt-16 p-8 bg-gold-900 rounded-2xl text-white ${isArabic ? "text-right" : ""}`}
+        >
           <div className="flex items-start gap-4">
             <span className="text-4xl">🌱</span>
             <div>
               <h3 className="text-2xl font-bold mb-3">
-                {language === 'ar' ? 'التزام بيئي شامل' : 'Comprehensive Environmental Commitment'}
+                {language === "ar"
+                  ? "التزام بيئي شامل"
+                  : "Comprehensive Environmental Commitment"}
               </h3>
               <p className="text-white/95 leading-relaxed">
-                {language === 'ar'
-                  ? 'نؤمن أن الاستدامة البيئية هي أساس التنمية المستدامة، لذلك نقوم بحملات إصحاح بيئي في كل مناطق عملياتنا'
-                  : 'We believe environmental sustainability is the foundation of sustainable development, so we conduct environmental sanitation campaigns across all our operational areas.'}
+                {language === "ar"
+                  ? "نؤمن أن الاستدامة البيئية هي أساس التنمية المستدامة، لذلك نقوم بحملات إصحاح بيئي في كل مناطق عملياتنا"
+                  : "We believe environmental sustainability is the foundation of sustainable development, so we conduct environmental sanitation campaigns across all our operational areas."}
               </p>
             </div>
           </div>
@@ -750,20 +917,28 @@ const CSRSection = ({ language, isArabic }: { language: 'ar' | 'en'; isArabic: b
   );
 };
 
-const PartnersSlider = ({ language, isArabic }: { language: 'ar' | 'en'; isArabic: boolean }) => {
+const PartnersSlider = ({
+  language,
+  isArabic,
+}: {
+  language: "ar" | "en";
+  isArabic: boolean;
+}) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
     <section className="py-24 bg-slate-50">
       <div className="container max-w-6xl mx-auto px-4">
-        <div className={`text-center mb-16 ${isArabic ? 'text-right' : ''}`}>
+        <div className={`text-center mb-16 ${isArabic ? "text-right" : ""}`}>
           <h2 className="text-4xl md:text-5xl font-black text-primary">
-            {language === 'ar' ? 'شركائنا الاستراتيجيون' : 'Our strategic partners'}
+            {language === "ar"
+              ? "شركائنا الاستراتيجيون"
+              : "Our strategic partners"}
           </h2>
           <p className="text-lg text-slate-600 mt-4">
-            {language === 'ar'
-              ? 'نتعاون مع أفضل الشركات والمؤسسات الرائدة في قطاع التعدين والاستثمار'
-              : 'We collaborate with leading companies and institutions in mining and investment'}
+            {language === "ar"
+              ? "نتعاون مع أفضل الشركات والمؤسسات الرائدة في قطاع التعدين والاستثمار"
+              : "We collaborate with leading companies and institutions in mining and investment"}
           </p>
         </div>
 
@@ -787,17 +962,19 @@ const PartnersSlider = ({ language, isArabic }: { language: 'ar' | 'en'; isArabi
               {hoveredIndex === index && (
                 <div
                   className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 w-56 bg-white rounded-2xl shadow-2xl p-6 border border-slate-100 transition-all duration-300 ${
-                    isArabic ? 'text-right' : ''
+                    isArabic ? "text-right" : ""
                   }`}
                 >
                   <p className="text-sm font-semibold text-gold-900 mb-2">
-                    {language === 'ar' ? 'شريك استراتيجي' : 'Strategic Partner'}
+                    {language === "ar" ? "شريك استراتيجي" : "Strategic Partner"}
                   </p>
                   <h3 className="text-lg font-bold text-primary mb-3">
-                    {language === 'ar' ? partner.nameAr : partner.nameEn}
+                    {language === "ar" ? partner.nameAr : partner.nameEn}
                   </h3>
                   <p className="text-slate-600 text-sm leading-relaxed">
-                    {language === 'ar' ? partner.descriptionAr : partner.descriptionEn}
+                    {language === "ar"
+                      ? partner.descriptionAr
+                      : partner.descriptionEn}
                   </p>
                 </div>
               )}
@@ -809,33 +986,41 @@ const PartnersSlider = ({ language, isArabic }: { language: 'ar' | 'en'; isArabi
   );
 };
 
-const CTABand = ({ isArabic, t }: { isArabic: boolean; t: (key: string) => string }) => (
+const CTABand = ({
+  isArabic,
+  t,
+}: {
+  isArabic: boolean;
+  t: (key: string) => string;
+}) => (
   <section
     className="relative py-24"
     style={{
       backgroundImage:
-        'linear-gradient(135deg, rgba(10, 25, 49, 0.95), rgba(10, 25, 49, 0.85)), url(https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=1600&auto=format&fit=crop)',
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
+        "linear-gradient(135deg, rgba(10, 25, 49, 0.95), rgba(10, 25, 49, 0.85)), url(https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=1600&auto=format&fit=crop)",
+      backgroundSize: "cover",
+      backgroundPosition: "center",
     }}
   >
     <div className="container max-w-4xl mx-auto px-4 text-center text-white">
       <p className="uppercase tracking-[0.4em] text-gold-900 text-xs mb-4">
-        {isArabic ? 'شراكات مستدامة' : 'Sustainable partnerships'}
+        {isArabic ? "شراكات مستدامة" : "Sustainable partnerships"}
       </p>
       <h2 className="text-4xl font-black mb-6">
-        {isArabic ? 'نقود الاستثمارات التعدينية بثقة وشفافية' : 'Leading mining investments with trust & clarity'}
+        {isArabic
+          ? "نقود الاستثمارات التعدينية بثقة وشفافية"
+          : "Leading mining investments with trust & clarity"}
       </h2>
       <p className="text-lg text-white/85 mb-10">
         {isArabic
-          ? 'تواصل معنا لبناء شراكة تحقق أهدافك الاستثمارية وتضمن استدامة المشاريع المستقبلية.'
-          : 'Partner with us to unlock investment goals while ensuring resilient, future-ready projects.'}
+          ? "تواصل معنا لبناء شراكة تحقق أهدافك الاستثمارية وتضمن استدامة المشاريع المستقبلية."
+          : "Partner with us to unlock investment goals while ensuring resilient, future-ready projects."}
       </p>
       <Link
         to="/contact"
         className="inline-flex items-center gap-2 rounded-full bg-gold-900 px-10 py-3 text-lg font-semibold text-primary shadow-xl hover:bg-gold-900/90"
       >
-        {t('cta.button')}
+        {t("cta.button")}
       </Link>
     </div>
   </section>

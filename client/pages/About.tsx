@@ -113,7 +113,9 @@ const MissionVision = ({ isArabic, t }: any) => {
           >
             <div className="flex items-start gap-4 mb-4">
               <span className="text-4xl">🎯</span>
-              <h3 className="text-2xl font-semibold text-primary">{t("about.mission")}</h3>
+              <h3 className="text-2xl font-semibold text-primary">
+                {t("about.mission")}
+              </h3>
             </div>
             <p
               className={`text-gray-700 text-lg leading-relaxed ${isArabic ? "text-right" : ""}`}
@@ -133,7 +135,9 @@ const MissionVision = ({ isArabic, t }: any) => {
           >
             <div className="flex items-start gap-4 mb-4">
               <span className="text-4xl">🚀</span>
-              <h3 className="text-2xl font-semibold text-primary">{t("about.vision")}</h3>
+              <h3 className="text-2xl font-semibold text-primary">
+                {t("about.vision")}
+              </h3>
             </div>
             <p
               className={`text-gray-700 text-lg leading-relaxed ${isArabic ? "text-right" : ""}`}
@@ -167,9 +171,11 @@ const CEOMessage = ({ isArabic, t }: any) => {
         </h2>
         <div className="w-16 h-1 bg-gold-900 mx-auto mb-12"></div>
 
-        <div className={`grid grid-cols-1 md:grid-cols-2 gap-12 items-center ${
-          isVisible ? "opacity-100" : "opacity-0"
-        } transition-all duration-1000`}>
+        <div
+          className={`grid grid-cols-1 md:grid-cols-2 gap-12 items-center ${
+            isVisible ? "opacity-100" : "opacity-0"
+          } transition-all duration-1000`}
+        >
           {/* CEO Image */}
           <div className={isArabic ? "order-2" : ""}>
             <div className="flex flex-col items-center">
@@ -189,7 +195,15 @@ const CEOMessage = ({ isArabic, t }: any) => {
 
           {/* CEO Message */}
           <div className={isArabic ? "order-1 text-right" : ""}>
-            <p className="text-lg text-gray-700 leading-relaxed mb-6 font-semibold italic border-l-4 border-gold-900 pl-6" style={{ borderLeft: isArabic ? "none" : "", borderRight: isArabic ? "4px solid #d4af37" : "none", paddingRight: isArabic ? "24px" : "0", paddingLeft: isArabic ? "0" : "24px" }}>
+            <p
+              className="text-lg text-gray-700 leading-relaxed mb-6 font-semibold italic border-l-4 border-gold-900 pl-6"
+              style={{
+                borderLeft: isArabic ? "none" : "",
+                borderRight: isArabic ? "4px solid #d4af37" : "none",
+                paddingRight: isArabic ? "24px" : "0",
+                paddingLeft: isArabic ? "0" : "24px",
+              }}
+            >
               "{t("about.ceoMessage.text")}"
             </p>
             <p className="text-gray-700 leading-relaxed">
@@ -222,7 +236,8 @@ const ManagementTeam = ({ isArabic, t }: any) => {
       roleEn: "General Manager",
       icon: "👔",
       description: "يشرف على إدارة الشركة وتوجيه الاستراتيجيات العامة",
-      descriptionEn: "Oversees company management and directs general strategies",
+      descriptionEn:
+        "Oversees company management and directs general strategies",
     },
     {
       name: "أ. م. أحمد حسن عيد",

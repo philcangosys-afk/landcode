@@ -84,17 +84,32 @@ const Services = () => {
             {services.map((service, index) => (
               <div
                 key={index}
-                className="bg-white p-8 rounded-lg shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300"
+                className="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
               >
-                <div className="text-5xl mb-4">{service.icon}</div>
-                <h3
-                  className={`text-xl font-semibold text-primary mb-3 ${isArabic ? "text-right" : ""}`}
-                >
-                  {service.title}
-                </h3>
-                <p className={`text-gray-600 ${isArabic ? "text-right" : ""}`}>
-                  {service.description}
-                </p>
+                <div className="relative h-48">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                  <div className="absolute inset-0 flex flex-col justify-between p-4 text-white">
+                    <span className="text-3xl">{service.icon}</span>
+                    <span className="text-xs tracking-[0.3em] uppercase text-white/80">
+                      {isArabic ? "خدمة" : "Service"}
+                    </span>
+                  </div>
+                </div>
+                <div className="p-8">
+                  <h3
+                    className={`text-xl font-semibold text-primary mb-3 leading-snug ${isArabic ? "text-right" : ""}`}
+                  >
+                    {service.title}
+                  </h3>
+                  <p className={`text-gray-600 ${isArabic ? "text-right" : ""}`}>
+                    {service.description}
+                  </p>
+                </div>
               </div>
             ))}
           </div>

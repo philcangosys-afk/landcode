@@ -50,8 +50,8 @@ const CompanyHistory = ({ isArabic }: any) => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className={isArabic ? "order-2" : ""}>
             <img
-              src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=400&fit=crop"
-              alt="Company Operations"
+              src="https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2Fc0e917a30a934526be4721d6246b24e9?format=webp&width=800&height=1200"
+              alt="عمليات التعدين والاستخراج"
               className="w-full h-96 object-cover rounded-lg"
             />
           </div>

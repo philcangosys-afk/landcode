@@ -76,6 +76,14 @@ const App = () => (
               }
             />
             <Route
+              path="/geology"
+              element={
+                <Layout>
+                  <Geology />
+                </Layout>
+              }
+            />
+            <Route
               path="/contact"
               element={
                 <Layout>

@@ -235,9 +235,9 @@ const ServicesShowcase = ({ language, isArabic }: { language: 'ar' | 'en'; isAra
               <p className="text-slate-600 leading-relaxed">
                 {language === 'ar' ? service.descriptionAr : service.descriptionEn}
               </p>
-              <div className={`mt-8 inline-flex items-center text-sm font-semibold text-gold-900 ${isArabic ? 'flex-row-reverse gap-2' : ''}`}>
+              <div className={`mt-8 inline-flex items-center text-sm font-semibold text-gold-900 ${isArabic ? 'flex-row-reverse gap-2' : 'gap-2'}`}>
                 {language === 'ar' ? 'المزيد من التفاصيل' : 'More details'}
-                <span className={`${isArabic ? 'mr-0' : 'ml-2'} group-hover:translate-x-1 transition`}>→</span>
+                <span className={`group-hover:translate-x-1 transition ${isArabic ? '-scale-x-100' : ''}`}>→</span>
               </div>
             </div>
           </div>

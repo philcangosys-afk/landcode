@@ -123,6 +123,7 @@ const Index = () => {
       <AboutPreview isArabic={isArabic} />
       <ServicesShowcase language={language} isArabic={isArabic} />
       <ProjectsShowcase language={language} isArabic={isArabic} />
+      <PartnersSlider language={language} isArabic={isArabic} />
       <CTABand isArabic={isArabic} t={t} />
     </div>
   );

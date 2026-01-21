@@ -324,15 +324,15 @@ const TeamMember = ({ member, index, isVisible, isArabic }: any) => {
       <h3
         className={`text-lg font-semibold text-primary mb-1 ${isArabic ? "text-right" : ""}`}
       >
-        {member.name}
+        {isArabic ? member.name : member.nameEn}
       </h3>
       <p
         className={`text-gold-900 font-semibold mb-3 ${isArabic ? "text-right" : ""}`}
       >
-        {member.role}
+        {isArabic ? member.role : member.roleEn}
       </p>
       <p className={`text-gray-600 text-sm ${isArabic ? "text-right" : ""}`}>
-        {member.description}
+        {isArabic ? member.description : member.descriptionEn}
       </p>
     </div>
   );

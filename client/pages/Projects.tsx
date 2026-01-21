@@ -162,6 +162,7 @@ const Projects = () => {
                 project={project}
                 index={index}
                 isArabic={isArabic}
+                language={language}
               />
             ))}
           </div>
@@ -172,7 +173,7 @@ const Projects = () => {
       <section className="py-20 bg-white">
         <div className="container max-w-6xl mx-auto px-4">
           <h2 className="text-4xl font-bold text-primary mb-12 text-center">
-            معرض الصور
+            {isArabic ? "معرض الصور" : "Photo Gallery"}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {galleryImages.map((src, index) => (

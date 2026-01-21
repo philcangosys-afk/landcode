@@ -2,62 +2,62 @@ import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Services = () => {
-  const { language } = useLanguage();
+  const { language, t } = useLanguage();
   const isArabic = language === "ar";
 
   const services = [
     {
-      title: "التنقيب عن الذهب والمعادن النفيسة",
-      description: "برامج استكشاف متقدمة باستخدام أحدث التقنيات الجيولوجية",
+      ar: { title: "التنقيب عن الذهب والمعادن النفيسة", description: "برامج استكشاف متقدمة باستخدام أحدث التقنيات الجيولوجية" },
+      en: { title: "Gold & Precious Metals Exploration", description: "Advanced exploration programs using the latest geological techniques" },
       icon: "⛏️",
       image:
         "https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2Fc2a3904b26644acaafe714a85d647549?format=webp&width=1400",
     },
     {
-      title: "الدراسات الجيولوجية وتقييم المواقع",
-      description: "دراسات شاملة وتقييم متفصل لمواقع التعدين المحتملة",
+      ar: { title: "الدراسات الجيولوجية وتقييم المواقع", description: "دراسات شاملة وتقييم متفصل لمواقع التعدين المحتملة" },
+      en: { title: "Geological Studies & Site Evaluation", description: "Comprehensive studies and detailed assessment of potential mining sites" },
       icon: "🔍",
       image:
         "https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2Fe3917f69177046fd94bd50e3ba2ef46a?format=webp&width=1400",
     },
     {
-      title: "تحليل العينات الصخرية وعينات التربة",
-      description: "تحليل دقيق ومفصل للعينات باستخدام تقنيات حديثة",
+      ar: { title: "تحليل العينات الصخرية وعينات التربة", description: "تحليل دقيق ومفصل للعينات باستخدام تقنيات حديثة" },
+      en: { title: "Rock & Soil Sample Analysis", description: "Precise and detailed analysis of samples using modern techniques" },
       icon: "🧪",
       image:
         "https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2F13be5dfef7c84a8e93c37499abfd71c2?format=webp&width=1400",
     },
     {
-      title: "تحديد عروق الذهب ومناطق التعدين",
-      description: "تحديد دقيق لمناطق التركيز العالي للمعادن القيمة",
+      ar: { title: "تحديد عروق الذهب ومناطق التعدين", description: "تحديد دقيق لمناطق التركيز العالي للمعادن القيمة" },
+      en: { title: "Gold Vein Identification & Mining Zones", description: "Precise identification of high-concentration areas for valuable minerals" },
       icon: "⚙️",
       image:
         "https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2Fd5ecb315e797467cb614e772f34a10e6?format=webp&width=1400",
     },
     {
-      title: "أعمال المسح الجيولوجي والاستشعار عن بعد",
-      description: "استخدام تقنيات GIS والاستشعار بالأقمار الصناعية",
+      ar: { title: "أعمال المسح الجيولوجي والاستشعار عن بعد", description: "استخدام تقنيات GIS والاستشعار بالأقمار الصناعية" },
+      en: { title: "Geological Survey & Remote Sensing", description: "GIS techniques and satellite remote sensing applications" },
       icon: "📡",
       image:
         "https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2F2a06be97766645dbbfbbccebbdba7bf7?format=webp&width=1400",
     },
     {
-      title: "إعداد التقارير الفنية والأولية",
-      description: "تقارير تفصيلية وشاملة للاستثمارين ومتخذي القرار",
+      ar: { title: "إعداد التقارير الفنية والأولية", description: "تقارير تفصيلية وشاملة للاستثمارين ومتخذي القرار" },
+      en: { title: "Technical & Preliminary Reports", description: "Detailed and comprehensive reports for investors and decision-makers" },
       icon: "📊",
       image:
         "https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2F51c19b40413949988ea6693eafc1575c?format=webp&width=1400",
     },
     {
-      title: "تصميم وإنشاء مصانع معالجة الخامات",
-      description: "حلول متكاملة لتصميم وإنشاء مصانع معالجة الخامات",
+      ar: { title: "تصميم وإنشاء مصانع معالجة الخامات", description: "حلول متكاملة لتصميم وإنشاء مصانع معالجة الخامات" },
+      en: { title: "Ore Processing Plant Design & Construction", description: "Integrated solutions for design and construction of processing plants" },
       icon: "🏭",
       image:
         "https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2Fb89c6d959c664b229e9e68c35b4454ce?format=webp&width=1400",
     },
     {
-      title: "الدراسات الأولية والتصميم الهندسي",
-      description: "دراسات هندسية دقيقة لتحديد المواصفات الفنية المثلى",
+      ar: { title: "الدراسات الأولية والتصميم الهندسي", description: "دراسات هندسية دقيقة لتحديد المواصفات الفنية المثلى" },
+      en: { title: "Preliminary Studies & Engineering Design", description: "Precise engineering studies to determine optimal technical specifications" },
       icon: "🔧",
       image:
         "https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2F62fee2e19a8f4a25b414a4b440bf91b0?format=webp&width=1400",

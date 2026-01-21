@@ -264,53 +264,190 @@ const AboutPreview = ({ isArabic }: { isArabic: boolean }) => (
   </section>
 );
 
-const ServicesShowcase = ({ language, isArabic }: { language: 'ar' | 'en'; isArabic: boolean }) => (
-  <section className="py-24 bg-slate-50">
-    <div className="container max-w-6xl mx-auto px-4">
-      <div className="text-center mb-14">
-        <p className="text-gold-900 font-semibold mb-2">
-          {language === 'ar' ? 'حلول متكاملة' : 'Integrated solutions'}
-        </p>
-        <h2 className="text-4xl font-black text-primary">
-          {language === 'ar' ? 'مجالات عملنا المتخصصة' : 'Our specialised practice areas'}
-        </h2>
-      </div>
+const ServicesShowcase = ({ language, isArabic }: { language: 'ar' | 'en'; isArabic: boolean }) => {
+  const [activeNode, setActiveNode] = useState<string | null>(null);
 
-      <div className="grid gap-8 lg:grid-cols-3">
-        {servicesData.map((service) => {
-          const arrowIcon = isArabic ? '←' : '→';
-          return (
-            <div key={service.titleEn} className="group bg-white rounded-3xl border border-slate-100 shadow-lg hover:-translate-y-1 hover:shadow-2xl transition overflow-hidden">
-              <div className="relative h-56">
-                <img
-                  src={service.image}
-                  alt={language === 'ar' ? service.titleAr : service.titleEn}
-                  className="w-full h-full object-cover transition duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
-                <span className="absolute top-4 left-4 right-4 inline-flex justify-center items-center text-[0.65rem] font-semibold uppercase tracking-[0.4em] text-white/90">
-                  {language === 'ar' ? service.tagAr : service.tagEn}
-                </span>
-              </div>
-              <div className="p-8">
-                <h3 className={`text-2xl font-bold text-primary mb-3 leading-snug ${isArabic ? 'text-right' : ''}`}>
-                  {language === 'ar' ? service.titleAr : service.titleEn}
-                </h3>
-                <p className="text-slate-600 leading-relaxed">
-                  {language === 'ar' ? service.descriptionAr : service.descriptionEn}
-                </p>
-                <div className={`mt-8 inline-flex items-center text-sm font-semibold text-gold-900 ${isArabic ? 'flex-row-reverse gap-2' : 'gap-2'}`}>
-                  {language === 'ar' ? 'المزيد من التفاصيل' : 'More details'}
-                  <span className="group-hover:translate-x-1 transition">{arrowIcon}</span>
+  const serviceNodes = serviceNodesConfig.map((node) => {
+    const mirroredX = isArabic ? 100 - node.coords.x : node.coords.x;
+
+    return {
+      ...node,
+      coords: { x: mirroredX, y: node.coords.y },
+      infoPosition: isArabic && node.infoPositionRtl ? node.infoPositionRtl : node.infoPosition,
+      service: servicesData[node.serviceIndex],
+    };
+  });
+
+  const hubVideo = 'https://cdn.coverr.co/videos/coverr-pouring-molten-metal-6005/1080p.mp4';
+  const arrowIcon = isArabic ? '←' : '→';
+
+  return (
+    <section className="py-28 bg-slate-50">
+      <div className="container max-w-6xl mx-auto px-4">
+        <div className="text-center mb-16">
+          <p className="text-gold-900 font-semibold tracking-[0.5em] uppercase text-xs mb-3">
+            {language === 'ar' ? 'حلول متكاملة' : 'Integrated solutions'}
+          </p>
+          <h2 className="text-4xl md:text-5xl font-black text-primary">
+            {language === 'ar' ? 'مجالات عملنا المتخصصة' : 'Our specialised practice areas'}
+          </h2>
+        </div>
+
+        <div className="hidden lg:block relative mx-auto max-w-5xl min-h-[640px]">
+          <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-0 w-full h-full pointer-events-none">
+            {serviceNodes.map((node) => (
+              <line
+                key={`${node.id}-line`}
+                x1="50"
+                y1="50"
+                x2={node.coords.x}
+                y2={node.coords.y}
+                className={`spoke-line ${activeNode === node.id ? 'spoke-line-active' : ''}`}
+                style={{ animationDelay: `${0.4 + node.delay}s` }}
+              />
+            ))}
+          </svg>
+
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div className="services-hub-wrapper relative">
+              <div className="services-hub-glow" />
+              <div className="services-hub relative w-[360px] h-[360px] rounded-full overflow-hidden border border-white/30 shadow-[0_30px_90px_rgba(10,25,49,0.35)] bg-primary">
+                <video className="absolute inset-0 w-full h-full object-cover opacity-90" src={hubVideo} autoPlay loop muted playsInline />
+                <div className="absolute inset-0 bg-gradient-to-b from-primary/50 via-primary/70 to-black/40" />
+                <div className="relative z-10 h-full flex flex-col items-center justify-center text-center text-white px-8">
+                  <span className="text-[4.5rem] font-black tracking-[0.3em] text-gold-900 drop-shadow-[0_0_25px_rgba(0,0,0,0.6)]">
+                    LC
+                  </span>
+                  <p className="mt-4 text-sm uppercase tracking-[0.6em] text-white/70">
+                    {language === 'ar' ? 'حلول تعدين متكاملة' : 'Integrated mining solutions'}
+                  </p>
                 </div>
               </div>
             </div>
-          );
-        })}
+          </div>
+
+          {serviceNodes.map((node) => (
+            <OrbitNode
+              key={node.id}
+              node={node}
+              language={language}
+              isArabic={isArabic}
+              activeNode={activeNode}
+              setActiveNode={setActiveNode}
+              arrowIcon={arrowIcon}
+            />
+          ))}
+        </div>
+
+        <div className="grid gap-8 lg:hidden">
+          {servicesData.map((service) => (
+            <div key={service.titleEn} className="bg-white rounded-3xl border border-slate-100 shadow-lg overflow-hidden">
+              <div className="relative h-52">
+                <img src={service.image} alt={language === 'ar' ? service.titleAr : service.titleEn} className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+              </div>
+              <div className={`p-6 ${isArabic ? 'text-right' : ''}`}>
+                <p className="text-xs uppercase tracking-[0.4em] text-gold-900/80 mb-2">
+                  {language === 'ar' ? service.tagAr : service.tagEn}
+                </p>
+                <h3 className="text-2xl font-bold text-primary mb-3">{language === 'ar' ? service.titleAr : service.titleEn}</h3>
+                <p className="text-slate-600 leading-relaxed mb-4">{language === 'ar' ? service.descriptionAr : service.descriptionEn}</p>
+                <Link
+                  to="/contact"
+                  className={`inline-flex items-center gap-2 text-sm font-semibold text-gold-900 ${isArabic ? 'flex-row-reverse' : ''}`}
+                >
+                  {language === 'ar' ? 'اعرف المزيد' : 'Learn more'}
+                  <span>{arrowIcon}</span>
+                </Link>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
-  </section>
-);
+
+      <style>{`
+        .services-hub-wrapper {
+          opacity: 0;
+          animation: hubPop 0.9s ease-out forwards;
+          animation-delay: 0.2s;
+        }
+        .services-hub-glow {
+          position: absolute;
+          inset: -70px;
+          border-radius: 9999px;
+          background: radial-gradient(circle, rgba(212, 175, 55, 0.35), transparent 70%);
+          filter: blur(25px);
+          animation: haloPulse 6s ease-in-out infinite;
+        }
+        .spoke-line {
+          stroke: rgba(255, 255, 255, 0.25);
+          stroke-width: 0.6;
+          stroke-linecap: round;
+          stroke-dasharray: 140;
+          stroke-dashoffset: 140;
+          opacity: 0;
+          animation: spokeGrow 1.2s ease forwards;
+        }
+        .spoke-line-active {
+          stroke: #d4af37;
+          filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.6));
+        }
+        .orbit-node-button {
+          opacity: 0;
+          animation: nodeReveal 0.85s ease forwards;
+        }
+        @keyframes hubPop {
+          0% {
+            transform: scale(0.8);
+            opacity: 0;
+          }
+          60% {
+            transform: scale(1.05);
+            opacity: 1;
+          }
+          100% {
+            transform: scale(1);
+            opacity: 1;
+          }
+        }
+        @keyframes haloPulse {
+          0% {
+            opacity: 0.25;
+            transform: scale(0.95);
+          }
+          50% {
+            opacity: 0.45;
+            transform: scale(1.05);
+          }
+          100% {
+            opacity: 0.25;
+            transform: scale(0.95);
+          }
+        }
+        @keyframes spokeGrow {
+          0% {
+            stroke-dashoffset: 140;
+            opacity: 0;
+          }
+          100% {
+            stroke-dashoffset: 0;
+            opacity: 1;
+          }
+        }
+        @keyframes nodeReveal {
+          0% {
+            transform: scale(0.75);
+            opacity: 0;
+          }
+          100% {
+            transform: scale(1);
+            opacity: 1;
+          }
+        }
+      `}</style>
+    </section>
+  );
+};
 
 const ProjectsShowcase = ({ language, isArabic }: { language: 'ar' | 'en'; isArabic: boolean }) => (
   <section className="py-24 bg-white">

@@ -1,93 +1,99 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Projects = () => {
-  const { language } = useLanguage();
+  const { language, t } = useLanguage();
   const isArabic = language === "ar";
 
   const projects = [
     {
-      name: "همش ربّاب - ولاية البحر الأحمر",
-      location: "Red Sea State, Sudan",
-      image:
-        "https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2F486c06ee0357413fb5972319d30e3456?format=webp&width=1200",
-      description:
-        "برامج استكشاف متكاملة ودراسات جيولوجية متقدمة، مع تطوير منجم سطحي وتوريد الخام بنظام إلى مصانع معالجة الذهب.",
-      details: [
-        "دراسات جيولوجية متقدمة",
-        "تطوير منجم سطحي",
-        "معدات استخراج حديثة",
-        "نقل الخام إلى مصانع المعالجة",
-      ],
+      ar: {
+        name: "همش ربّاب - ولاية البحر الأحمر",
+        location: "الولاية الحمراء، السودان",
+        description: "برامج استكشاف متكاملة ودراسات جيولوجية متقدمة، مع تطوير منجم سطحي وتوريد الخام بنظام إلى مصانع معالجة الذهب.",
+        details: ["دراسات جيولوجية متقدمة", "تطوير منجم سطحي", "معدات استخراج حديثة", "نقل الخام إلى مصانع المعالجة"],
+      },
+      en: {
+        name: "Hamash Rubab - Red Sea State",
+        location: "Red Sea State, Sudan",
+        description: "Integrated exploration programs and advanced geological studies, with development of an open-pit mine and ore supply to gold processing plants.",
+        details: ["Advanced geological studies", "Open-pit mine development", "Modern extraction equipment", "Ore transportation to processing plants"],
+      },
+      image: "https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2F486c06ee0357413fb5972319d30e3456?format=webp&width=1200",
     },
     {
-      name: "وادي حلفا - شمال السودان",
-      location: "Northern Sudan",
-      image:
-        "https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2F54887cbbad2748d2835293e88a3cdae1?format=webp&width=1200",
-      description:
-        "دراسات استكشافية موسعة أسفرت عن تحديد عدة مواقع ذات مؤشرات تعدين واعدة، وفتح مناجم جديدة للاستخراج.",
-      details: [
-        "دراسات استكشافية موسعة",
-        "تحديد مواقع تعدين جديدة",
-        "أعمال استخراج متطورة",
-        "تطوير منجم جديد",
-      ],
+      ar: {
+        name: "وادي حلفا - شمال السودان",
+        location: "شمال السودان",
+        description: "دراسات استكشافية موسعة أسفرت عن تحديد عدة مواقع ذات مؤشرات تعدين واعدة، وفتح مناجم جديدة للاستخراج.",
+        details: ["دراسات استكشافية موسعة", "تحديد مواقع تعدين جديدة", "أعمال استخراج متطورة", "تطوير منجم جديد"],
+      },
+      en: {
+        name: "Wadi Halfa - Northern Sudan",
+        location: "Northern Sudan",
+        description: "Extensive exploratory studies that resulted in identifying several sites with promising mining indicators, and opening new mines for extraction.",
+        details: ["Extensive exploratory studies", "Identification of new mining sites", "Advanced extraction operations", "New mine development"],
+      },
+      image: "https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2F54887cbbad2748d2835293e88a3cdae1?format=webp&width=1200",
     },
     {
-      name: "مصنع الهصور CIL",
-      location: "الولاية الشمالية، دلقو",
-      image:
-        "https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2F90a802257a034486bf85e75e0a7e9151?format=webp&width=1200",
-      description:
-        "تأهيل وتطوير شامل لمصنع معالجة الذهب باستخدام تقنية CIL (Carbon in Leach) المتقدمة، مع تدريب القوى العاملة وتشغيل المصنع بكفاءة عالية.",
-      details: [
-        "تطوير مصنع CIL متقدم",
-        "تركيب معدات معالجة حديثة",
-        "تدريب القوى البشرية",
-        "ضمان معايير السلامة والبيئة",
-      ],
+      ar: {
+        name: "مصنع الهصور CIL",
+        location: "الولاية الشمالية، دلقو",
+        description: "تأهيل وتطوير شامل لمصنع معالجة الذهب باستخدام تقنية CIL (Carbon in Leach) المتقدمة، مع تدريب القوى العاملة وتشغيل المصنع بكفاءة عالية.",
+        details: ["تطوير مصنع CIL متقدم", "تركيب معدات معالجة حديثة", "تدريب القوى البشرية", "ضمان معايير السلامة والبيئة"],
+      },
+      en: {
+        name: "Al-Hasour CIL Plant",
+        location: "Northern State, Delgo",
+        description: "Comprehensive rehabilitation and development of a gold processing plant using advanced CIL (Carbon in Leach) technology, with workforce training and efficient plant operation.",
+        details: ["Advanced CIL plant development", "Installation of modern processing equipment", "Workforce training", "Safety and environmental standards assurance"],
+      },
+      image: "https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2F90a802257a034486bf85e75e0a7e9151?format=webp&width=1200",
     },
     {
-      name: "مصنع الشركة الدولية CIL",
-      location: "الولاية الشمالية، وادي حلفا",
-      image:
-        "https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2F416100acc0eb4e8384b3081c642200da?format=webp&width=1200",
-      description:
-        "تأهيل شامل لمصنع معالجة الذهب بتقنية CIL للشركة الدولية، يتضمن تحديث البنية التحتية والمعدات والأنظمة الإدارية لضمان الإنتاج الأمثل.",
-      details: [
-        "تحديث البنية التحتية",
-        "استبدال المعدات القديمة",
-        "تطوير الأنظمة الإدارية",
-        "زيادة الطاقة الإنتاجية",
-      ],
+      ar: {
+        name: "مصنع الشركة الدولية CIL",
+        location: "الولاية الشمالية، وادي حلفا",
+        description: "تأهيل شامل لمصنع معالجة الذهب بتقنية CIL للشركة الدولية، يتضمن تحديث البنية التحتية والمعدات والأنظمة الإدارية لضمان الإنتاج الأمثل.",
+        details: ["تحديث البنية التحتية", "استبدال المعدات القديمة", "تطوير الأنظمة الإدارية", "زيادة الطاقة الإنتاجية"],
+      },
+      en: {
+        name: "International Company CIL Plant",
+        location: "Northern State, Wadi Halfa",
+        description: "Comprehensive rehabilitation of an international company's gold processing plant using CIL technology, including infrastructure updates, equipment upgrades, and administrative system development for optimal production.",
+        details: ["Infrastructure updates", "Equipment replacement", "Administrative system development", "Production capacity increase"],
+      },
+      image: "https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2F416100acc0eb4e8384b3081c642200da?format=webp&width=1200",
     },
     {
-      name: "مصنع المسار",
-      location: "ولاية نهر النيل، منطقة العبيدية",
-      image:
-        "https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2F3e47241f4891406090746f0cc4cfda1a?format=webp&width=1200",
-      description:
-        "تقييم شامل وإعادة تشغيل مصنع المعالجة الموجود مع تحسين كفاءة العمليات والتحديث التكنولوجي، مما يضمن استدامة الإنتاج وجودة المخرجات.",
-      details: [
-        "تقييم شامل للمنشآت",
-        "تحديث المعدات والأنظمة",
-        "تحسين كفاءة العمليات",
-        "إعادة تشغيل متدرجة وآمنة",
-      ],
+      ar: {
+        name: "مصنع المسار",
+        location: "ولاية نهر النيل، منطقة العبيدية",
+        description: "تقييم شامل وإعادة تشغيل مصنع المعالجة الموجود مع تحسين كفاءة العمليات والتحديث التكنولوجي، مما يضمن استدامة الإنتاج وجودة المخرجات.",
+        details: ["تقييم شامل للمنشآت", "تحديث المعدات والأنظمة", "تحسين كفاءة العمليات", "إعادة تشغيل متدرجة وآمنة"],
+      },
+      en: {
+        name: "Al-Massar Plant",
+        location: "Nile State, Al-Obeidi Region",
+        description: "Comprehensive assessment and reactivation of an existing processing plant with improved operational efficiency and technological upgrades, ensuring sustainable production and output quality.",
+        details: ["Comprehensive facility assessment", "Equipment and system updates", "Operational efficiency improvement", "Gradual and safe plant restart"],
+      },
+      image: "https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2F3e47241f4891406090746f0cc4cfda1a?format=webp&width=1200",
     },
     {
-      name: "مصنع سنابل المحدودة VAT LEACH",
-      location: "الولاية الشمالية، وادي حلفا",
-      image:
-        "https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2Ff9f4decc97bd4e90b73ab01f5ebfbf17?format=webp&width=1200",
-      description:
-        "بدء مرحلة الإنشاء والتطوير لمصنع معالجة الذهب بتقنية VAT LEACH المتقدمة، يتضمن التصميم الهندسي والبناء والتجهيز لتصبح منشأة حديثة عالمية المعايير.",
-      details: [
-        "تصميم هندسي متطور",
-        "تقنية VAT LEACH الحديثة",
-        "البناء والتطوير المرحلي",
-        "معايير عالمية للسلامة والجودة",
-      ],
+      ar: {
+        name: "مصنع سنابل المحدودة VAT LEACH",
+        location: "الولاية الشمالية، وادي حلفا",
+        description: "بدء مرحلة الإنشاء والتطوير لمصنع معالجة الذهب بتقنية VAT LEACH المتقدمة، يتضمن التصميم الهندسي والبناء والتجهيز لتصبح منشأة حديثة عالمية المعايير.",
+        details: ["تصميم هندسي متطور", "تقنية VAT LEACH الحديثة", "البناء والتطوير المرحلي", "معايير عالمية للسلامة والجودة"],
+      },
+      en: {
+        name: "Sunabel Ltd. VAT LEACH Plant",
+        location: "Northern State, Wadi Halfa",
+        description: "Initial construction and development phase of an advanced VAT LEACH gold processing plant, including engineering design, construction, and commissioning to become a modern world-class facility.",
+        details: ["Advanced engineering design", "Modern VAT LEACH technology", "Phased construction and development", "International standards for safety and quality"],
+      },
+      image: "https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2Ff9f4decc97bd4e90b73ab01f5ebfbf17?format=webp&width=1200",
     },
   ];
 

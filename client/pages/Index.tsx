@@ -544,7 +544,9 @@ const OrbitNode = ({ node, language, isArabic, activeNode, setActiveNode, arrowI
               ? '/exploration'
               : node.id === 'geology'
                 ? '/geology'
-                : '/contact'
+                : node.id === 'processing'
+                  ? '/processing'
+                  : '/contact'
           }
           className={`inline-flex items-center gap-2 text-sm font-semibold text-gold-900 ${isArabic ? 'flex-row-reverse' : ''}`}
           onFocus={() => setActiveNode(node.id)}

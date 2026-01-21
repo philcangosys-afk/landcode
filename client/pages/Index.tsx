@@ -151,13 +151,15 @@ const AboutPreview = ({ isArabic }: { isArabic: boolean }) => (
   <section className="py-24 bg-white">
     <div className="container max-w-6xl mx-auto px-4">
       <div className={`grid lg:grid-cols-2 gap-12 items-center ${isArabic ? 'text-right' : ''}`}>
-        <div className="relative">
-          <img
-            src="https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2Fdc2c9f2ee1584fdf9cdf78b1099ce982?format=webp&width=1400"
-            alt="فريق شركة لاندكود"
-            className="w-full h-[420px] object-cover rounded-3xl shadow-2xl"
-          />
-          <div className="absolute -bottom-16 inset-x-10 bg-white rounded-2xl shadow-xl p-6 border border-slate-100">
+        <div className="flex flex-col">
+          <div className="relative">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2Fdc2c9f2ee1584fdf9cdf78b1099ce982?format=webp&width=1400"
+              alt="فريق شركة لاندكود"
+              className="w-full h-[420px] object-cover rounded-3xl shadow-2xl"
+            />
+          </div>
+          <div className="mt-6 bg-white rounded-2xl shadow-xl p-6 border border-slate-100 max-w-sm mx-auto lg:mx-0">
             <p className="text-sm text-slate-500 mb-1">2020 → الآن</p>
             <p className="text-lg font-semibold text-primary">
               {isArabic

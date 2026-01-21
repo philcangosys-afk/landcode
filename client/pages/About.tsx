@@ -203,8 +203,7 @@ const CEOMessage = ({ isArabic, t }: any) => {
   );
 };
 
-const ManagementTeam = ({ isArabic }: any) => {
-  const { t } = useLanguage();
+const ManagementTeam = ({ isArabic, t }: any) => {
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 

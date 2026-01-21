@@ -85,6 +85,14 @@ const App = () => (
               }
             />
             <Route
+              path="/processing"
+              element={
+                <Layout>
+                  <Processing />
+                </Layout>
+              }
+            />
+            <Route
               path="/contact"
               element={
                 <Layout>

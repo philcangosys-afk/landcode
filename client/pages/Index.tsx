@@ -340,30 +340,26 @@ const ServicesShowcase = ({ language, isArabic }: { language: 'ar' | 'en'; isAra
           ))}
         </div>
 
-        <div className="grid gap-8 lg:hidden">
-          {servicesData.map((service) => (
-            <div key={service.titleEn} className="bg-white rounded-3xl border border-slate-100 shadow-lg overflow-hidden">
-              <div className="relative h-52">
-                <img src={service.image} alt={language === 'ar' ? service.titleAr : service.titleEn} className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-              </div>
-              <div className={`p-6 ${isArabic ? 'text-right' : ''}`}>
-                <p className="text-xs uppercase tracking-[0.4em] text-gold-900/80 mb-2">
-                  {language === 'ar' ? service.tagAr : service.tagEn}
-                </p>
-                <h3 className="text-2xl font-bold text-primary mb-3">{language === 'ar' ? service.titleAr : service.titleEn}</h3>
-                <p className="text-slate-600 leading-relaxed mb-4">{language === 'ar' ? service.descriptionAr : service.descriptionEn}</p>
-                <Link
-                  to="/contact"
-                  className={`inline-flex items-center gap-2 text-sm font-semibold text-gold-900 ${isArabic ? 'flex-row-reverse' : ''}`}
-                >
-                  {language === 'ar' ? 'اعرف المزيد' : 'Learn more'}
-                  <span>{arrowIcon}</span>
-                </Link>
-              </div>
-            </div>
-          ))}
-        </div>
+        {activeServiceNode && (
+          <div className={`mt-12 lg:hidden bg-white rounded-3xl border border-slate-100 shadow-xl p-6 transition ${isArabic ? 'text-right' : ''}`}>
+            <p className="text-xs uppercase tracking-[0.4em] text-gold-900/80 mb-2">
+              {language === 'ar' ? activeServiceNode.service.tagAr : activeServiceNode.service.tagEn}
+            </p>
+            <h3 className="text-2xl font-bold text-primary mb-3">
+              {language === 'ar' ? activeServiceNode.service.titleAr : activeServiceNode.service.titleEn}
+            </h3>
+            <p className="text-slate-600 leading-relaxed mb-4">
+              {language === 'ar' ? activeServiceNode.service.descriptionAr : activeServiceNode.service.descriptionEn}
+            </p>
+            <Link
+              to="/contact"
+              className={`inline-flex items-center gap-2 text-sm font-semibold text-gold-900 ${isArabic ? 'flex-row-reverse' : ''}`}
+            >
+              {language === 'ar' ? 'اعرف المزيد' : 'Learn more'}
+              <span>{arrowIcon}</span>
+            </Link>
+          </div>
+        )}
       </div>
 
       <style>{`

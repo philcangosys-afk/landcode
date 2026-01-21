@@ -113,9 +113,9 @@ const Projects = () => {
       {/* Hero Banner */}
       <section className="bg-primary text-white py-16">
         <div className="container max-w-6xl mx-auto px-4 text-center">
-          <h1 className="text-5xl font-bold mb-4">مشاريعنا</h1>
+          <h1 className="text-5xl font-bold mb-4">{t("projects.title")}</h1>
           <p className="text-xl text-gray-200">
-            مشاريع رائدة في التعدين والاستكشاف الجيولوجي
+            {isArabic ? "مشاريع رائدة في التعدين والاستكشاف الجيولوجي" : "Leading projects in mining and geological exploration"}
           </p>
           <div className="w-16 h-1 bg-gold-900 mx-auto mt-6"></div>
         </div>
@@ -125,14 +125,27 @@ const Projects = () => {
       <section className="py-16 bg-white border-b border-slate-100">
         <div className="container max-w-6xl mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <div className="space-y-6 text-right">
+            <div className={`space-y-6 ${isArabic ? "text-right" : ""}`}>
               <div className="prose prose-lg max-w-none">
-                <p className="text-slate-700 leading-relaxed text-lg">
-                  المشاركة مع شركات أخرى في عمليات الاستكشاف في مربع للتعدين تبلغ مساحته 344كم بالولاية الشماليه بمنطقة عكاشا و تم من خلاله حفر ثمانيه مناجم من أصل اثني عشر منجم و سيتم تركيب مصنع CIL قريبا.
-                </p>
-                <p className="text-slate-700 leading-relaxed text-lg">
-                  مسح جيولوجي لمنطقة المحس بدأ من منطقة دلقو شمالاً إلى حدود وادي حلفا جنوباً لتجهيز خرائط استثمارية للتعدين و أخذ أكثر من 380 عينة مختلفة من الكوارتز و الحجر الجيري تراوحت النسب من 1.5 إلى 6 جرام للطن الواحد.
-                </p>
+                {isArabic ? (
+                  <>
+                    <p className="text-slate-700 leading-relaxed text-lg">
+                      المشاركة مع شركات أخرى في عمليات الاستكشاف في مربع للتعدين تبلغ مساحته 344كم بالولاية الشماليه بمنطقة عكاشا و تم من خلاله حفر ثمانيه مناجم من أصل اثني عشر منجم و سيتم تركيب مصنع CIL قريبا.
+                    </p>
+                    <p className="text-slate-700 leading-relaxed text-lg">
+                      مسح جيولوجي لمنطقة المحس بدأ من منطقة دلقو شمالاً إلى حدود وادي حلفا جنوباً لتجهيز خرائط استثمارية للتعدين و أخذ أكثر من 380 عينة مختلفة من الكوارتز و الحجر الجيري تراوحت النسب من 1.5 إلى 6 جرام للطن الواحد.
+                    </p>
+                  </>
+                ) : (
+                  <>
+                    <p className="text-slate-700 leading-relaxed text-lg">
+                      Partnership with other companies in exploration operations at a 344 km² mining concession in Northern State, in the Akasha region. Eight mines have been drilled out of a planned twelve, with a CIL plant installation scheduled soon.
+                    </p>
+                    <p className="text-slate-700 leading-relaxed text-lg">
+                      Geological survey of the Mahass region spanning from Delgo in the north to Wadi Halfa in the south to prepare investment maps for mining. Over 380 different samples of quartz and limestone were collected with assay values ranging from 1.5 to 6 grams per ton.
+                    </p>
+                  </>
+                )}
               </div>
             </div>
           </div>

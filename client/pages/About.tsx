@@ -85,6 +85,7 @@ const CompanyHistory = ({ isArabic }: any) => {
 };
 
 const MissionVision = ({ isArabic }: any) => {
+  const { t } = useLanguage();
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -100,7 +101,7 @@ const MissionVision = ({ isArabic }: any) => {
     <section ref={ref} className="py-20 bg-white">
       <div className="container max-w-6xl mx-auto px-4">
         <h2 className="text-4xl font-bold text-primary mb-2 text-center">
-          رسالتنا و رؤيتنا
+          {t("about.missionVision")}
         </h2>
         <div className="w-16 h-1 bg-gold-900 mx-auto mb-12"></div>
 
@@ -115,14 +116,12 @@ const MissionVision = ({ isArabic }: any) => {
           >
             <div className="flex items-start gap-4 mb-4">
               <span className="text-4xl">🎯</span>
-              <h3 className="text-2xl font-semibold text-primary">رسالتنا</h3>
+              <h3 className="text-2xl font-semibold text-primary">{t("about.mission")}</h3>
             </div>
             <p
               className={`text-gray-700 text-lg leading-relaxed ${isArabic ? "text-right" : ""}`}
             >
-              تقديم خدمات تعدين متكاملة، دقيقة وموثوقة تسهم في تعظيم القيمة
-              الاقتصادية للموارد المعدنية، مع الحفاظ على البيئة والسلامة المهنية
-              والصحة المهنية لضمان استدامة الأعمال وتوثيقها.
+              {t("about.mission.text")}
             </p>
           </div>
 
@@ -137,14 +136,12 @@ const MissionVision = ({ isArabic }: any) => {
           >
             <div className="flex items-start gap-4 mb-4">
               <span className="text-4xl">🚀</span>
-              <h3 className="text-2xl font-semibold text-primary">رؤيتنا</h3>
+              <h3 className="text-2xl font-semibold text-primary">{t("about.vision")}</h3>
             </div>
             <p
               className={`text-gray-700 text-lg leading-relaxed ${isArabic ? "text-right" : ""}`}
             >
-              أن تكون شركة لاندكود من الشركات الرائدة في مجال التعدين وخدمات
-              التعدين في السودان والمنطقة، من خلال توظيف الخبرات الجيولوجية
-              والتقنيات الحديثة.
+              {t("about.vision.text")}
             </p>
           </div>
         </div>

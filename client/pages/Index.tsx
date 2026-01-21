@@ -215,33 +215,36 @@ const ServicesShowcase = ({ language, isArabic }: { language: 'ar' | 'en'; isAra
       </div>
 
       <div className="grid gap-8 lg:grid-cols-3">
-        {servicesData.map((service) => (
-          <div key={service.titleEn} className="group bg-white rounded-3xl border border-slate-100 shadow-lg hover:-translate-y-1 hover:shadow-2xl transition overflow-hidden">
-            <div className="relative h-56">
-              <img
-                src={service.image}
-                alt={language === 'ar' ? service.titleAr : service.titleEn}
-                className="w-full h-full object-cover transition duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
-              <span className="absolute top-4 left-4 right-4 inline-flex justify-center items-center text-[0.65rem] font-semibold uppercase tracking-[0.4em] text-white/90">
-                {language === 'ar' ? service.tagAr : service.tagEn}
-              </span>
-            </div>
-            <div className="p-8">
-              <h3 className={`text-2xl font-bold text-primary mb-3 leading-snug ${isArabic ? 'text-right' : ''}`}>
-                {language === 'ar' ? service.titleAr : service.titleEn}
-              </h3>
-              <p className="text-slate-600 leading-relaxed">
-                {language === 'ar' ? service.descriptionAr : service.descriptionEn}
-              </p>
-              <div className={`mt-8 inline-flex items-center text-sm font-semibold text-gold-900 ${isArabic ? 'flex-row-reverse gap-2' : 'gap-2'}`}>
-                {language === 'ar' ? 'المزيد من التفاصيل' : 'More details'}
-                <span className={`group-hover:translate-x-1 transition ${isArabic ? '-scale-x-100' : ''}`}>→</span>
+        {servicesData.map((service) => {
+          const arrowIcon = isArabic ? '←' : '→';
+          return (
+            <div key={service.titleEn} className="group bg-white rounded-3xl border border-slate-100 shadow-lg hover:-translate-y-1 hover:shadow-2xl transition overflow-hidden">
+              <div className="relative h-56">
+                <img
+                  src={service.image}
+                  alt={language === 'ar' ? service.titleAr : service.titleEn}
+                  className="w-full h-full object-cover transition duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+                <span className="absolute top-4 left-4 right-4 inline-flex justify-center items-center text-[0.65rem] font-semibold uppercase tracking-[0.4em] text-white/90">
+                  {language === 'ar' ? service.tagAr : service.tagEn}
+                </span>
+              </div>
+              <div className="p-8">
+                <h3 className={`text-2xl font-bold text-primary mb-3 leading-snug ${isArabic ? 'text-right' : ''}`}>
+                  {language === 'ar' ? service.titleAr : service.titleEn}
+                </h3>
+                <p className="text-slate-600 leading-relaxed">
+                  {language === 'ar' ? service.descriptionAr : service.descriptionEn}
+                </p>
+                <div className={`mt-8 inline-flex items-center text-sm font-semibold text-gold-900 ${isArabic ? 'flex-row-reverse gap-2' : 'gap-2'}`}>
+                  {language === 'ar' ? 'المزيد من التفاصيل' : 'More details'}
+                  <span className="group-hover:translate-x-1 transition">{arrowIcon}</span>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   </section>

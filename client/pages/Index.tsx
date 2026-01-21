@@ -604,6 +604,106 @@ const ProjectsShowcase = ({ language, isArabic }: { language: 'ar' | 'en'; isAra
   </section>
 );
 
+const partnersData = [
+  {
+    image: 'https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2Fb852a176283543bfb77519d3752688bb?format=webp&width=800&height=1200',
+    alt: 'Albarajoub Group',
+  },
+  {
+    image: 'https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2F9e3d8f532faf46719933b2c598921491?format=webp&width=800&height=1200',
+    alt: 'Dal Mining',
+  },
+  {
+    image: 'https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2Fe07743e56dff44cdb479ca5ff91a8d05?format=webp&width=800&height=1200',
+    alt: 'Geological Research Authority',
+  },
+];
+
+const PartnersSlider = ({ language, isArabic }: { language: 'ar' | 'en'; isArabic: boolean }) => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const handlePrev = () => {
+    setCurrentSlide((prev) => (prev === 0 ? partnersData.length - 1 : prev - 1));
+  };
+
+  const handleNext = () => {
+    setCurrentSlide((prev) => (prev === partnersData.length - 1 ? 0 : prev + 1));
+  };
+
+  return (
+    <section className="py-24 bg-slate-50">
+      <div className="container max-w-6xl mx-auto px-4">
+        <div className={`text-center mb-16 ${isArabic ? 'text-right' : ''}`}>
+          <h2 className="text-4xl md:text-5xl font-black text-primary">
+            {language === 'ar' ? 'شركائنا الاستراتيجيون' : 'Our strategic partners'}
+          </h2>
+          <p className="text-lg text-slate-600 mt-4">
+            {language === 'ar'
+              ? 'نتعاون مع أفضل الشركات والمؤسسات الرائدة في قطاع التعدين والاستثمار'
+              : 'We collaborate with leading companies and institutions in mining and investment'}
+          </p>
+        </div>
+
+        <div className="relative">
+          <div className="flex items-center justify-center overflow-hidden">
+            <div className="w-full max-w-2xl">
+              <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border border-slate-100">
+                {partnersData.map((partner, index) => (
+                  <img
+                    key={index}
+                    src={partner.image}
+                    alt={partner.alt}
+                    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
+                      index === currentSlide ? 'opacity-100' : 'opacity-0'
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Navigation Buttons */}
+          <button
+            onClick={handlePrev}
+            className={`absolute top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white shadow-xl border border-slate-200 flex items-center justify-center transition-all duration-300 hover:bg-primary hover:text-white hover:border-primary ${
+              isArabic ? 'right-0 translate-x-14 sm:translate-x-16' : 'left-0 -translate-x-14 sm:-translate-x-16'
+            }`}
+            aria-label={language === 'ar' ? 'السابق' : 'Previous'}
+          >
+            <span className="text-2xl font-bold">{isArabic ? '→' : '←'}</span>
+          </button>
+
+          <button
+            onClick={handleNext}
+            className={`absolute top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white shadow-xl border border-slate-200 flex items-center justify-center transition-all duration-300 hover:bg-primary hover:text-white hover:border-primary ${
+              isArabic ? 'left-0 -translate-x-14 sm:-translate-x-16' : 'right-0 translate-x-14 sm:translate-x-16'
+            }`}
+            aria-label={language === 'ar' ? 'التالي' : 'Next'}
+          >
+            <span className="text-2xl font-bold">{isArabic ? '←' : '→'}</span>
+          </button>
+
+          {/* Indicators */}
+          <div className="flex justify-center gap-3 mt-8">
+            {partnersData.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentSlide(index)}
+                className={`transition-all duration-300 rounded-full ${
+                  index === currentSlide
+                    ? 'w-8 h-3 bg-primary'
+                    : 'w-3 h-3 bg-slate-300 hover:bg-slate-400'
+                }`}
+                aria-label={`Slide ${index + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const CTABand = ({ isArabic, t }: { isArabic: boolean; t: (key: string) => string }) => (
   <section
     className="relative py-24"

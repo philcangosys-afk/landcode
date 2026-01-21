@@ -83,8 +83,7 @@ const CompanyHistory = ({ isArabic, t }: any) => {
   );
 };
 
-const MissionVision = ({ isArabic }: any) => {
-  const { t } = useLanguage();
+const MissionVision = ({ isArabic, t }: any) => {
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 

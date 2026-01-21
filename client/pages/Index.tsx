@@ -717,15 +717,20 @@ const CSRSection = ({ language, isArabic }: { language: 'ar' | 'en'; isArabic: b
           ))}
         </div>
 
-        <div className={`mt-16 p-8 bg-gradient-to-r from-primary to-primary/80 rounded-2xl text-white ${isArabic ? 'text-right' : ''}`}>
-          <h3 className="text-2xl font-bold mb-4">
-            {language === 'ar' ? 'التزامنا البيئي' : 'Our Environmental Commitment'}
-          </h3>
-          <p className="text-white/90 leading-relaxed">
-            {language === 'ar'
-              ? 'نقوم بحملات إصحاح بيئي شاملة في جميع المناطق التي عملنا بها، إيماناً منا بدور البيئة المهم في تنمية المجتمعات والمحافظة على الصحة العامة في المناطق المستضيفة لمجالات التعدين من الاستكشاف وحتى مصانع معالجة الذهب.'
-              : 'We conduct comprehensive environmental sanitation campaigns in all areas where we operate, believing in the crucial role of environmental protection in community development and public health, from exploration activities to gold processing plants.'}
-          </p>
+        <div className={`mt-16 p-8 bg-gold-900 rounded-2xl text-white ${isArabic ? 'text-right' : ''}`}>
+          <div className="flex items-start gap-4">
+            <span className="text-4xl">🌱</span>
+            <div>
+              <h3 className="text-2xl font-bold mb-3">
+                {language === 'ar' ? 'التزام بيئي شامل' : 'Comprehensive Environmental Commitment'}
+              </h3>
+              <p className="text-white/95 leading-relaxed">
+                {language === 'ar'
+                  ? 'نؤمن أن الاستدامة البيئية هي أساس التنمية المستدامة، لذلك نقوم بحملات إصحاح بيئي في كل مناطق عملياتنا'
+                  : 'We believe environmental sustainability is the foundation of sustainable development, so we conduct environmental sanitation campaigns across all our operational areas.'}
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

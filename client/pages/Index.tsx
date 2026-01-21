@@ -608,14 +608,26 @@ const partnersData = [
   {
     image: 'https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2Fb852a176283543bfb77519d3752688bb?format=webp&width=800&height=1200',
     alt: 'Albarajoub Group',
+    nameAr: 'مجموعة البراج الذهبية',
+    nameEn: 'Albarajoub Group',
+    descriptionAr: 'شركة رائدة في قطاع التعدين والاستثمار مع خبرة عميقة في إدارة المشاريع',
+    descriptionEn: 'Leading mining and investment company with deep expertise in project management',
   },
   {
     image: 'https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2F9e3d8f532faf46719933b2c598921491?format=webp&width=800&height=1200',
     alt: 'Dal Mining',
+    nameAr: 'دال للتعدين',
+    nameEn: 'Dal Mining',
+    descriptionAr: 'متخصصة في المسوحات الجيولوجية والاستكشاف المعدني المتقدم',
+    descriptionEn: 'Specialized in geological surveys and advanced mineral exploration',
   },
   {
     image: 'https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2Fe07743e56dff44cdb479ca5ff91a8d05?format=webp&width=800&height=1200',
     alt: 'Geological Research Authority',
+    nameAr: 'الهيئة الجيولوجية السودانية',
+    nameEn: 'Geological Research Authority',
+    descriptionAr: 'هيئة حكومية متخصصة في البحوث الجيولوجية والدراسات المعدنية',
+    descriptionEn: 'Government authority specialized in geological research and mineral studies',
   },
 ];
 

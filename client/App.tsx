@@ -68,6 +68,14 @@ const App = () => (
               }
             />
             <Route
+              path="/exploration"
+              element={
+                <Layout>
+                  <Exploration />
+                </Layout>
+              }
+            />
+            <Route
               path="/contact"
               element={
                 <Layout>

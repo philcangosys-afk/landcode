@@ -17,16 +17,16 @@ const About = () => {
       </section>
 
       {/* Company History */}
-      <CompanyHistory isArabic={isArabic} />
+      <CompanyHistory isArabic={isArabic} t={t} />
 
       {/* Mission & Vision */}
-      <MissionVision isArabic={isArabic} />
+      <MissionVision isArabic={isArabic} t={t} />
 
       {/* CEO Message */}
-      <CEOMessage isArabic={isArabic} />
+      <CEOMessage isArabic={isArabic} t={t} />
 
       {/* Management Team */}
-      <ManagementTeam isArabic={isArabic} />
+      <ManagementTeam isArabic={isArabic} t={t} />
     </div>
   );
 };

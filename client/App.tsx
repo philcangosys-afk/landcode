@@ -99,8 +99,9 @@ const App = () => (
   </LanguageProvider>
 );
 
-const container = document.getElementById("root");
-if (container) {
-  const root = createRoot(container);
-  root.render(<App />);
+if (typeof window !== 'undefined') {
+  const container = document.getElementById("root");
+  if (container && !container.hasChildNodes()) {
+    createRoot(container).render(<App />);
+  }
 }

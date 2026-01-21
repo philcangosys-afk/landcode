@@ -107,6 +107,105 @@ const translations = {
     en: "This page is coming soon",
   },
   "placeholder.backHome": { ar: "العودة للصفحة الرئيسية", en: "Back to Home" },
+
+  // About Page
+  "about.heroTitle": { ar: "من نحن", en: "About Us" },
+  "about.history.title": { ar: "تاريخ الشركة", en: "Company History" },
+  "about.history.paragraph1": {
+    ar: "تأسست شركة لاندكود للاستثمار المحدودة عام 2020 كشركة متخصصة في أعمال التعدين والاستكشاف الجيولوجي. منذ نشأتها، ركزت الشركة على تقديم خدمات عالية الجودة في مجال التعدين والاستكشاف.",
+    en: "Land Code Investment Ltd. was founded in 2020 as a specialized mining and geological exploration company. Since its inception, the company has focused on providing high-quality services in the mining and exploration sector.",
+  },
+  "about.history.paragraph2": {
+    ar: "بدأت الشركة برؤية واضحة لتصبح الشركة الرائدة في مجال التعدين وخدمات التعدين في المنطقة، مع الالتزام بأعلى معايير الجودة والسلامة والبيئة.",
+    en: "The company started with a clear vision to become the leading company in mining and mining services in the region, with a commitment to the highest standards of quality, safety, and environmental protection.",
+  },
+  "about.history.paragraph3": {
+    ar: "عبر سنوات عملها، نجحت الشركة في تنفيذ عدد من المشاريع المهمة في استكشاف الذهب والمعادن النفيسة، وبناء سمعة قوية في السوق.",
+    en: "Over its years of operation, the company has successfully implemented numerous important projects in gold and precious metals exploration, building a strong reputation in the market.",
+  },
+  "about.missionVision": { ar: "رسالتنا و رؤيتنا", en: "Our Mission & Vision" },
+  "about.mission": { ar: "رسالتنا", en: "Our Mission" },
+  "about.mission.text": {
+    ar: "تقديم خدمات تعدين متكاملة، دقيقة وموثوقة تسهم في تعظيم القيمة الاقتصادية للموارد المعدنية، مع الحفاظ على البيئة والسلامة المهنية والصحة المهنية لضمان استدامة الأعمال وتوثيقها.",
+    en: "To provide integrated, precise and reliable mining services that contribute to maximizing the economic value of mineral resources, while preserving the environment and ensuring occupational safety and health to ensure business sustainability.",
+  },
+  "about.vision": { ar: "رؤيتنا", en: "Our Vision" },
+  "about.vision.text": {
+    ar: "أن تكون شركة لاندكود من الشركات الرائدة في مجال التعدين وخدمات التعدين في السودان والمنطقة، من خلال توظيف الخبرات الجيولوجية والتقنيات الحديثة.",
+    en: "To be a leading company in mining and mining services in Sudan and the region, leveraging geological expertise and modern technologies.",
+  },
+  "about.ceoMessage": { ar: "كلمة المدير العام", en: "CEO's Message" },
+  "about.ceoMessage.text": {
+    ar: "نحو مستقبل تعديني واعد بما تحمله أرضنا من ثروات معدنية هائلة ستغير الواقع. اسست لاندكود للمساهمة في تطوير القطاع وتحويل رؤيتنا إلى واقع ملموس يخدم اقتصادنا الوطني ويرفع من مستوى التنمية المستدامة.",
+    en: "Towards a promising mining future with the vast mineral wealth our land holds that will change the reality. Land Code was established to contribute to sector development and transform our vision into tangible reality serving our national economy and advancing sustainable development.",
+  },
+  "about.ceoMessage.paragraph": {
+    ar: "في لاندكود، نؤمن بأن الاستثمار الحقيقي في الموارد المعدنية لا يقتصر على الاستخراج، بل يتعدى ذلك إلى بناء قاعدة اقتصادية قوية وتطوير المهارات المحلية. نسعى لنكون شركاء أساسيين في تحقيق أهداف التنمية الوطنية من خلال الالتزام بأعلى معايير الجودة والسلامة والاستدامة البيئية.",
+    en: "At Land Code, we believe that true investment in mineral resources extends beyond extraction to building a strong economic foundation and developing local skills. We strive to be key partners in achieving national development goals through commitment to the highest standards of quality, safety, and environmental sustainability.",
+  },
+  "about.management": { ar: "الهيكل الاداري والفني", en: "Administrative & Technical Structure" },
+  "about.partnerships": { ar: "Partnerships & Management Team", en: "Partnerships & Management Team" },
+
+  // Services Page
+  "services.title": { ar: "خدماتنا", en: "Services" },
+  "services.learnMore": { ar: "اعرف المزيد", en: "Learn More" },
+  "services.exploration": { ar: "التنقيب والاستكشاف", en: "Exploration & Discovery" },
+  "services.geology": { ar: "الدراسات الجيولوجية", en: "Geological Studies" },
+  "services.processing": { ar: "معالجة الخامات", en: "Ore Processing" },
+
+  // Projects Page
+  "projects.viewAll": { ar: "اكتشف جميع المشاريع", en: "View All Projects" },
+  "projects.strategic": { ar: "موقع استراتيجي", en: "Strategic Site" },
+  "projects.alHashoor": {
+    ar: "مشروع همش ربّاب - ولاية البحر الأحمر",
+    en: "Hamash Rubab Project - Red Sea State",
+  },
+  "projects.internationalCo": {
+    ar: "مشروع وادي حلفا - شمال السودان",
+    en: "Wadi Halfa Project - Northern Sudan",
+  },
+
+  // Contact Page
+  "contact.heroTitle": { ar: "اتصل بنا", en: "Contact Us" },
+  "contact.form.name": { ar: "الاسم الكامل", en: "Full Name" },
+  "contact.form.namePlaceholder": { ar: "أدخل اسمك", en: "Enter your name" },
+  "contact.form.email": { ar: "البريد الإلكتروني", en: "Email" },
+  "contact.form.emailPlaceholder": { ar: "your@email.com", en: "your@email.com" },
+  "contact.form.phone": { ar: "رقم الهاتف", en: "Phone Number" },
+  "contact.form.phonePlaceholder": { ar: "+249 ...", en: "+249 ..." },
+  "contact.form.message": { ar: "الرسالة", en: "Message" },
+  "contact.form.messagePlaceholder": { ar: "اكتب رسالتك هنا", en: "Write your message here" },
+  "contact.form.submit": { ar: "إرسال الرسالة", en: "Send Message" },
+  "contact.form.success": { ar: "تم إرسال رسالتك بنجاح", en: "Your message has been sent successfully" },
+  "contact.location": { ar: "العنوان", en: "Location" },
+  "contact.working.hours": { ar: "ساعات العمل", en: "Working Hours" },
+  "contact.phone.number": { ar: "رقم الهاتف", en: "Phone Number" },
+  "contact.hours": {
+    ar: "من الاثنين إلى الخميس: 8:00 صباحاً - 5:00 مساءً (بتوقيت كارتوم)",
+    en: "Monday to Thursday: 8:00 AM - 5:00 PM (Khartoum Time)",
+  },
+
+  // CSR Section
+  "csr.title": { ar: "مسؤوليتنا المجتمعية", en: "Corporate Social Responsibility" },
+  "csr.subtitle": { ar: "التزامنا الاجتماعي", en: "Our Commitment" },
+  "csr.description": {
+    ar: "نؤمن بأن النجاح الحقيقي يأتي من خلال العطاء والمساهمة الفعلية في تنمية المجتمعات المحلية والحفاظ على البيئة",
+    en: "We believe true success comes through genuine contribution to local community development and environmental preservation",
+  },
+  "csr.focusAreas": { ar: "مجالات تركيزنا", en: "Our Focus Areas" },
+  "csr.foodSupport": { ar: "الدعم الغذائي", en: "Food Support" },
+  "csr.infrastructure": { ar: "تطوير البنية التحتية", en: "Infrastructure Development" },
+  "csr.community": { ar: "دعم المجتمع المحلي", en: "Community Support" },
+  "csr.environment": { ar: "الإصحاح البيئي", en: "Environmental Sanitation" },
+  "csr.commitment": { ar: "التزام بيئي شامل", en: "Comprehensive Environmental Commitment" },
+
+  // Partners Section
+  "partners.title": { ar: "شركائنا الاستراتيجيون", en: "Our Strategic Partners" },
+  "partners.description": {
+    ar: "نتعاون مع أفضل الشركات والمؤسسات الرائدة في قطاع التعدين والاستثمار",
+    en: "We collaborate with leading companies and institutions in mining and investment",
+  },
+  "partners.partner": { ar: "شريك استراتيجي", en: "Strategic Partner" },
 };
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({

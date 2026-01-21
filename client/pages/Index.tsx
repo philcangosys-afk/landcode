@@ -482,23 +482,42 @@ const OrbitNode = ({ node, language, isArabic, activeNode, setActiveNode, arrowI
       onMouseEnter={() => setActiveNode(node.id)}
       onMouseLeave={() => setActiveNode(null)}
     >
-      <button
-        type="button"
-        className={`orbit-node-button group relative w-36 h-36 rounded-full border border-white/35 overflow-hidden shadow-[0_20px_50px_rgba(10,25,49,0.35)] transition-all duration-500 backdrop-blur ${
-          isActive ? 'border-gold-900 ring-2 ring-gold-900/70 scale-105' : 'bg-white/5'
-        }`}
-        style={{ animationDelay: `${0.6 + node.delay}s` }}
-        onFocus={() => setActiveNode(node.id)}
-        onBlur={() => setActiveNode(null)}
-        onClick={handleToggle}
-      >
-        <img src={node.service.image} alt={title} className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-black/50 to-black/85 opacity-90 transition group-hover:opacity-100" />
-        <div className="relative z-10 h-full flex flex-col items-center justify-center text-center text-white px-4">
-          <span className="text-[0.55rem] uppercase tracking-[0.45em] text-white/70 mb-2">{tag}</span>
-          <p className="text-sm font-semibold leading-snug">{title}</p>
-        </div>
-      </button>
+      {node.id === 'exploration' ? (
+        <Link
+          to="/exploration"
+          className={`orbit-node-button group relative w-36 h-36 rounded-full border border-white/35 overflow-hidden shadow-[0_20px_50px_rgba(10,25,49,0.35)] transition-all duration-500 backdrop-blur inline-flex items-center justify-center ${
+            isActive ? 'border-gold-900 ring-2 ring-gold-900/70 scale-105' : 'bg-white/5'
+          }`}
+          style={{ animationDelay: `${0.6 + node.delay}s` }}
+          onMouseEnter={() => setActiveNode(node.id)}
+          onMouseLeave={() => setActiveNode(null)}
+        >
+          <img src={node.service.image} alt={title} className="absolute inset-0 w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-black/50 to-black/85 opacity-90 transition group-hover:opacity-100" />
+          <div className="relative z-10 h-full flex flex-col items-center justify-center text-center text-white px-4">
+            <span className="text-[0.55rem] uppercase tracking-[0.45em] text-white/70 mb-2">{tag}</span>
+            <p className="text-sm font-semibold leading-snug">{title}</p>
+          </div>
+        </Link>
+      ) : (
+        <button
+          type="button"
+          className={`orbit-node-button group relative w-36 h-36 rounded-full border border-white/35 overflow-hidden shadow-[0_20px_50px_rgba(10,25,49,0.35)] transition-all duration-500 backdrop-blur ${
+            isActive ? 'border-gold-900 ring-2 ring-gold-900/70 scale-105' : 'bg-white/5'
+          }`}
+          style={{ animationDelay: `${0.6 + node.delay}s` }}
+          onFocus={() => setActiveNode(node.id)}
+          onBlur={() => setActiveNode(null)}
+          onClick={handleToggle}
+        >
+          <img src={node.service.image} alt={title} className="absolute inset-0 w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-black/50 to-black/85 opacity-90 transition group-hover:opacity-100" />
+          <div className="relative z-10 h-full flex flex-col items-center justify-center text-center text-white px-4">
+            <span className="text-[0.55rem] uppercase tracking-[0.45em] text-white/70 mb-2">{tag}</span>
+            <p className="text-sm font-semibold leading-snug">{title}</p>
+          </div>
+        </button>
+      )}
 
       <div
         className={`orbit-card absolute w-72 max-w-xs rounded-2xl border border-slate-100 bg-white shadow-2xl p-5 transition-all duration-500 ${

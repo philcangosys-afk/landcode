@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Contact = () => {
-  const { language } = useLanguage();
+  const { language, t } = useLanguage();
   const isArabic = language === "ar";
 
   const [formData, setFormData] = useState({
@@ -38,9 +38,11 @@ const Contact = () => {
       {/* Hero Banner */}
       <section className="bg-primary text-white py-16">
         <div className="container max-w-6xl mx-auto px-4 text-center">
-          <h1 className="text-5xl font-bold mb-4">اتصل بنا</h1>
+          <h1 className="text-5xl font-bold mb-4">{t("contact.heroTitle")}</h1>
           <p className="text-xl text-gray-200">
-            نحن هنا للإجابة على جميع أسئلتك والاستماع إلى اقتراحاتك
+            {isArabic
+              ? "نحن هنا للإجابة على جميع أسئلتك والاستماع إلى اقتراحاتك"
+              : "We are here to answer all your questions and listen to your suggestions"}
           </p>
           <div className="w-16 h-1 bg-gold-900 mx-auto mt-6"></div>
         </div>
@@ -51,16 +53,16 @@ const Contact = () => {
         <div className="container max-w-6xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             {/* Address */}
-            <ContactCard isArabic={isArabic} icon="📍" title="العنوان">
-              <p>السودان - الخرطوم</p>
-              <p>حي الطائف - مربع 23</p>
+            <ContactCard isArabic={isArabic} icon="📍" title={t("contact.location")}>
+              <p>{isArabic ? "السودان - الخرطوم" : "Sudan - Khartoum"}</p>
+              <p>{isArabic ? "حي الطائف - مربع 23" : "Al-Taif - Block 23"}</p>
             </ContactCard>
 
             {/* Email */}
             <ContactCard
               isArabic={isArabic}
               icon="✉️"
-              title="البريد الإلكتروني"
+              title={t("contact.email")}
             >
               <a
                 href="mailto:landcode2026@gmail.com"
@@ -71,7 +73,7 @@ const Contact = () => {
             </ContactCard>
 
             {/* Phone */}
-            <ContactCard isArabic={isArabic} icon="📞" title="الهاتف">
+            <ContactCard isArabic={isArabic} icon="📞" title={t("contact.phone.number")}>
               <div className="space-y-2">
                 <a
                   href="tel:+249912350743"
@@ -112,7 +114,7 @@ const Contact = () => {
               <h2
                 className={`text-3xl font-bold text-primary mb-6 ${isArabic ? "text-right" : ""}`}
               >
-                نموذج الاتصال
+                {isArabic ? "نموذج الاتصال" : "Contact Form"}
               </h2>
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Name */}
@@ -120,7 +122,7 @@ const Contact = () => {
                   <label
                     className={`block text-primary font-semibold mb-2 ${isArabic ? "text-right" : ""}`}
                   >
-                    الاسم الكامل
+                    {t("contact.form.name")}
                   </label>
                   <input
                     type="text"
@@ -128,7 +130,7 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    placeholder="أدخل اسمك"
+                    placeholder={t("contact.form.namePlaceholder")}
                     className={`w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-gold-900 ${isArabic ? "text-right" : ""}`}
                   />
                 </div>
@@ -138,7 +140,7 @@ const Contact = () => {
                   <label
                     className={`block text-primary font-semibold mb-2 ${isArabic ? "text-right" : ""}`}
                   >
-                    البريد الإلكتروني
+                    {t("contact.form.email")}
                   </label>
                   <input
                     type="email"
@@ -146,7 +148,7 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    placeholder="your@email.com"
+                    placeholder={t("contact.form.emailPlaceholder")}
                     className={`w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-gold-900 ${isArabic ? "text-right" : ""}`}
                   />
                 </div>
@@ -156,14 +158,14 @@ const Contact = () => {
                   <label
                     className={`block text-primary font-semibold mb-2 ${isArabic ? "text-right" : ""}`}
                   >
-                    رقم الهاتف
+                    {t("contact.form.phone")}
                   </label>
                   <input
                     type="tel"
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="+249 ..."
+                    placeholder={t("contact.form.phonePlaceholder")}
                     className={`w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-gold-900 ${isArabic ? "text-right" : ""}`}
                   />
                 </div>
@@ -173,7 +175,7 @@ const Contact = () => {
                   <label
                     className={`block text-primary font-semibold mb-2 ${isArabic ? "text-right" : ""}`}
                   >
-                    الموضوع
+                    {isArabic ? "الموضوع" : "Subject"}
                   </label>
                   <input
                     type="text"
@@ -181,7 +183,7 @@ const Contact = () => {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    placeholder="موضوع الاستفسار"
+                    placeholder={isArabic ? "موضوع الاستفسار" : "Subject of your inquiry"}
                     className={`w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-gold-900 ${isArabic ? "text-right" : ""}`}
                   />
                 </div>
@@ -191,7 +193,7 @@ const Contact = () => {
                   <label
                     className={`block text-primary font-semibold mb-2 ${isArabic ? "text-right" : ""}`}
                   >
-                    الرسالة
+                    {t("contact.form.message")}
                   </label>
                   <textarea
                     name="message"
@@ -199,7 +201,7 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     rows={6}
-                    placeholder="أكتب رسالتك هنا..."
+                    placeholder={isArabic ? "اكتب رسالتك هنا..." : "Write your message here..."}
                     className={`w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-gold-900 resize-none ${isArabic ? "text-right" : ""}`}
                   />
                 </div>
@@ -209,13 +211,15 @@ const Contact = () => {
                   type="submit"
                   className="w-full px-6 py-3 bg-gold-900 text-primary font-semibold rounded-lg hover:bg-gold-900/80 transition"
                 >
-                  إرسال الرسالة
+                  {t("contact.form.submit")}
                 </button>
 
                 {/* Success Message */}
                 {submitted && (
                   <div className="p-4 bg-green-50 border border-green-200 rounded-lg text-green-700">
-                    شكراً لك! تم استقبال رسالتك بنجاح سيتم التواصل معك قريباً.
+                    {isArabic
+                      ? "شكراً لك! تم استقبال رسالتك بنجاح سيتم التواصل معك قريباً."
+                      : "Thank you! Your message has been received successfully. We will contact you soon."}
                   </div>
                 )}
               </form>
@@ -226,7 +230,7 @@ const Contact = () => {
               <h2
                 className={`text-3xl font-bold text-primary mb-6 ${isArabic ? "text-right" : ""}`}
               >
-                موقعنا
+                {isArabic ? "موقعنا" : "Our Location"}
               </h2>
               <div className="w-full h-96 bg-gray-200 rounded-lg overflow-hidden shadow-lg">
                 {/* In a real application, you would embed a Google Map here */}
@@ -245,11 +249,14 @@ const Contact = () => {
               >
                 <p className="text-gray-700">
                   <span className="font-semibold text-primary">
-                    ساعات العمل:
+                    {t("contact.working.hours")}:
                   </span>{" "}
                   <br />
-                  السبت - الخميس: 8:00 صباحاً - 5:00 مساءً <br />
-                  الجمعة: مغلق
+                  {isArabic
+                    ? "السبت - الخميس: 8:00 صباحاً - 5:00 مساءً"
+                    : "Saturday - Thursday: 8:00 AM - 5:00 PM"}
+                  <br />
+                  {isArabic ? "الجمعة: مغلق" : "Friday: Closed"}
                 </p>
               </div>
             </div>

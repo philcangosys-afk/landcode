@@ -99,19 +99,10 @@ const App = () => (
   </LanguageProvider>
 );
 
-if (typeof window !== 'undefined' && import.meta.hot) {
-  const container = document.getElementById("root");
-  if (container) {
-    if (!container._reactRoot) {
-      container._reactRoot = createRoot(container);
-    }
-    container._reactRoot.render(<App />);
-  }
-} else if (typeof window !== 'undefined') {
-  const container = document.getElementById("root");
-  if (container) {
-    createRoot(container).render(<App />);
+const rootElement = document.getElementById("root");
+if (rootElement) {
+  if (!(rootElement as any)._reactRootCreated) {
+    (rootElement as any)._reactRootCreated = true;
+    createRoot(rootElement).render(<App />);
   }
 }
-
-export default App;

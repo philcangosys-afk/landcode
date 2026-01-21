@@ -151,6 +151,7 @@ const MissionVision = ({ isArabic }: any) => {
 };
 
 const CEOMessage = ({ isArabic }: any) => {
+  const { t } = useLanguage();
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -166,7 +167,7 @@ const CEOMessage = ({ isArabic }: any) => {
     <section ref={ref} className="py-20 bg-white">
       <div className="container max-w-6xl mx-auto px-4">
         <h2 className="text-4xl font-bold text-primary mb-2 text-center">
-          كلمة المدير العام
+          {t("about.ceoMessage")}
         </h2>
         <div className="w-16 h-1 bg-gold-900 mx-auto mb-12"></div>
 
@@ -193,15 +194,10 @@ const CEOMessage = ({ isArabic }: any) => {
           {/* CEO Message */}
           <div className={isArabic ? "order-1 text-right" : ""}>
             <p className="text-lg text-gray-700 leading-relaxed mb-6 font-semibold italic border-l-4 border-gold-900 pl-6" style={{ borderLeft: isArabic ? "none" : "", borderRight: isArabic ? "4px solid #d4af37" : "none", paddingRight: isArabic ? "24px" : "0", paddingLeft: isArabic ? "0" : "24px" }}>
-              "نحو مستقبل تعديني واعد بما تحمله أرضنا من ثروات معدنية هائلة ستغير الواقع.
-              اسست لاندكود للمساهمة في تطوير القطاع وتحويل رؤيتنا إلى واقع ملموس يخدم
-              اقتصادنا الوطني ويرفع من مستوى التنمية المستدامة."
+              "{t("about.ceoMessage.text")}"
             </p>
             <p className="text-gray-700 leading-relaxed">
-              في لاندكود، نؤمن بأن الاستثمار الحقيقي في الموارد المعدنية لا يقتصر على الاستخراج،
-              بل يتعدى ذلك إلى بناء قاعدة اقتصادية قوية وتطوير المهارات المحلية.
-              نسعى لنكون شركاء أساسيين في تحقيق أهداف التنمية الوطنية من خلال الالتزام
-              بأعلى معايير الجودة والسلامة والاستدامة البيئية.
+              {t("about.ceoMessage.paragraph")}
             </p>
           </div>
         </div>

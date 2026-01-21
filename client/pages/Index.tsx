@@ -674,11 +674,27 @@ const CSRSection = ({ language, isArabic }: { language: 'ar' | 'en'; isArabic: b
           <h2 className="text-4xl md:text-5xl font-black text-primary mb-6">
             {language === 'ar' ? 'مسؤوليتنا المجتمعية' : 'Corporate Social Responsibility'}
           </h2>
-          <p className="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
+        </div>
+
+        {/* Main Description */}
+        <div className={`max-w-4xl mx-auto mb-16 p-8 bg-slate-50 rounded-2xl border-l-4 border-gold-900 ${isArabic ? 'text-right border-l-0 border-r-4 border-r-gold-900' : ''}`}>
+          <p className="text-lg text-slate-700 leading-relaxed mb-4">
             {language === 'ar'
-              ? 'نؤمن بأن النجاح الحقيقي يأتي من خلال العطاء والمساهمة الفعلية في تنمية المجتمعات المحلية والحفاظ على البيئة'
-              : 'We believe true success comes through genuine contribution to local community development and environmental preservation'}
+              ? 'تقوم الشركة بدورها في المسؤولية المجتمعية في المناطق المستضيفة للتعدين مثل توزيع المواد الغذائية للمدارس والداخليات، مساعدة المحليات في فتح الطرق ومشاريع المياه للمشاريع الزراعية، ومعاونة المجتمع المحلي في جميع الاحتياجات الخاصة لذوي الدخل المحدود من الأسر المتعففة.'
+              : 'The company fulfills its corporate social responsibility in mining host communities through food distribution to schools and hostels, assisting local authorities in road development and water projects for agricultural initiatives, and supporting local communities in addressing all special needs of low-income and disadvantaged families.'}
           </p>
+          <p className="text-lg text-slate-700 leading-relaxed">
+            {language === 'ar'
+              ? 'كما تقوم الشركة بحملات إصحاح بيئي في جميع المناطق التي عملت بها، إيماناً منا بدور البيئة المهم في تنمية المجتمعات والمحافظة على الصحة العامة في المناطق المستضيفة لمجالات التعدين من الاستكشاف ومصانع معالجة الذهب.'
+              : 'Additionally, the company conducts environmental sanitation campaigns in all areas where it operates, believing in the crucial role of environmental protection in community development and maintaining public health in mining host communities, from exploration activities to gold processing plants.'}
+          </p>
+        </div>
+
+        {/* Initiative Cards */}
+        <div className={`mb-16 ${isArabic ? 'text-right' : ''}`}>
+          <h3 className="text-2xl font-bold text-primary mb-8 text-center">
+            {language === 'ar' ? 'مجالات تركيزنا' : 'Our Focus Areas'}
+          </h3>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

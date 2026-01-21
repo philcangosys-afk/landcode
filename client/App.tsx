@@ -102,8 +102,8 @@ const App = () => (
 
 const rootElement = document.getElementById("root");
 if (rootElement) {
-  if (!(rootElement as any)._reactRootCreated) {
-    (rootElement as any)._reactRootCreated = true;
-    createRoot(rootElement).render(<App />);
+  if (!root) {
+    root = createRoot(rootElement);
   }
+  root.render(<App />);
 }

@@ -533,7 +533,13 @@ const OrbitNode = ({ node, language, isArabic, activeNode, setActiveNode, arrowI
         <p className="text-primary font-bold mb-3 leading-snug">{title}</p>
         <p className="text-slate-600 text-sm leading-relaxed mb-4">{description}</p>
         <Link
-          to={node.id === 'exploration' ? '/exploration' : '/contact'}
+          to={
+            node.id === 'exploration'
+              ? '/exploration'
+              : node.id === 'geology'
+                ? '/geology'
+                : '/contact'
+          }
           className={`inline-flex items-center gap-2 text-sm font-semibold text-gold-900 ${isArabic ? 'flex-row-reverse' : ''}`}
           onFocus={() => setActiveNode(node.id)}
           onBlur={() => setActiveNode(null)}

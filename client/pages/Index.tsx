@@ -75,8 +75,8 @@ const Hero = ({ language, isArabic }: { language: 'ar' | 'en'; isArabic: boolean
   <section className="relative overflow-hidden">
     <div className="absolute inset-0">
       <img
-        src="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?w=2000&auto=format&fit=crop"
-        alt="Mining operation"
+        src="https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2Fcda7e6bef6f6471fb71698187980a8ad?format=webp&width=2000"
+        alt="العمليات الميدانية لشركة لاندكود"
         className="w-full h-full object-cover hero-kenburns"
       />
       <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-primary/85 to-black/70" />

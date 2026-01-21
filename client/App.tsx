@@ -13,6 +13,7 @@ import Index from "./pages/Index";
 import About from "./pages/About";
 import Services from "./pages/Services";
 import Projects from "./pages/Projects";
+import Exploration from "./pages/Exploration";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 

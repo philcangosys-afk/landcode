@@ -294,7 +294,7 @@ const ServicesShowcase = ({ language, isArabic }: { language: 'ar' | 'en'; isAra
           </h2>
         </div>
 
-        <div className="hidden lg:block relative mx-auto max-w-5xl min-h-[640px]">
+        <div className="relative mx-auto w-full max-w-[520px] min-h-[520px] sm:max-w-[640px] sm:min-h-[600px] lg:max-w-5xl lg:min-h-[640px]">
           <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-0 w-full h-full pointer-events-none">
             {serviceNodes.map((node) => (
               <line

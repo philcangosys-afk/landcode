@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useState, type CSSProperties } from 'react';
+import { useState, type CSSProperties, type Dispatch, type SetStateAction } from 'react';
 import { Link } from 'react-router-dom';
 
 import { useLanguage } from '@/contexts/LanguageContext';

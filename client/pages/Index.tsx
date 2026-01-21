@@ -40,7 +40,7 @@ const servicesData = [
   },
 ];
 
- type OrbitNodeConfig = {
+type OrbitNodeConfig = {
   id: string;
   serviceIndex: number;
   coords: { x: number; y: number };

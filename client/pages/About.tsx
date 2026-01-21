@@ -1,8 +1,9 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRef, useEffect, useState } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const About = () => {
-  const { language } = useLanguage();
+  const { language, t } = useLanguage();
   const isArabic = language === "ar";
 
   return (
@@ -10,7 +11,7 @@ const About = () => {
       {/* Hero Banner */}
       <section className="bg-primary text-white py-16">
         <div className="container max-w-6xl mx-auto px-4 text-center">
-          <h1 className="text-5xl font-bold mb-4">من نحن</h1>
+          <h1 className="text-5xl font-bold mb-4">{t("about.heroTitle")}</h1>
           <div className="w-16 h-1 bg-gold-900 mx-auto"></div>
         </div>
       </section>

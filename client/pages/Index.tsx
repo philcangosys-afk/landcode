@@ -157,7 +157,7 @@ const AboutPreview = ({ isArabic }: { isArabic: boolean }) => (
             alt="فريق شركة لاندكود"
             className="w-full h-[420px] object-cover rounded-3xl shadow-2xl"
           />
-          <div className="absolute -bottom-10 inset-x-10 bg-white rounded-2xl shadow-xl p-6 border border-slate-100">
+          <div className="absolute -bottom-16 inset-x-10 bg-white rounded-2xl shadow-xl p-6 border border-slate-100">
             <p className="text-sm text-slate-500 mb-1">2020 → الآن</p>
             <p className="text-lg font-semibold text-primary">
               {isArabic

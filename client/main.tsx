@@ -1,19 +1,27 @@
 import { createRoot, type Root } from 'react-dom/client';
 import App from './App';
 
-let root: Root | null = null;
+declare global {
+  interface Window {
+    __reactRoot?: Root;
+  }
+}
 
 const rootElement = document.getElementById('root');
 if (rootElement) {
-  root = createRoot(rootElement);
-  root.render(<App />);
+  // Check if root already exists (HMR case)
+  if (!window.__reactRoot) {
+    window.__reactRoot = createRoot(rootElement);
+  }
+  window.__reactRoot.render(<App />);
 }
 
-// Handle HMR
+// Handle HMR updates
 if (import.meta.hot) {
-  import.meta.hot.accept('./App', (newModule) => {
-    if (root) {
-      root.render(<App />);
+  import.meta.hot.accept('./App', () => {
+    // Re-render with new App component
+    if (window.__reactRoot && rootElement) {
+      window.__reactRoot.render(<App />);
     }
   });
 }

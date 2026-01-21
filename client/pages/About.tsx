@@ -21,6 +21,9 @@ const About = () => {
       {/* Mission & Vision */}
       <MissionVision isArabic={isArabic} />
 
+      {/* CEO Message */}
+      <CEOMessage isArabic={isArabic} />
+
       {/* Management Team */}
       <ManagementTeam isArabic={isArabic} />
     </div>

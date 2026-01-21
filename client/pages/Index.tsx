@@ -537,37 +537,40 @@ const OrbitNode = ({ node, language, isArabic, activeNode, setActiveNode, arrowI
         </button>
       )}
 
-      <div
-        className={`orbit-card absolute w-72 max-w-xs rounded-2xl border border-slate-100 bg-white shadow-2xl p-5 transition-all duration-500 ${
-          isArabic ? 'text-right' : ''
-        } ${
-          isActive ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-3 pointer-events-none'
-        }`}
-        style={node.infoPosition}
-      >
-        <p className="text-sm font-semibold text-gold-900 mb-2">
-          {language === 'ar' ? 'خدمة متخصصة' : 'Focused capability'}
-        </p>
-        <p className="text-primary font-bold mb-3 leading-snug">{title}</p>
-        <p className="text-slate-600 text-sm leading-relaxed mb-4">{description}</p>
-        <Link
-          to={
-            node.id === 'exploration'
-              ? '/exploration'
-              : node.id === 'geology'
-                ? '/geology'
-                : node.id === 'processing'
-                  ? '/processing'
-                  : '/contact'
-          }
-          className={`inline-flex items-center gap-2 text-sm font-semibold text-gold-900 ${isArabic ? 'flex-row-reverse' : ''}`}
-          onFocus={() => setActiveNode(node.id)}
-          onBlur={() => setActiveNode(null)}
+      {/* Info card - hidden for geology and processing nodes */}
+      {node.id !== 'geology' && node.id !== 'processing' && (
+        <div
+          className={`orbit-card absolute w-72 max-w-xs rounded-2xl border border-slate-100 bg-white shadow-2xl p-5 transition-all duration-500 ${
+            isArabic ? 'text-right' : ''
+          } ${
+            isActive ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-3 pointer-events-none'
+          }`}
+          style={node.infoPosition}
         >
-          {language === 'ar' ? 'اعرف المزيد' : 'Learn more'}
-          <span>{arrowIcon}</span>
-        </Link>
-      </div>
+          <p className="text-sm font-semibold text-gold-900 mb-2">
+            {language === 'ar' ? 'خدمة متخصصة' : 'Focused capability'}
+          </p>
+          <p className="text-primary font-bold mb-3 leading-snug">{title}</p>
+          <p className="text-slate-600 text-sm leading-relaxed mb-4">{description}</p>
+          <Link
+            to={
+              node.id === 'exploration'
+                ? '/exploration'
+                : node.id === 'geology'
+                  ? '/geology'
+                  : node.id === 'processing'
+                    ? '/processing'
+                    : '/contact'
+            }
+            className={`inline-flex items-center gap-2 text-sm font-semibold text-gold-900 ${isArabic ? 'flex-row-reverse' : ''}`}
+            onFocus={() => setActiveNode(node.id)}
+            onBlur={() => setActiveNode(null)}
+          >
+            {language === 'ar' ? 'اعرف المزيد' : 'Learn more'}
+            <span>{arrowIcon}</span>
+          </Link>
+        </div>
+      )}
     </div>
   );
 };

@@ -99,9 +99,19 @@ const App = () => (
   </LanguageProvider>
 );
 
-if (typeof window !== 'undefined') {
+if (typeof window !== 'undefined' && import.meta.hot) {
   const container = document.getElementById("root");
-  if (container && !container.hasChildNodes()) {
+  if (container) {
+    if (!container._reactRoot) {
+      container._reactRoot = createRoot(container);
+    }
+    container._reactRoot.render(<App />);
+  }
+} else if (typeof window !== 'undefined') {
+  const container = document.getElementById("root");
+  if (container) {
     createRoot(container).render(<App />);
   }
 }
+
+export default App;

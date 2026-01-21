@@ -632,6 +632,8 @@ const partnersData = [
 ];
 
 const PartnersSlider = ({ language, isArabic }: { language: 'ar' | 'en'; isArabic: boolean }) => {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
   return (
     <section className="py-24 bg-slate-50">
       <div className="container max-w-6xl mx-auto px-4">
@@ -650,13 +652,36 @@ const PartnersSlider = ({ language, isArabic }: { language: 'ar' | 'en'; isArabi
           {partnersData.map((partner, index) => (
             <div
               key={index}
-              className="w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden shadow-lg border-4 border-white bg-white flex items-center justify-center transition-transform duration-300 hover:scale-110"
+              className="relative"
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
             >
-              <img
-                src={partner.image}
-                alt={partner.alt}
-                className="w-full h-full object-cover"
-              />
+              <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden shadow-lg border-4 border-white bg-white flex items-center justify-center transition-all duration-300 hover:scale-110 cursor-pointer">
+                <img
+                  src={partner.image}
+                  alt={partner.alt}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              {/* Popup Card on Hover */}
+              {hoveredIndex === index && (
+                <div
+                  className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 w-56 bg-white rounded-2xl shadow-2xl p-6 border border-slate-100 transition-all duration-300 ${
+                    isArabic ? 'text-right' : ''
+                  }`}
+                >
+                  <p className="text-sm font-semibold text-gold-900 mb-2">
+                    {language === 'ar' ? 'شريك استراتيجي' : 'Strategic Partner'}
+                  </p>
+                  <h3 className="text-lg font-bold text-primary mb-3">
+                    {language === 'ar' ? partner.nameAr : partner.nameEn}
+                  </h3>
+                  <p className="text-slate-600 text-sm leading-relaxed">
+                    {language === 'ar' ? partner.descriptionAr : partner.descriptionEn}
+                  </p>
+                </div>
+              )}
             </div>
           ))}
         </div>

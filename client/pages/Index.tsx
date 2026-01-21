@@ -43,14 +43,16 @@ const projects = [
     nameEn: 'Hamash Rubab – Red Sea State',
     descriptionAr: 'برنامج استكشاف جيولوجي متكامل لتطوير مناجم سطحية وبناء سلسلة إمداد لمصانع الذهب.',
     descriptionEn: 'Integrated exploration and pit development with a dedicated supply chain to gold plants.',
-    image: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200&auto=format&fit=crop',
+    image:
+      'https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2F486c06ee0357413fb5972319d30e3456?format=webp&width=1200',
   },
   {
     nameAr: 'مشروع وادي حلفا - شمال السودان',
     nameEn: 'Wadi Halfa – Northern Sudan',
     descriptionAr: 'تحديد مناطق معدنية واعدة عبر دراسات استكشاف عميقة وتقنيات استشعار عن بعد.',
     descriptionEn: 'Identifying promising mineral corridors with deep exploration and remote sensing.',
-    image: 'https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=1200&auto=format&fit=crop',
+    image:
+      'https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2F54887cbbad2748d2835293e88a3cdae1?format=webp&width=1200',
   },
 ];
 

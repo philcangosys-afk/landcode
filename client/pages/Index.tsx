@@ -40,6 +40,61 @@ const servicesData = [
   },
 ];
 
+ type OrbitNodeConfig = {
+  id: string;
+  serviceIndex: number;
+  coords: { x: number; y: number };
+  infoPosition: CSSProperties;
+  infoPositionRtl?: CSSProperties;
+  delay: number;
+};
+
+const serviceNodesConfig: OrbitNodeConfig[] = [
+  {
+    id: 'exploration',
+    serviceIndex: 0,
+    coords: { x: 78, y: 20 },
+    infoPosition: {
+      right: 'calc(100% + 1.25rem)',
+      top: '50%',
+      transform: 'translateY(-50%)',
+    },
+    infoPositionRtl: {
+      left: 'calc(100% + 1.25rem)',
+      top: '50%',
+      transform: 'translateY(-50%)',
+    },
+    delay: 0.1,
+  },
+  {
+    id: 'geology',
+    serviceIndex: 1,
+    coords: { x: 22, y: 24 },
+    infoPosition: {
+      left: 'calc(100% + 1.25rem)',
+      top: '50%',
+      transform: 'translateY(-50%)',
+    },
+    infoPositionRtl: {
+      right: 'calc(100% + 1.25rem)',
+      top: '50%',
+      transform: 'translateY(-50%)',
+    },
+    delay: 0.2,
+  },
+  {
+    id: 'processing',
+    serviceIndex: 2,
+    coords: { x: 50, y: 78 },
+    infoPosition: {
+      top: 'calc(100% + 1.25rem)',
+      left: '50%',
+      transform: 'translate(-50%, 0)',
+    },
+    delay: 0.3,
+  },
+];
+
 const projects = [
   {
     nameAr: 'مشروع همش ربّاب - ولاية البحر الأحمر',

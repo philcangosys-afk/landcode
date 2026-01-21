@@ -207,6 +207,7 @@ const CEOMessage = ({ isArabic }: any) => {
 };
 
 const ManagementTeam = ({ isArabic }: any) => {
+  const { t } = useLanguage();
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -221,44 +222,67 @@ const ManagementTeam = ({ isArabic }: any) => {
   const team = [
     {
       name: "أ. م. أيوذر محمد عثمان",
+      nameEn: "A.M. Ayouther Mohamed Osman",
       role: "المدير العام",
+      roleEn: "General Manager",
       icon: "👔",
       description: "يشرف على إدارة الشركة وتوجيه الاستراتيجيات العامة",
+      descriptionEn: "Oversees company management and directs general strategies",
     },
     {
       name: "أ. م. أحمد حسن عيد",
+      nameEn: "A.M. Ahmed Hassan Eid",
       role: "نائب المدير العام",
+      roleEn: "Deputy General Manager",
       icon: "👔",
       description:
         "يدعم المدير العام ويشرف على متابعة المشاريع والإدارة التشغيلية",
+      descriptionEn:
+        "Supports the General Manager and oversees project tracking and operational management",
     },
     {
       name: "م. عمر الحاج بس",
+      nameEn: "Eng. Omar Al-Haj Bas",
       role: "مهندس تعدين",
+      roleEn: "Mining Engineer",
       icon: "⛏️",
       description:
         "مسؤول عن تخطيط وتنفيذ عمليات التعدين وفق المعايير الهندسية الفنية",
+      descriptionEn:
+        "Responsible for planning and executing mining operations according to technical engineering standards",
     },
     {
       name: "م. أحمد فتح الرحمن",
+      nameEn: "Eng. Ahmed Fath Al-Rahman",
       role: "مهندس جيولوجي",
+      roleEn: "Geological Engineer",
       icon: "🔬",
       description:
         "يتولى الدراسات الجيولوجية والاستكشاف وتقييم الموارد المعدنية",
+      descriptionEn:
+        "Handles geological studies, exploration, and mineral resource evaluation",
     },
     {
       name: "م. وليد عبدالحميد محمود",
+      nameEn: "Eng. Waleed Abdel-Hamid Mahmoud",
       role: "مهندس معالجة",
+      roleEn: "Processing Engineer",
       icon: "🏭",
       description:
         "يشرف على تصميم وتشغيل مصانع معالجة الخامات وتحسين معدلات الاستخلاص",
+      descriptionEn:
+        "Oversees design and operation of ore processing plants and improves extraction rates",
     },
     {
       name: "أ. م. أحمد حسن عيد (GIS)",
+      nameEn: "A.M. Ahmed Hassan Eid (GIS)",
       role: "متخصص نظم معلومات جغرافية",
+      roleEn: "GIS Information Systems Specialist",
       icon: "🗺️",
       description:
         "يدير نظم المعلومات الجيولوجية وتحليل البيانات لدعم القرارات الفنية",
+      descriptionEn:
+        "Manages geological information systems and data analysis to support technical decisions",
     },
   ];
 
@@ -266,10 +290,10 @@ const ManagementTeam = ({ isArabic }: any) => {
     <section ref={ref} className="py-20 bg-gray-50">
       <div className="container max-w-6xl mx-auto px-4">
         <h2 className="text-4xl font-bold text-primary mb-2 text-center">
-          الهيكل الاداري والفني
+          {t("about.management")}
         </h2>
         <p className="text-center text-gold-900 font-semibold mb-12">
-          Partnerships & Management Team
+          {t("about.partnerships")}
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

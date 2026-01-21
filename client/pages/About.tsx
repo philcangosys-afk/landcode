@@ -32,6 +32,7 @@ const About = () => {
 };
 
 const CompanyHistory = ({ isArabic }: any) => {
+  const { t } = useLanguage();
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -61,25 +62,20 @@ const CompanyHistory = ({ isArabic }: any) => {
           </div>
           <div className={isArabic ? "order-1 text-right" : ""}>
             <h2 className="text-4xl font-bold text-primary mb-6">
-              تاريخ الشركة
+              {t("about.history.title")}
             </h2>
             <div
               className="w-12 h-1 bg-gold-900 mb-6"
               style={{ marginLeft: isArabic ? "auto" : "0" }}
             ></div>
             <p className="text-lg text-gray-700 leading-relaxed mb-4">
-              تأسست شركة لاندكود للاستثمار المحدودة عام 2020 كشركة متخصصة في
-              أعمال التعدين والاستكشاف الجيولوجي. منذ نشأتها، ركزت الشركة على
-              تقديم خدمات عالية الجودة في مجال التعدين والاستكشاف.
+              {t("about.history.paragraph1")}
             </p>
             <p className="text-lg text-gray-700 leading-relaxed mb-4">
-              بدأت الشركة برؤية واضحة لتصبح الشركة الرائدة في مجال التعدين
-              وخدمات التعدين في المنطقة، مع الالتزام بأعلى معايير الجودة
-              والسلامة والبيئة.
+              {t("about.history.paragraph2")}
             </p>
             <p className="text-lg text-gray-700 leading-relaxed">
-              عبر سنوات عملها، نجحت الشركة في تنفيذ عدد من المشاريع المهمة في
-              استكشاف الذهب والمعادن النفيسة، وبناء سمعة قوية في السوق.
+              {t("about.history.paragraph3")}
             </p>
           </div>
         </div>

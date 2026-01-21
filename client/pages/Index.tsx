@@ -153,8 +153,8 @@ const AboutPreview = ({ isArabic }: { isArabic: boolean }) => (
       <div className={`grid lg:grid-cols-2 gap-12 items-center ${isArabic ? 'text-right' : ''}`}>
         <div className="relative">
           <img
-            src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800&auto=format&fit=crop"
-            alt="Leadership"
+            src="https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2Fdc2c9f2ee1584fdf9cdf78b1099ce982?format=webp&width=1400"
+            alt="فريق شركة لاندكود"
             className="w-full h-[420px] object-cover rounded-3xl shadow-2xl"
           />
           <div className="absolute -bottom-10 inset-x-10 bg-white rounded-2xl shadow-xl p-6 border border-slate-100">

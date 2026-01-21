@@ -449,7 +449,7 @@ const ServicesShowcase = ({ language, isArabic }: { language: 'ar' | 'en'; isAra
   );
 };
 
- type DerivedOrbitNode = OrbitNodeConfig & {
+type DerivedOrbitNode = OrbitNodeConfig & {
   coords: { x: number; y: number };
   infoPosition: CSSProperties;
   service: (typeof servicesData)[number];

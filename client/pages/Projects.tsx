@@ -35,6 +35,17 @@ const Projects = () => {
     },
   ];
 
+  const galleryImages = [
+    "https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2F0d3a1d2c6c144b65a2c27d785ca2539b?format=webp&width=1400",
+    "https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2F4af10a6df4c549f29045993d31e2f216?format=webp&width=1400",
+    "https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2F655b2bb199ca4826b706f08b1bbaa01a?format=webp&width=1400",
+    "https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2F8999d2b736c642c2a30f89daff55372a?format=webp&width=1400",
+    "https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2F7957f38e5d1d40498390238d71e870fb?format=webp&width=1400",
+    "https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2F3e47241f4891406090746f0cc4cfda1a?format=webp&width=1400",
+    "https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2F416100acc0eb4e8384b3081c642200da?format=webp&width=1400",
+    "https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2Ff9f4decc97bd4e90b73ab01f5ebfbf17?format=webp&width=1400",
+  ];
+
   return (
     <div className="w-full">
       {/* Hero Banner */}

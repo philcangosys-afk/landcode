@@ -9,7 +9,7 @@ const Projects = () => {
       name: "همش ربّاب - ولاية البحر الأحمر",
       location: "Red Sea State, Sudan",
       image:
-        "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&h=600&fit=crop",
+        "https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2F486c06ee0357413fb5972319d30e3456?format=webp&width=1200",
       description:
         "برامج استكشاف متكاملة ودراسات جيولوجية متقدمة، مع تطوير منجم سطحي وتوريد الخام بنظام إلى مصانع معالجة الذهب.",
       details: [
@@ -23,7 +23,7 @@ const Projects = () => {
       name: "وادي حلفا - شمال السودان",
       location: "Northern Sudan",
       image:
-        "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=800&h=600&fit=crop",
+        "https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2F54887cbbad2748d2835293e88a3cdae1?format=webp&width=1200",
       description:
         "دراسات استكشافية موسعة أسفرت عن تحديد عدة مواقع ذات مؤشرات تعدين واعدة، وفتح مناجم جديدة للاستخراج.",
       details: [

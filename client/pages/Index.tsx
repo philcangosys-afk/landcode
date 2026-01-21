@@ -52,23 +52,18 @@ const serviceNodesConfig: OrbitNodeConfig[] = [
   {
     id: 'exploration',
     serviceIndex: 0,
-    coords: { x: 78, y: 20 },
+    coords: { x: 50, y: 18 },
     infoPosition: {
-      right: 'calc(100% + 1.25rem)',
-      top: '50%',
-      transform: 'translateY(-50%)',
-    },
-    infoPositionRtl: {
-      left: 'calc(100% + 1.25rem)',
-      top: '50%',
-      transform: 'translateY(-50%)',
+      top: 'calc(100% + 1.25rem)',
+      left: '50%',
+      transform: 'translate(-50%, 0)',
     },
     delay: 0.1,
   },
   {
     id: 'geology',
     serviceIndex: 1,
-    coords: { x: 22, y: 24 },
+    coords: { x: 75, y: 78 },
     infoPosition: {
       left: 'calc(100% + 1.25rem)',
       top: '50%',
@@ -84,11 +79,16 @@ const serviceNodesConfig: OrbitNodeConfig[] = [
   {
     id: 'processing',
     serviceIndex: 2,
-    coords: { x: 50, y: 78 },
+    coords: { x: 25, y: 78 },
     infoPosition: {
-      top: 'calc(100% + 1.25rem)',
-      left: '50%',
-      transform: 'translate(-50%, 0)',
+      right: 'calc(100% + 1.25rem)',
+      top: '50%',
+      transform: 'translateY(-50%)',
+    },
+    infoPositionRtl: {
+      left: 'calc(100% + 1.25rem)',
+      top: '50%',
+      transform: 'translateY(-50%)',
     },
     delay: 0.3,
   },

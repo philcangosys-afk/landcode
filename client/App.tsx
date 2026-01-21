@@ -14,6 +14,7 @@ import Services from "./pages/Services";
 import Projects from "./pages/Projects";
 import Exploration from "./pages/Exploration";
 import Geology from "./pages/Geology";
+import Processing from "./pages/Processing";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 

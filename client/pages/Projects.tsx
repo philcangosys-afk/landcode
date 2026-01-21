@@ -82,14 +82,14 @@ const Projects = () => {
             معرض الصور
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[1, 2, 3, 4, 5, 6].map((i) => (
+            {galleryImages.map((src, index) => (
               <div
-                key={i}
+                key={src}
                 className="bg-gray-200 h-64 rounded-lg overflow-hidden"
               >
                 <img
-                  src={`https://images.unsplash.com/photo-1581092${161562 + i}?w=400&h=300&fit=crop`}
-                  alt={`Gallery ${i}`}
+                  src={src}
+                  alt={`معرض الصور ${index + 1}`}
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                 />
               </div>

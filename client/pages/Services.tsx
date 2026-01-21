@@ -69,9 +69,9 @@ const Services = () => {
       {/* Hero Banner */}
       <section className="bg-primary text-white py-16">
         <div className="container max-w-6xl mx-auto px-4 text-center">
-          <h1 className="text-5xl font-bold mb-4">خدماتنا</h1>
+          <h1 className="text-5xl font-bold mb-4">{t("services.title")}</h1>
           <p className="text-xl text-gray-200">
-            نقدم خدمات متخصصة في التعدين والاستكشاف الجيولوجي
+            {isArabic ? "نقدم خدمات متخصصة في التعدين والاستكشاف الجيولوجي" : "We provide specialized services in mining and geological exploration"}
           </p>
           <div className="w-16 h-1 bg-gold-900 mx-auto mt-6"></div>
         </div>
@@ -81,37 +81,40 @@ const Services = () => {
       <section className="py-20 bg-gray-50">
         <div className="container max-w-6xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
-              >
-                <div className="relative h-48">
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                  <div className="absolute inset-0 flex flex-col justify-between p-4 text-white">
-                    <span className="text-3xl">{service.icon}</span>
-                    <span className="text-xs tracking-[0.3em] uppercase text-white/80">
-                      {isArabic ? "خدمة" : "Service"}
-                    </span>
+            {services.map((service, index) => {
+              const content = service[language as keyof typeof service];
+              return (
+                <div
+                  key={index}
+                  className="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
+                >
+                  <div className="relative h-48">
+                    <img
+                      src={service.image}
+                      alt={content.title}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                    <div className="absolute inset-0 flex flex-col justify-between p-4 text-white">
+                      <span className="text-3xl">{service.icon}</span>
+                      <span className="text-xs tracking-[0.3em] uppercase text-white/80">
+                        {t("services.learnMore")}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="p-8">
+                    <h3
+                      className={`text-xl font-semibold text-primary mb-3 leading-snug ${isArabic ? "text-right" : ""}`}
+                    >
+                      {content.title}
+                    </h3>
+                    <p className={`text-gray-600 ${isArabic ? "text-right" : ""}`}>
+                      {content.description}
+                    </p>
                   </div>
                 </div>
-                <div className="p-8">
-                  <h3
-                    className={`text-xl font-semibold text-primary mb-3 leading-snug ${isArabic ? "text-right" : ""}`}
-                  >
-                    {service.title}
-                  </h3>
-                  <p className={`text-gray-600 ${isArabic ? "text-right" : ""}`}>
-                    {service.description}
-                  </p>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -119,15 +122,15 @@ const Services = () => {
       {/* CTA Section */}
       <section className="bg-primary text-white py-16">
         <div className="container max-w-6xl mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-6">هل تريد معرفة المزيد؟</h2>
+          <h2 className="text-4xl font-bold mb-6">{isArabic ? "هل تريد معرفة المزيد؟" : "Want to Know More?"}</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
-            تواصل معنا لمناقشة احتياجاتك والحصول على عرض متخصص
+            {isArabic ? "تواصل معنا لمناقشة احتياجاتك والحصول على عرض متخصص" : "Contact us to discuss your needs and get a specialized offer"}
           </p>
           <Link
             to="/contact"
             className="inline-block px-8 py-3 bg-gold-900 text-primary font-semibold rounded hover:bg-gold-900/80 transition"
           >
-            اتصل بنا الآن
+            {t("cta.button")}
           </Link>
         </div>
       </section>

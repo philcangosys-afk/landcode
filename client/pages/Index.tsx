@@ -501,11 +501,21 @@ const OrbitNode = ({ node, language, isArabic, activeNode, setActiveNode, arrowI
           onMouseLeave={() => setActiveNode(null)}
         >
           <img src={node.service.image} alt={title} className="absolute inset-0 w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-black/50 to-black/85 opacity-90 transition group-hover:opacity-100" />
-          <div className="relative z-10 h-full flex flex-col items-center justify-center text-center text-white px-4">
+          <div className={`absolute inset-0 bg-gradient-to-b from-black/5 via-black/50 to-black/85 transition-all duration-300 ${isActive ? 'opacity-100' : 'opacity-90'} group-hover:opacity-100`} />
+
+          {/* Default state - shows image with minimal text overlay */}
+          <div className={`absolute inset-0 h-full flex flex-col items-center justify-center text-center text-white px-4 transition-opacity duration-300 z-10 ${isActive ? 'opacity-0' : 'opacity-100'}`}>
             <span className="text-[0.55rem] uppercase tracking-[0.45em] text-white/70 mb-2">{tag}</span>
             <p className="text-sm font-semibold leading-snug">{title}</p>
           </div>
+
+          {/* Hover state - shows detailed text in center */}
+          {(node.id === 'geology' || node.id === 'processing') && (
+            <div className={`absolute inset-0 h-full flex flex-col items-center justify-center text-center text-white px-6 transition-opacity duration-300 z-20 ${isActive ? 'opacity-100' : 'opacity-0'}`}>
+              <p className="text-xs uppercase tracking-[0.3em] text-gold-900 mb-2">{language === 'ar' ? 'خدمة متخصصة' : 'Focused capability'}</p>
+              <p className="text-sm font-bold leading-snug">{title}</p>
+            </div>
+          )}
         </Link>
       ) : (
         <button

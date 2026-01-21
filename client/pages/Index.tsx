@@ -33,7 +33,7 @@ const servicesData = [
     titleEn: 'Ore processing plant design & build',
     descriptionAr: 'حلول هندسية متكاملة من التصميم المفهومي إلى التشغيل الكامل للمصانع.',
     descriptionEn: 'Integrated engineering covering concept design through commissioning of plants.',
-    image: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1400&auto=format&fit=crop',
+    image: 'https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2F90a802257a034486bf85e75e0a7e9151?format=webp&width=1400',
   },
 ];
 

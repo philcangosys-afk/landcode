@@ -99,7 +99,8 @@ const App = () => (
   </LanguageProvider>
 );
 
-const rootElement = document.getElementById("root");
-if (rootElement && !rootElement._reactRootContainer) {
-  createRoot(rootElement).render(<App />);
+const container = document.getElementById("root");
+if (container) {
+  const root = createRoot(container);
+  root.render(<App />);
 }

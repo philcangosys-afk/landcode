@@ -115,6 +115,24 @@ const Projects = () => {
         </div>
       </section>
 
+      {/* Projects Introduction */}
+      <section className="py-16 bg-white border-b border-slate-100">
+        <div className="container max-w-6xl mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="space-y-6 text-right">
+              <div className="prose prose-lg max-w-none">
+                <p className="text-slate-700 leading-relaxed text-lg">
+                  المشاركة مع شركات أخرى في عمليات الاستكشاف في مربع للتعدين تبلغ مساحته 344كم بالولاية الشماليه بمنطقة عكاشا و تم من خلاله حفر ثمانيه مناجم من أصل اثني عشر منجم و سيتم تركيب مصنع CIL قريبا.
+                </p>
+                <p className="text-slate-700 leading-relaxed text-lg">
+                  مسح جيولوجي لمنطقة المحس بدأ من منطقة دلقو شمالاً إلى حدود وادي حلفا جنوباً لتجهيز خرائط استثمارية للتعدين و أخذ أكثر من 380 عينة مختلفة من الكوارتز و الحجر الجيري تراوحت النسب من 1.5 إلى 6 جرام للطن الواحد.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Projects */}
       <section className="py-20 bg-gray-50">
         <div className="container max-w-6xl mx-auto px-4">

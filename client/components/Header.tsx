@@ -7,6 +7,7 @@ const navLinks = [
   { path: "/about", key: "nav.about" },
   { path: "/services", key: "nav.services" },
   { path: "/projects", key: "nav.projects" },
+  { path: "/partnerships", key: "nav.partnerships" },
   { path: "/contact", key: "nav.contact" },
 ];
 

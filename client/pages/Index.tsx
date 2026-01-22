@@ -659,6 +659,108 @@ const OrbitNode = ({
   );
 };
 
+const ImageSlider = ({
+  language,
+  isArabic,
+}: {
+  language: "ar" | "en";
+  isArabic: boolean;
+}) => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % sliderImages.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) =>
+      prev === 0 ? sliderImages.length - 1 : prev - 1
+    );
+  };
+
+  return (
+    <section className="py-24 bg-white">
+      <div className="container max-w-6xl mx-auto px-4">
+        <div className={`text-center mb-12 ${isArabic ? "text-right" : ""}`}>
+          <p className="text-gold-900 font-semibold">
+            {language === "ar" ? "عمليات ميدانية" : "Field Operations"}
+          </p>
+          <h2 className="text-4xl font-black text-primary mt-2">
+            {language === "ar"
+              ? "استكشاف وتطوير مشاريع التعدين"
+              : "Mining exploration & development"}
+          </h2>
+        </div>
+
+        <div className="relative max-w-4xl mx-auto">
+          {/* Slider Container */}
+          <div className="relative h-96 overflow-hidden rounded-3xl shadow-2xl">
+            {sliderImages.map((img, index) => (
+              <div
+                key={index}
+                className={`absolute inset-0 transition-opacity duration-500 ${
+                  index === currentSlide ? "opacity-100" : "opacity-0"
+                }`}
+              >
+                <img
+                  src={img.image}
+                  alt={img.alt}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+              </div>
+            ))}
+
+            {/* Navigation Buttons */}
+            <button
+              onClick={prevSlide}
+              className={`absolute top-1/2 -translate-y-1/2 z-20 ${isArabic ? "right-4" : "left-4"} bg-gold-900 hover:bg-gold-900/80 text-white p-3 rounded-full transition-all shadow-lg`}
+              aria-label="Previous slide"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={isArabic ? "M9 5l7 7-7 7" : "M15 19l-7-7 7-7"} />
+              </svg>
+            </button>
+
+            <button
+              onClick={nextSlide}
+              className={`absolute top-1/2 -translate-y-1/2 z-20 ${isArabic ? "left-4" : "right-4"} bg-gold-900 hover:bg-gold-900/80 text-white p-3 rounded-full transition-all shadow-lg`}
+              aria-label="Next slide"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={isArabic ? "M15 19l-7-7 7-7" : "M9 5l7 7-7 7"} />
+              </svg>
+            </button>
+
+            {/* Slide Indicators */}
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+              {sliderImages.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentSlide(index)}
+                  className={`h-3 rounded-full transition-all ${
+                    index === currentSlide
+                      ? "bg-gold-900 w-8"
+                      : "bg-white/50 w-3 hover:bg-white/80"
+                  }`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* Slide Counter */}
+          <div className="text-center mt-6">
+            <p className="text-slate-600 text-sm">
+              {currentSlide + 1} / {sliderImages.length}
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const ProjectsShowcase = ({
   language,
   isArabic,

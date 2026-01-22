@@ -669,15 +669,14 @@ const ImageSlider = ({
 }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % sliderImages.length);
-  };
+  // Auto-play effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % sliderImages.length);
+    }, 4000); // Change image every 4 seconds
 
-  const prevSlide = () => {
-    setCurrentSlide((prev) =>
-      prev === 0 ? sliderImages.length - 1 : prev - 1
-    );
-  };
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section className="py-24 bg-white">
@@ -693,9 +692,9 @@ const ImageSlider = ({
           </h2>
         </div>
 
-        <div className="relative max-w-4xl mx-auto">
+        <div className="relative max-w-5xl mx-auto">
           {/* Slider Container */}
-          <div className="relative h-96 overflow-hidden rounded-3xl shadow-2xl bg-slate-900">
+          <div className="relative h-[500px] overflow-hidden rounded-3xl shadow-2xl bg-slate-900">
             {sliderImages.map((img, index) => (
               <div
                 key={index}
@@ -703,7 +702,7 @@ const ImageSlider = ({
                   position: "absolute",
                   inset: 0,
                   opacity: index === currentSlide ? 1 : 0,
-                  transition: "opacity 500ms ease-in-out",
+                  transition: "opacity 1000ms ease-in-out",
                   pointerEvents: index === currentSlide ? "auto" : "none",
                 }}
               >
@@ -711,63 +710,37 @@ const ImageSlider = ({
                   src={img.image}
                   alt={img.alt}
                   className="w-full h-full object-cover"
+                  loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
               </div>
             ))}
 
-            {/* Navigation Buttons */}
-            <button
-              onClick={prevSlide}
-              type="button"
-              className={`absolute top-1/2 -translate-y-1/2 z-30 ${isArabic ? "right-4" : "left-4"} bg-gold-900 hover:bg-gold-900/90 text-white p-3 rounded-full transition-all duration-200 shadow-lg cursor-pointer`}
-              aria-label="Previous slide"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={isArabic ? "M9 5l7 7-7 7" : "M15 19l-7-7 7-7"} />
-              </svg>
-            </button>
-
-            <button
-              onClick={nextSlide}
-              type="button"
-              className={`absolute top-1/2 -translate-y-1/2 z-30 ${isArabic ? "left-4" : "right-4"} bg-gold-900 hover:bg-gold-900/90 text-white p-3 rounded-full transition-all duration-200 shadow-lg cursor-pointer`}
-              aria-label="Next slide"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={isArabic ? "M15 19l-7-7 7-7" : "M9 5l7 7-7 7"} />
-              </svg>
-            </button>
-
-            {/* Slide Indicators */}
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex gap-2">
+            {/* Slide Indicators - Bottom Dots */}
+            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex gap-3">
               {sliderImages.map((_, index) => (
-                <button
+                <div
                   key={index}
-                  onClick={() => setCurrentSlide(index)}
-                  type="button"
-                  className={`rounded-full transition-all duration-300 cursor-pointer ${
+                  className={`rounded-full transition-all duration-300 ${
                     index === currentSlide
-                      ? "bg-gold-900 w-8 h-3"
-                      : "bg-white/50 w-3 h-3 hover:bg-white/80"
+                      ? "bg-gold-900 w-4 h-4"
+                      : "bg-white/40 w-3 h-3"
                   }`}
-                  aria-label={`Go to slide ${index + 1}`}
+                  style={{
+                    backgroundColor: index === currentSlide ? "#d4af37" : "rgba(255, 255, 255, 0.4)",
+                  }}
                 />
               ))}
             </div>
-          </div>
-
-          {/* Slide Counter */}
-          <div className="text-center mt-6">
-            <p className="text-slate-600 text-sm font-semibold">
-              {currentSlide + 1} / {sliderImages.length}
-            </p>
           </div>
         </div>
       </div>
     </section>
   );
 };
+
+// Import useEffect at the top if not already imported
+const useEffect = useState[1] ? (React.useEffect as typeof React.useEffect) : (() => {}) as typeof React.useEffect;
 
 const ProjectsShowcase = ({
   language,

@@ -87,7 +87,7 @@ const Partnerships = () => {
       <section className="py-16 lg:py-20 bg-white">
         <div className="mx-auto px-4 w-full">
           <img
-            src="https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2F1be1060089f348e89847ee7d6d6204c4?format=webp&width=800&height=1200"
+            src="https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2Fe2c3c6e613984a40b177f0ee3089fa76?format=webp&width=800&height=1200"
             alt="Partnership signing ceremony"
             className="w-full h-auto"
           />

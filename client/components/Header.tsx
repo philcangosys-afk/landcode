@@ -59,8 +59,8 @@ export const Header = () => {
         </div>
       </div>
 
-      <div className="backdrop-blur-xl bg-slate-50/95 border-b border-slate-200">
-        <div className="container max-w-7xl mx-auto px-4 py-3">
+      <div className="backdrop-blur-xl bg-slate-50/95 border-b border-slate-200 overflow-x-hidden">
+        <div className="container max-w-7xl mx-auto px-3 sm:px-4 py-3">
           <div className="flex items-center justify-between gap-4">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3">

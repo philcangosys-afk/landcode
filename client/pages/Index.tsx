@@ -740,9 +740,6 @@ const ImageSlider = ({
   );
 };
 
-// Import useEffect at the top if not already imported
-const useEffect = useState[1] ? (React.useEffect as typeof React.useEffect) : (() => {}) as typeof React.useEffect;
-
 const ProjectsShowcase = ({
   language,
   isArabic,

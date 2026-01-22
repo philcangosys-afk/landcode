@@ -108,6 +108,29 @@ const serviceNodesConfig: OrbitNodeConfig[] = [
   },
 ];
 
+const sliderImages = [
+  {
+    image:
+      "https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2Fc00b85c2b9924a29ad4ace7f05a6415b?format=webp&width=800&height=1200",
+    alt: "عمليات التعدين والاستكشاف",
+  },
+  {
+    image:
+      "https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2Fad505c4b24494313b6fca718f8bbdd37?format=webp&width=800&height=1200",
+    alt: "معدات التنقيب الحديثة",
+  },
+  {
+    image:
+      "https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2Fa8be2489b83b40dba909010998a1795b?format=webp&width=800&height=1200",
+    alt: "عمليات الاستخراج والمعالجة",
+  },
+  {
+    image:
+      "https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2F2c35e86709754f2a84ab9d23f0d9096b?format=webp&width=800&height=1200",
+    alt: "موقع التعدين والإنتاج",
+  },
+];
+
 const projects = [
   {
     nameAr: "مشروع همش ربّاب - ولاية البحر الأحمر",

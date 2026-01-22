@@ -106,7 +106,9 @@ const Partnerships = () => {
                 <h3 className="text-2xl font-black text-primary mb-4">
                   {isArabic ? partnership.titleAr : partnership.titleEn}
                 </h3>
-                <p className={`text-lg text-slate-700 leading-relaxed ${isArabic ? "text-right" : ""}`}>
+                <p
+                  className={`text-lg text-slate-700 leading-relaxed ${isArabic ? "text-right" : ""}`}
+                >
                   {isArabic
                     ? partnership.descriptionAr
                     : partnership.descriptionEn}
@@ -120,7 +122,9 @@ const Partnerships = () => {
       {/* Stats Section */}
       <section className="py-20 bg-gradient-to-r from-primary/5 to-gold-900/5">
         <div className="container max-w-6xl mx-auto px-4">
-          <div className={`grid md:grid-cols-3 gap-8 text-center ${isArabic ? "text-right" : ""}`}>
+          <div
+            className={`grid md:grid-cols-3 gap-8 text-center ${isArabic ? "text-right" : ""}`}
+          >
             <div>
               <p className="text-5xl font-black text-gold-900 mb-2">6+</p>
               <p className="text-lg text-slate-700 font-semibold">

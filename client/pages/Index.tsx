@@ -661,7 +661,6 @@ const OrbitNode = ({
           </div>
         </button>
       )}
-
     </div>
   );
 };

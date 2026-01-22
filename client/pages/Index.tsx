@@ -1,5 +1,6 @@
 import {
   useState,
+  useEffect,
   type CSSProperties,
   type Dispatch,
   type SetStateAction,

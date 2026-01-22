@@ -63,17 +63,11 @@ export const Header = () => {
           <div className="flex items-center justify-between gap-4">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-gold-900/90 to-gold-900/60 text-primary font-black text-xl flex items-center justify-center shadow-lg">
-                LC
-              </div>
-              <div className="leading-tight">
-                <p className="text-xs uppercase tracking-[0.4em] text-slate-500">
-                  Land Code
-                </p>
-                <p className="text-lg font-black text-primary">
-                  Investment Ltd.
-                </p>
-              </div>
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2F85ad9b0283b74a648b7c4e0a53d78cd6?format=webp&width=800&height=1200"
+                alt="Land Code Investment Logo"
+                className="h-16 w-auto"
+              />
             </Link>
 
             {/* Desktop Navigation */}

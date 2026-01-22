@@ -118,9 +118,6 @@ export const Footer = () => {
               <p className="text-sm text-gray-400">
                 © 2026 Land Code Investment Ltd. {t("footer.rights")}
               </p>
-              <p className="text-xs text-gray-500 mt-2">
-                تم التصميم والبرمجة بواسطة زين للبرمجيات
-              </p>
             </div>
             <div className="flex gap-4">
               <a

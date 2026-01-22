@@ -113,10 +113,15 @@ export const Footer = () => {
         </div>
 
         <div className="border-t border-gray-700 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-gray-400">
-              © 2024 Land Code Investment Ltd. {t("footer.rights")}
-            </p>
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-4">
+            <div className="text-center md:text-left">
+              <p className="text-sm text-gray-400">
+                © 2026 Land Code Investment Ltd. {t("footer.rights")}
+              </p>
+              <p className="text-xs text-gray-500 mt-2">
+                تم التصميم والبرمجة بواسطة زين للبرمجيات
+              </p>
+            </div>
             <div className="flex gap-4">
               <a
                 href="#"

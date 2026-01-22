@@ -88,9 +88,9 @@ const Partnerships = () => {
         <div className="container max-w-6xl mx-auto px-4">
           <div className="rounded-3xl overflow-hidden shadow-2xl">
             <img
-              src="https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2Feac6dc935fc144cdb51f17892469ba34?format=webp&width=800&height=1200"
+              src="https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2Fef575bbf90834689b1e62ed126f165a8?format=webp&width=800&height=1200"
               alt="Partnership signing ceremony"
-              className="w-full h-[500px] object-cover"
+              className="w-full h-auto object-contain"
             />
           </div>
         </div>

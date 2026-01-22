@@ -86,13 +86,11 @@ const Partnerships = () => {
       {/* Partnership Image Section */}
       <section className="py-16 lg:py-20 bg-slate-50">
         <div className="container max-w-6xl mx-auto px-4">
-          <div className="rounded-3xl overflow-hidden shadow-2xl">
-            <img
-              src="https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2Fef575bbf90834689b1e62ed126f165a8?format=webp&width=800&height=1200"
-              alt="Partnership signing ceremony"
-              className="w-full h-auto object-contain"
-            />
-          </div>
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2Fabb03dc5ab934e248f939054703a560a?format=webp&width=800&height=1200"
+            alt="Partnership signing ceremony"
+            className="w-full h-auto object-contain"
+          />
         </div>
       </section>
 

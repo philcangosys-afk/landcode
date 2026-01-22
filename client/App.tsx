@@ -12,6 +12,7 @@ import Index from "./pages/Index";
 import About from "./pages/About";
 import Services from "./pages/Services";
 import Projects from "./pages/Projects";
+import Partnerships from "./pages/Partnerships";
 import Exploration from "./pages/Exploration";
 import Geology from "./pages/Geology";
 import Processing from "./pages/Processing";

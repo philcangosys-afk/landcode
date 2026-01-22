@@ -106,9 +106,14 @@
     @apply border-border;
   }
 
+  html {
+    overflow-x: hidden;
+  }
+
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-primary-ar);
+    overflow-x: hidden;
   }
 
   html[lang="en"] body {

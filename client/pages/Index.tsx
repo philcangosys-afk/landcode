@@ -179,92 +179,98 @@ const Hero = ({
 }: {
   language: "ar" | "en";
   isArabic: boolean;
-}) => (
-  <section className="relative overflow-hidden">
-    <div className="absolute inset-0">
-      <img
-        src="https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2Fcda7e6bef6f6471fb71698187980a8ad?format=webp&width=2000"
-        alt="العمليات الميدانية لشركة لاندكود"
-        className="w-full h-full object-cover hero-kenburns"
-      />
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-primary/85 to-black/70" />
-    </div>
+}) => {
+  const [currentSlide, setCurrentSlide] = useState(0);
 
-    <div className="relative container max-w-6xl mx-auto px-4 py-24 lg:py-32 text-white">
-      <div
-        className={`grid gap-12 lg:grid-cols-[1.3fr,0.7fr] items-center ${isArabic ? "text-right" : ""}`}
-      >
-        <div>
-          <p className="uppercase tracking-[0.4em] text-gold-900 text-xs mb-4">
-            {language === "ar"
-              ? "شركة تعدين واستثمار"
-              : "Mining & Investment Firm"}
-          </p>
-          <h1 className="text-4xl md:text-6xl font-black leading-[1.4] mb-6">
-            {language === "ar"
-              ? "نستخرج الفرص ونبني المستقبل في قطاع التعدين السوداني"
-              : "We extract opportunities and build the future of Sudanese mining"}
-          </h1>
-          <p className="text-lg text-white/80 leading-relaxed mb-8">
-            {language === "ar"
-              ? "لاندكود للاستثمار المحدودة تقود مشاريع الاستكشاف، الدراسات الجيولوجية، وتصميم المصانع بمعايير عالمية وخبرات محلية عميقة."
-              : "Land Code Investment Ltd. leads exploration programmes, geological studies, and plant design with world-class standards and deep local expertise."}
-          </p>
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % sliderImages.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
 
-          <div
-            className={`flex flex-wrap items-center gap-4 ${isArabic ? "justify-end" : ""}`}
-          >
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-2 rounded-full bg-gold-900 px-8 py-3 text-primary font-semibold text-base shadow-xl shadow-black/20 hover:bg-gold-900/90"
+  return (
+    <section className="relative overflow-hidden">
+      <div className="absolute inset-0">
+        {sliderImages.map((slide, index) => (
+          <img
+            key={index}
+            src={slide.image}
+            alt={slide.alt}
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+              index === currentSlide ? "opacity-100" : "opacity-0"
+            }`}
+          />
+        ))}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-primary/85 to-black/70" />
+      </div>
+
+      <div className="relative container max-w-6xl mx-auto px-4 py-24 lg:py-32 text-white">
+        <div
+          className={`grid gap-12 lg:grid-cols-[1.3fr,0.7fr] items-center ${isArabic ? "text-right" : ""}`}
+        >
+          <div>
+            <p className="uppercase tracking-[0.4em] text-gold-900 text-xs mb-4">
+              {language === "ar"
+                ? "شركة تعدين واستثمار"
+                : "Mining & Investment Firm"}
+            </p>
+            <h1 className="text-4xl md:text-6xl font-black leading-[1.4] mb-6">
+              {language === "ar"
+                ? "نستخرج الفرص ونبني المستقبل في قطاع التعدين السوداني"
+                : "We extract opportunities and build the future of Sudanese mining"}
+            </h1>
+            <p className="text-lg text-white/80 leading-relaxed mb-8">
+              {language === "ar"
+                ? "لاندكود للاستثمار المحدودة تقود مشاريع الاستكشاف، الدراسات الجيولوجية، وتصميم المصانع بمعايير عالمية وخبرات محلية عميقة."
+                : "Land Code Investment Ltd. leads exploration programmes, geological studies, and plant design with world-class standards and deep local expertise."}
+            </p>
+
+            <div
+              className={`flex flex-wrap items-center gap-4 ${isArabic ? "justify-end" : ""}`}
             >
-              {language === "ar" ? "احجز استشارة" : "Book a consultation"}
-            </Link>
-            <Link
-              to="/projects"
-              className="inline-flex items-center gap-2 rounded-full border border-white/40 px-6 py-3 font-semibold text-white/90 hover:bg-white/10"
-            >
-              {language === "ar" ? "استعرض مشاريعنا" : "Explore our projects"}
-            </Link>
-          </div>
-        </div>
-
-        <div className="bg-white/10 backdrop-blur xl:px-8 xl:py-10 px-6 py-8 rounded-3xl border border-white/30 shadow-2xl">
-          <p className="text-sm text-white/70 mb-6">
-            {language === "ar"
-              ? "حلول متكاملة تغطي الدورة الكاملة لمشاريع التعدين، من الدراسات الأولية إلى إدارة المصانع."
-              : "End-to-end mining solutions from preliminary studies to plant operations."}
-          </p>
-          <div className="flex flex-col gap-6">
-            {heroStats.map((stat) => (
-              <div
-                key={stat.value}
-                className="border-b border-white/15 pb-5 last:border-none last:pb-0"
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 rounded-full bg-gold-900 px-8 py-3 text-primary font-semibold text-base shadow-xl shadow-black/20 hover:bg-gold-900/90"
               >
-                <p className="text-4xl font-black text-gold-900">
-                  {stat.value}
-                </p>
-                <p className="text-white/80 text-sm uppercase tracking-[0.3em]">
-                  {language === "ar" ? stat.labelAr : stat.labelEn}
-                </p>
-              </div>
-            ))}
+                {language === "ar" ? "احجز استشارة" : "Book a consultation"}
+              </Link>
+              <Link
+                to="/projects"
+                className="inline-flex items-center gap-2 rounded-full border border-white/40 px-6 py-3 font-semibold text-white/90 hover:bg-white/10"
+              >
+                {language === "ar" ? "استعرض مشاريعنا" : "Explore our projects"}
+              </Link>
+            </div>
+          </div>
+
+          <div className="bg-white/10 backdrop-blur xl:px-8 xl:py-10 px-6 py-8 rounded-3xl border border-white/30 shadow-2xl">
+            <p className="text-sm text-white/70 mb-6">
+              {language === "ar"
+                ? "حلول متكاملة تغطي الدورة الكاملة لمشاريع التعدين، من الدراسات الأولية إلى إدارة المصانع."
+                : "End-to-end mining solutions from preliminary studies to plant operations."}
+            </p>
+            <div className="flex flex-col gap-6">
+              {heroStats.map((stat) => (
+                <div
+                  key={stat.value}
+                  className="border-b border-white/15 pb-5 last:border-none last:pb-0"
+                >
+                  <p className="text-4xl font-black text-gold-900">
+                    {stat.value}
+                  </p>
+                  <p className="text-white/80 text-sm uppercase tracking-[0.3em]">
+                    {language === "ar" ? stat.labelAr : stat.labelEn}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
-    </div>
-
-    <style>{`
-      .hero-kenburns {
-        animation: heroKenBurns 18s ease-in-out infinite alternate;
-      }
-      @keyframes heroKenBurns {
-        0% { transform: scale(1) translate3d(0, 0, 0); }
-        100% { transform: scale(1.08) translate3d(-1%, -2%, 0); }
-      }
-    `}</style>
-  </section>
-);
+    </section>
+  );
+};
 
 const AboutPreview = ({ isArabic }: { isArabic: boolean }) => (
   <section className="py-24 bg-white">

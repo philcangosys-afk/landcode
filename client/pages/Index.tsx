@@ -695,13 +695,17 @@ const ImageSlider = ({
 
         <div className="relative max-w-4xl mx-auto">
           {/* Slider Container */}
-          <div className="relative h-96 overflow-hidden rounded-3xl shadow-2xl">
+          <div className="relative h-96 overflow-hidden rounded-3xl shadow-2xl bg-slate-900">
             {sliderImages.map((img, index) => (
               <div
                 key={index}
-                className={`absolute inset-0 transition-opacity duration-500 ${
-                  index === currentSlide ? "opacity-100" : "opacity-0"
-                }`}
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  opacity: index === currentSlide ? 1 : 0,
+                  transition: "opacity 500ms ease-in-out",
+                  pointerEvents: index === currentSlide ? "auto" : "none",
+                }}
               >
                 <img
                   src={img.image}
@@ -715,7 +719,8 @@ const ImageSlider = ({
             {/* Navigation Buttons */}
             <button
               onClick={prevSlide}
-              className={`absolute top-1/2 -translate-y-1/2 z-20 ${isArabic ? "right-4" : "left-4"} bg-gold-900 hover:bg-gold-900/80 text-white p-3 rounded-full transition-all shadow-lg`}
+              type="button"
+              className={`absolute top-1/2 -translate-y-1/2 z-30 ${isArabic ? "right-4" : "left-4"} bg-gold-900 hover:bg-gold-900/90 text-white p-3 rounded-full transition-all duration-200 shadow-lg cursor-pointer`}
               aria-label="Previous slide"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -725,7 +730,8 @@ const ImageSlider = ({
 
             <button
               onClick={nextSlide}
-              className={`absolute top-1/2 -translate-y-1/2 z-20 ${isArabic ? "left-4" : "right-4"} bg-gold-900 hover:bg-gold-900/80 text-white p-3 rounded-full transition-all shadow-lg`}
+              type="button"
+              className={`absolute top-1/2 -translate-y-1/2 z-30 ${isArabic ? "left-4" : "right-4"} bg-gold-900 hover:bg-gold-900/90 text-white p-3 rounded-full transition-all duration-200 shadow-lg cursor-pointer`}
               aria-label="Next slide"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -734,15 +740,16 @@ const ImageSlider = ({
             </button>
 
             {/* Slide Indicators */}
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex gap-2">
               {sliderImages.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentSlide(index)}
-                  className={`h-3 rounded-full transition-all ${
+                  type="button"
+                  className={`rounded-full transition-all duration-300 cursor-pointer ${
                     index === currentSlide
-                      ? "bg-gold-900 w-8"
-                      : "bg-white/50 w-3 hover:bg-white/80"
+                      ? "bg-gold-900 w-8 h-3"
+                      : "bg-white/50 w-3 h-3 hover:bg-white/80"
                   }`}
                   aria-label={`Go to slide ${index + 1}`}
                 />
@@ -752,7 +759,7 @@ const ImageSlider = ({
 
           {/* Slide Counter */}
           <div className="text-center mt-6">
-            <p className="text-slate-600 text-sm">
+            <p className="text-slate-600 text-sm font-semibold">
               {currentSlide + 1} / {sliderImages.length}
             </p>
           </div>

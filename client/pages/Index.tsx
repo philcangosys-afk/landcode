@@ -275,8 +275,8 @@ const AboutPreview = ({ isArabic }: { isArabic: boolean }) => (
         <div className="flex flex-col">
           <div className="relative">
             <img
-              src="https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2Fdc2c9f2ee1584fdf9cdf78b1099ce982?format=webp&width=1400"
-              alt="فريق شركة لاندكود"
+              src="https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2Fe2a14d45778e4e87bb7ac9fb34875c34?format=webp&width=800&height=1200"
+              alt="عمليات تعدينية - شركة لاندكود"
               className="w-full h-[420px] object-cover rounded-3xl shadow-2xl"
             />
           </div>

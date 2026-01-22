@@ -672,12 +672,14 @@ const ImageSlider = ({
 
   // Auto-play effect
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % sliderImages.length);
-    }, 4000); // Change image every 4 seconds
+    const timer = setInterval(() => {
+      setCurrentSlide((prevSlide) => (prevSlide + 1) % sliderImages.length);
+    }, 4000);
 
-    return () => clearInterval(interval);
-  }, []);
+    return () => {
+      clearInterval(timer);
+    };
+  }, [sliderImages.length]);
 
   return (
     <section className="py-24 bg-white">

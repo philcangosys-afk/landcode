@@ -18,6 +18,7 @@ const translations = {
   "nav.about": { ar: "من نحن", en: "About Us" },
   "nav.services": { ar: "خدماتنا", en: "Services" },
   "nav.projects": { ar: "مشاريعنا", en: "Projects" },
+  "nav.partnerships": { ar: "الشراكات", en: "Partnerships" },
   "nav.contact": { ar: "اتصل بنا", en: "Contact Us" },
 
   // Hero Section

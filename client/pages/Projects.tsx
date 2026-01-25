@@ -66,7 +66,7 @@ const Projects = () => {
         name: "مصنع الهصور CIL",
         location: "الولاية الشمالية، دلقو",
         description:
-          "تأهيل وتطوير شامل لمصنع معالجة الذهب باستخدام تقنية CIL (Carbon in Leach) المتقدمة، مع تدريب القوى العاملة وتشغيل المصنع بكفاءة عالية.",
+          "تأهيل وتطوير شامل لمصنع معالجة الذهب باستخدام تقنية CIL (Carbon in Leach) المتقدمة، مع تدريب القوى العاملة وتشغيل المصنع بكفاءة عالية.",
         details: [
           "تطوير مصنع CIL متقدم",
           "تركيب معدات معالجة حديثة",
@@ -78,7 +78,7 @@ const Projects = () => {
         name: "Al-Hasour CIL Plant",
         location: "Northern State, Delgo",
         description:
-          "Comprehensive rehabilitation and development of a gold processing plant using advanced CIL (Carbon in Leach) technology, with workforce training and efficient plant operation.",
+          "Comprehensive rehabilitation and development of a gold processing plant using advanced CIL (Carbon in Leach) technology, with workforce training and efficient plant operation.",
         details: [
           "Advanced CIL plant development",
           "Installation of modern processing equipment",
@@ -87,7 +87,7 @@ const Projects = () => {
         ],
       },
       image:
-        "https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2F90a802257a034486bf85e75e0a7e9151?format=webp&width=1200",
+        "https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2F4a554377ed2742ada6f44942b76aa7de?format=webp&width=800&height=1200",
     },
     {
       ar: {

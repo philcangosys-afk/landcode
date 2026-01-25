@@ -278,7 +278,7 @@ const Projects = () => {
                 <img
                   src={src}
                   alt={`معرض الصور ${index + 1}`}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  className="w-full h-full object-contain transition-transform duration-300"
                 />
               </div>
             ))}

@@ -221,7 +221,7 @@ const Hero = ({
             </h1>
             <p className="text-lg text-white/80 leading-relaxed mb-8">
               {language === "ar"
-                ? "لاندكود للاستثمار المحدودة تقود مشاريع الاستكشاف، الدراسات الجيولوجية، وتصميم المصانع بمعايير عالمية وخبرات محلية عميقة."
+                ? "لاندكود للاستثمار المحدودة تقود مشاريع الاستكشاف، الدراسات الجيولوجية، وتصميم المصانع بمعايير عالمية وخبرات تراكمية في القطاع."
                 : "Land Code Investment Ltd. leads exploration programmes, geological studies, and plant design with world-class standards and deep local expertise."}
             </p>
 

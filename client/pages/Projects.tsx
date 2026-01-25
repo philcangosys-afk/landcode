@@ -184,6 +184,10 @@ const Projects = () => {
     "https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2F3e47241f4891406090746f0cc4cfda1a?format=webp&width=1400",
     "https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2F416100acc0eb4e8384b3081c642200da?format=webp&width=1400",
     "https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2Ff9f4decc97bd4e90b73ab01f5ebfbf17?format=webp&width=1400",
+    "https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2F1b2e27cadd4c44939fd6a89f10ccf8ae?format=webp&width=800&height=1200",
+    "https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2Fd4ea476ab712478895ff29c4ccb08f12?format=webp&width=800&height=1200",
+    "https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2F50ced9055b714fb9a37f624878e77ec4?format=webp&width=800&height=1200",
+    "https://cdn.builder.io/api/v1/image/assets%2Fce04605038104603b965d31c7c18e8db%2F61478802b4f34f1ab07ff2b80319eabe?format=webp&width=800&height=1200",
   ];
 
   return (

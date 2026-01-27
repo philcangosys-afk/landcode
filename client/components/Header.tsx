@@ -114,7 +114,7 @@ export const Header = () => {
               </Link>
               <button
                 onClick={() => setIsMenuOpen((prev) => !prev)}
-                className="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-full border border-slate-200 text-primary"
+                className="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-full border border-white/30 text-white bg-white/10 hover:bg-white/20"
                 aria-label="Toggle menu"
               >
                 <svg

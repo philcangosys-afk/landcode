@@ -97,7 +97,7 @@ export const Header = () => {
                 <span
                   className={`${language === "ar" ? "bg-white text-primary rounded-full px-2 py-0.5" : "text-white/70"}`}
                 >
-                  AR
+                  عربي
                 </span>
                 <span className="text-white/60">|</span>
                 <span

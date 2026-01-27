@@ -103,7 +103,7 @@ export const Header = () => {
                 <span
                   className={`${language === "en" ? "bg-white text-primary rounded-full px-2 py-0.5" : "text-white/70"}`}
                 >
-                  EN
+                  ENGLISH
                 </span>
               </button>
               <Link

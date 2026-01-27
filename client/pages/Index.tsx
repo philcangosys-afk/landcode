@@ -212,7 +212,7 @@ const Hero = ({
             <p className="uppercase tracking-[0.4em] text-gold-900 text-xs mb-4">
               {language === "ar"
                 ? "لاندكود مستقبل التعدين"
-                : "Mining & Investment Firm"}
+                : "Landcode The Future of Mining"}
             </p>
             <h1 className="text-4xl md:text-6xl font-black leading-[1.4] mb-6">
               {language === "ar"

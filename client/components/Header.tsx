@@ -92,16 +92,16 @@ export const Header = () => {
             <div className="flex items-center gap-3">
               <button
                 onClick={toggleLanguage}
-                className="flex items-center gap-1 rounded-full border border-slate-200 px-3 py-1 text-sm font-semibold text-primary shadow-inner hover:bg-primary hover:text-white transition"
+                className="flex items-center gap-1 rounded-full border border-white/30 bg-white/10 px-3 py-1 text-sm font-semibold text-white shadow-inner hover:bg-white hover:text-primary transition"
               >
                 <span
-                  className={`${language === "ar" ? "text-white bg-primary rounded-full px-2 py-0.5" : "text-primary/70"}`}
+                  className={`${language === "ar" ? "bg-white text-primary rounded-full px-2 py-0.5" : "text-white/70"}`}
                 >
                   AR
                 </span>
-                <span className="text-slate-300">|</span>
+                <span className="text-white/60">|</span>
                 <span
-                  className={`${language === "en" ? "text-white bg-primary rounded-full px-2 py-0.5" : "text-primary/70"}`}
+                  className={`${language === "en" ? "bg-white text-primary rounded-full px-2 py-0.5" : "text-white/70"}`}
                 >
                   EN
                 </span>

@@ -231,7 +231,7 @@ const ManagementTeam = ({ isArabic, t }: any) => {
   const team = [
     {
       name: "أ. م. أيوذر محمد عثمان",
-      nameEn: "A.M. Ayouther Mohamed Osman",
+      nameEn: "A.M. ABUZAR Mohamed Osman",
       role: "المدير العام",
       roleEn: "General Manager",
       icon: "👔",

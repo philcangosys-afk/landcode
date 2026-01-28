@@ -6,10 +6,10 @@ const Partnerships = () => {
 
   const partnerships = [
     {
-      titleAr: "الشركة اليابانية للتمنية المحدودة",
+      titleAr: "الشركة اليابانية للتنمية المحدودة",
       titleEn: "Japanese Development Co. Ltd",
       descriptionAr:
-        "تم توقيع عقد شراكة مع الشركة اليابانية للتمنية المحدودة بمنطقة نمرة ٣ وادي حلفاء لتطوير منجم الشركة و إنشاء مصنع Vat leach لمعالجة خام الذهب.",
+        "تم توقيع عقد شراكة مع الشركة اليابانية للتنمية المحدودة بمنطقة نمرة ٣ وادي حلفاء لتطوير منجم الشركة و إنشاء مصنع Vat leach لمعالجة خام الذهب.",
       descriptionEn:
         "Partnership agreement signed with Japanese Development Co. Ltd in zone 3, Wadi Halfa for developing the company's mine and establishing a Vat leach plant for gold ore processing.",
     },
